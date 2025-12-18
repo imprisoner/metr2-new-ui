@@ -113,6 +113,28 @@ const MyPreset = definePreset(Material, {
         },
       },
     },
+    avatar: {
+      root: {
+        width: "28px",
+        height: "28px",
+      },
+      lg: {
+        width: "42px",
+        height: "42px",
+      },
+      xl: {
+        width: "56px",
+        height: "56px",
+      },
+      colorScheme: {
+        light: {
+          root: {
+            color: "#4B5563",
+            background: "#E5E7EB"
+          }
+        }
+      }
+    },
   },
 });
 
@@ -144,5 +166,6 @@ export default defineNuxtConfig({
   typescript: {
     typeCheck: true,
   },
+  plugins: ['~/plugins/click-outside.client.ts']
 });
 

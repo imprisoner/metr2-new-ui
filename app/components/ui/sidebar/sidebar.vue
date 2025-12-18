@@ -2,8 +2,8 @@
   <aside class="ps-7 flex flex-col gap-10 sticky top-[99px]">
     <PMenu :model="MAIN_NAV_ITEMS">
       <template #itemicon="{ class: classNames, item }">
-        <span :class="classNames">
-          <Component :is="MAIN_NAV_ITEMS_ICONS_MAP[item.icon!]" />
+        <span class="h-5 w-5" :class="classNames">
+          <Component :is="MAIN_NAV_ITEMS_ICONS_MAP[item.icon!]" class="w-full h-full"/>
         </span>
       </template>
     </PMenu>

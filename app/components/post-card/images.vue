@@ -17,11 +17,11 @@
               class="text-white flex gap-1 align-baseline absolute inset-0 justify-center items-center z-1"
             >
               <IconsPic />
-              <span class="font-bold">ещё {{ restImagesCount }} фото</span>
+              <span class="font-semibold text-[10.5px]">ещё {{ restImagesCount }} фото</span>
             </p>
             <img
               :src="image"
-              class="w-full h-full object-cover brightness-75"
+              class="w-full h-full object-cover brightness-55"
             />
           </div>
           <div v-else class="flex-1/4">

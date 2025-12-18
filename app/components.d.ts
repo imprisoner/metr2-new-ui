@@ -17,10 +17,12 @@ declare module 'vue' {
     PInputText: typeof import('primevue/inputtext')['default']
     PMenu: typeof import('primevue/menu')['default']
     PPassword: typeof import('primevue/password')['default']
+    PPopover: typeof import('primevue/popover')['default']
     PSelectButton: typeof import('primevue/selectbutton')['default']
     PTab: typeof import('primevue/tab')['default']
     PTabList: typeof import('primevue/tablist')['default']
     PTabs: typeof import('primevue/tabs')['default']
+    PTextarea: typeof import('primevue/textarea')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
   }

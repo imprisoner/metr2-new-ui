@@ -21,9 +21,6 @@
   display: grid;
   grid-template-columns: 339px 2fr 339px;
   gap: 24px;
-  min-height: 1000px;;
-  /* overflow: hidden;
-  flex: 1; */
 }
 
 .layout-grid aside {

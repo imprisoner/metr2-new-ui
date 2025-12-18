@@ -1,5 +1,7 @@
 <template>
-  <div>Комментарии</div>
+  <div>
+
+  </div>
 </template>
 
 <script setup lang="ts">

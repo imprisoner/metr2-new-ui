@@ -14,8 +14,35 @@
   --color-orange-900: #420300;
   --color-orange-950: #1f0200;
 
+  /* text-size variables */
+
+  --text-xs: 10.5px;
+  --text-sm: 12px;
+  --text-base: 14px;
+  --text-xl: 17.5px;
+  --text-2xl: 21px;
+  --text-3xl: 24.5px;
+  --text-4xl: 28px;
+  --text-5xl: 35px;
+
+
+  --text-sm-line-height: 150%;
+  --text-xl-line-height: 150%;
+  --text-2xl-line-height: 100%;
+  --text-4xl-line-height: 100%;
+
   --color-custom-divider: #E5E7EB;
   --color-custom-secondary: #6B7280;
+}
+
+@media (max-width: 1024px)  {
+  @theme {
+    --text-xl:  16px;
+    --text-2xl: 18px;
+    --text-3xl: 20px;
+    --text-4xl: 22px;
+    --text-5xl: 28px;
+  }
 }
 
 @layer primevue {
