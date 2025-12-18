@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@primeuix/themes": "^2.0.2",
+    "@splidejs/vue-splide": "github:joris-gallot/vue-splide",
     "@tailwindcss/vite": "^4.1.18",
     "nuxt": "^4.2.2",
     "primevue": "^4.5.3",

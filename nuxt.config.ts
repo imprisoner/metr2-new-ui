@@ -135,6 +135,15 @@ const MyPreset = definePreset(Material, {
         }
       }
     },
+    badge: {
+      colorScheme: {
+        light: {
+          warn: {
+            background: "{orange.500}"
+          }
+        }
+      }
+    }
   },
 });
 
@@ -166,6 +175,6 @@ export default defineNuxtConfig({
   typescript: {
     typeCheck: true,
   },
-  plugins: ['~/plugins/click-outside.client.ts']
+  plugins: ['~/plugins/click-outside.client.ts'],
 });
 

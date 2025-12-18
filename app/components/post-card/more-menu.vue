@@ -15,7 +15,7 @@
           text
           label="Подписаться"
         />
-        <hr class="w-full text-custom-divider py-1" />
+        <hr class="w-full text-custom-divider" />
       </div>
       <PButton
         v-for="item in popoverItems"

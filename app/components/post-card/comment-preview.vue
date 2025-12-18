@@ -12,7 +12,7 @@
 
 <script setup lang="ts">
   defineProps<{
-    avatarUrl: string;
+    avatarUrl?: string;
     name: string;
     text: string;
   }>()

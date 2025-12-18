@@ -10,8 +10,8 @@
 import type { AvatarProps } from "primevue";
 import UserIcon from "~/components/icons/user.vue"
 defineProps<{
-  size: AvatarProps["size"];
-  imageUrl: string | undefined;
+  size?: AvatarProps["size"];
+  imageUrl?: string;
 }>();
 </script>
 

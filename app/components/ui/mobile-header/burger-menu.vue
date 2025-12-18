@@ -10,7 +10,7 @@
     </template>
   </PButton>
   <PPopover ref="popover" dismissable class="w-screen left-0" >
-    <p>Blahhhh</p>
+    <UiHeaderNavigation :is-mobile="true" />
   </PPopover>
 </template>
 

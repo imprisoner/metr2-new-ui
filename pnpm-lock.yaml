@@ -11,6 +11,9 @@ importers:
       '@primeuix/themes':
         specifier: ^2.0.2
         version: 2.0.2
+      '@splidejs/vue-splide':
+        specifier: github:joris-gallot/vue-splide
+        version: https://codeload.github.com/joris-gallot/vue-splide/tar.gz/6f0199b1a3b09f943db07c7a2dedc9b6e4a917d0
       '@tailwindcss/vite':
         specifier: ^4.1.18
         version: 4.1.18(vite@7.2.7(jiti@2.6.1)(lightningcss@1.30.2)(terser@5.44.1)(yaml@2.8.2))
@@ -1247,6 +1250,13 @@ packages:
 
   '@speed-highlight/core@1.2.12':
     resolution: {integrity: sha512-uilwrK0Ygyri5dToHYdZSjcvpS2ZwX0w5aSt3GCEN9hrjxWCoeV4Z2DTXuxjwbntaLQIEEAlCeNQss5SoHvAEA==}
+
+  '@splidejs/splide@4.1.4':
+    resolution: {integrity: sha512-5I30evTJcAJQXt6vJ26g2xEkG+l1nXcpEw4xpKh0/FWQ8ozmAeTbtniVtVmz2sH1Es3vgfC4SS8B2X4o5JMptA==}
+
+  '@splidejs/vue-splide@https://codeload.github.com/joris-gallot/vue-splide/tar.gz/6f0199b1a3b09f943db07c7a2dedc9b6e4a917d0':
+    resolution: {tarball: https://codeload.github.com/joris-gallot/vue-splide/tar.gz/6f0199b1a3b09f943db07c7a2dedc9b6e4a917d0}
+    version: 0.6.12
 
   '@tailwindcss/node@4.1.18':
     resolution: {integrity: sha512-DoR7U1P7iYhw16qJ49fgXUlry1t4CpXeErJHnQ44JgTSKMaZUdf17cfn5mHchfJ4KRBZRFA/Coo+MUF5+gOaCQ==}
@@ -4730,6 +4740,12 @@ snapshots:
   '@sindresorhus/merge-streams@4.0.0': {}
 
   '@speed-highlight/core@1.2.12': {}
+
+  '@splidejs/splide@4.1.4': {}
+
+  '@splidejs/vue-splide@https://codeload.github.com/joris-gallot/vue-splide/tar.gz/6f0199b1a3b09f943db07c7a2dedc9b6e4a917d0':
+    dependencies:
+      '@splidejs/splide': 4.1.4
 
   '@tailwindcss/node@4.1.18':
     dependencies:
