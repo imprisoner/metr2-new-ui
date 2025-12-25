@@ -1,13 +1,20 @@
 <template>
-  <Splide>
+  <Splide
+    :options="{
+      type: 'loop',
+      arrows: false,
+      pagination: false,
+      autoWidth: true,
+      gap: '1.25rem',
+    }"
+  >
     <SplideSlide v-for="(item, index) in recommended" :key="index">
-      <RecommendedCard v-bind="item" />
+      <div class="gap-5 flex">
+        <RecommendedCard v-bind="item" />
+        <UiDivider direction="vertical" />
+      </div>
     </SplideSlide>
   </Splide>
-  <!-- <div class="px-2 gap-4 flex max-w-60">
-        <RecommendedCard v-bind="slotProps.data" />
-        <UiDivider direction="vertical"/>
-      </div> -->
 </template>
 
 <script setup lang="ts">
@@ -24,11 +31,5 @@ const responsiveOptions = [
     numScroll: 2,
   },
 ];
-
-const isLast = (index: number) => {
-  return index === recommended.length - 1;
-};
 </script>
-
-<style scoped></style>
 

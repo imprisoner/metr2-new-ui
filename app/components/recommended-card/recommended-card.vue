@@ -1,9 +1,9 @@
 <template>
-  <div class="flex flex-col gap-4 lg:flex-row bg-white">
+  <div class="flex flex-col gap-4 lg:flex-row bg-white max-w-60 lg:max-w-full h-87.75 lg:h-auto">
     <div v-if="imageUrl" class="flex shrink-0 rounded-md w-60 h-42 lg:w-50 lg:h-35 overflow-hidden">
       <img :src="imageUrl" alt="" class="object-cover w-full h-full" />
     </div>
-    <div class="flex flex-col lg:gap-2 gap-4">
+    <div class="flex flex-col lg:gap-2 gap-4 flex-1">
       <div class="flex gap-2 lg:items-center text-base font-semibold flex-col lg:flex-row">
         <div class="flex gap-2 lg:items-center">
           <UiUserAvatar :image-url="user.avatarUrl"/>
@@ -38,5 +38,3 @@ defineProps<{
   likesCount: number;
 }>();
 </script>
-
-<style scoped></style>

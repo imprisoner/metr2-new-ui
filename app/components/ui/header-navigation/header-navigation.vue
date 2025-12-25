@@ -74,17 +74,17 @@ const leftSection = [
   {
     label: "Квартиры",
     icon: BuildingIcon,
-    to: "#",
+    to: "/flats",
   },
   {
     label: "Частные дома",
     icon: HouseIcon,
-    to: "#",
+    to: "/houses",
   },
   {
     label: "Квартира дня",
     icon: CrownIcon,
-    to: "#",
+    to: "/popular",
   },
 ] as const;
 
@@ -102,10 +102,4 @@ const rightSection = [
     to: "#",
   },
 ] as const;
-
-const itemRootClasses = isMobile ? ["p-3", "text-primary"] : [];
-const itemIconClasses = isMobile ? ["text-custom-icon"] : [];
 </script>
-
-<style scoped></style>
-

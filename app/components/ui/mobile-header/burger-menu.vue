@@ -3,28 +3,21 @@
     rounded
     variant="outlined"
     class="bg-white border-white w-8 h-8"
-    @click="toggle"
+    @click="popover?.toggle"
   >
     <template #icon>
       <IconsBurger />
     </template>
   </PButton>
-  <PPopover ref="popover" dismissable class="w-screen left-0" >
+  <UiPopoverWithBlock v-model:visible="showMenu" ref="popover">
     <UiHeaderNavigation :is-mobile="true" />
-  </PPopover>
+  </UiPopoverWithBlock>
 </template>
 
 <script setup lang="ts">
-import type { Popover } from "primevue";
+import UiPopoverWithBlock from "@/components/ui/popover-with-block/popover-with-block.vue";
 
-const popover = ref<InstanceType<typeof Popover> | null>(null);
-const toggle = (event: PointerEvent) => {
-  console.log("Toggle burger menu", event);
-  if (!popover.value) return;
+const showMenu = ref(false);
 
-  popover.value.toggle(event);
-};
+const popover = ref(<InstanceType<typeof UiPopoverWithBlock> | null>(null));
 </script>
-
-<style scoped></style>
-
