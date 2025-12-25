@@ -9,13 +9,13 @@
       Найдите единомышленников с квартирой или домом как ваш.
     </template>
     <template #content>
-      <PSelectButton v-model="estateTypeValue" :options="estateTypeOptions" />
+      <PSelectButton v-model="estateTypeValue" :options="estateTypeOptions" class="custom-select-button" />
 
       <div class="flex flex-col gap-3">
         <!-- roomness chips -->
         <div class="flex flex-wrap gap-1">
           <NuxtLink v-for="(label, index) in roomnessChips" :key="index" to="#">
-            <PChip :label="label" />
+            <PChip :label="label" :pt="{ root: { class: 'text-base' } }" />
           </NuxtLink>
         </div>
 
@@ -26,7 +26,7 @@
             :key="index"
             to="#"
           >
-            <PChip :label="label" />
+            <PChip :label="label" :pt="{ root: { class: 'text-base' } }" />
           </NuxtLink>
         </div>
       </div>
@@ -61,5 +61,11 @@ const buildingTypesChips = [
 ];
 </script>
 
-<style scoped></style>
+<style>
+  .custom-select-button.p-selectbutton > button {
+    font-size: 14px;
+    flex: 1;
+    padding: 10.5px 0;
+  }
+</style>
 

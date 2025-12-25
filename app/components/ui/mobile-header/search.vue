@@ -1,13 +1,27 @@
 <template>
-  <div>
-
-  </div>
+  <UiPopoverWithBlock
+    v-model:visible="visible"
+    ref="popover"
+    header="Написать"
+    :icon="MagnifyIcon"
+  >
+    <div class="flex flex-col gap-4">
+      <UiTextInput
+        :icon="MagnifyIcon"
+        :input-props="{
+          placeholder: 'Поиск по сайту',
+        }"
+      />
+      <PButton label="Найти" fluid />
+    </div>
+  </UiPopoverWithBlock>
 </template>
 
 <script setup lang="ts">
+import MagnifyIcon from "~/components/icons/magnify.vue";
 
+const visible = defineModel("visible", { default: false });
 </script>
 
-<style scoped>
+<style scoped></style>
 
-</style>

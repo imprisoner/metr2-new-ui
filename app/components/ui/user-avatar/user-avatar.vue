@@ -1,17 +1,19 @@
 <template>
-  <PAvatar :size="size" shape="circle" :src="imageUrl">
-    <template v-if="!imageUrl" #icon> 
+  <PAvatar :size="size" shape="circle" :src="imageUrl" :label="label">
+    <!-- <template v-if="!imageUrl" #icon> 
       <UserIcon />
-    </template>
+    </template> -->
   </PAvatar>
 </template>
 
 <script setup lang="ts">
 import type { AvatarProps } from "primevue";
 import UserIcon from "~/components/icons/user.vue"
-defineProps<{
+
+const {label= 'P'} = defineProps<{
   size?: AvatarProps["size"];
   imageUrl?: string;
+  label?: string;
 }>();
 </script>
 

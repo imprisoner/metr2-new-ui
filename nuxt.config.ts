@@ -12,12 +12,17 @@ const semanticPreset: MaterialBaseTokenSections.Semantic = {
       formField: {
         borderColor: "#D1D5DB",
         hoverBorderColor: "#D1D5DB",
-        focusBorderColor: "#D1D5DB",
+        focusBorderColor: "#3B82F6",
       },
     },
   },
   formField: {
     borderRadius: "{border.radius.md}",
+    focusRing: {
+      color: "#3B82F6",
+      shadow: "0 0 0 2.8px #BFDBFE;",
+      width: "1px",
+    }
   },
 };
 
@@ -143,7 +148,7 @@ const MyPreset = definePreset(Material, {
           }
         }
       }
-    }
+    },
   },
 });
 

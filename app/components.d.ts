@@ -9,11 +9,13 @@ export {}
 declare module 'vue' {
   export interface GlobalComponents {
     PAvatar: typeof import('primevue/avatar')['default']
+    PBadge: typeof import('primevue/badge')['default']
     PBlockUI: typeof import('primevue/blockui')['default']
     PButton: typeof import('primevue/button')['default']
     PCard: typeof import('primevue/card')['default']
     PCarousel: typeof import('primevue/carousel')['default']
     PChip: typeof import('primevue/chip')['default']
+    PDialog: typeof import('primevue/dialog')['default']
     PInputGroup: typeof import('primevue/inputgroup')['default']
     PInputGroupAddon: typeof import('primevue/inputgroupaddon')['default']
     PInputText: typeof import('primevue/inputtext')['default']

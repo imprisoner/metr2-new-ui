@@ -1,28 +1,58 @@
 <template>
-  <PPopover
-    ref="popover"
-    dismissable
-    class="w-screen left-0"
-    :auto-z-index="false"
-    :base-z-index="10"
-    @show="blocked = true"
-    @hide="blocked = false"
-    style="z-index: 10"
+  <PButton
+    rounded
+    variant="outlined"
+    class="bg-white border-white w-8 h-8"
+    @click="visible = !visible"
   >
+    <template #icon>
+      <div class="w-3.5 h-3.5 flex">
+        <Component :is="icon" />
+      </div>
+    </template>
+  </PButton>
+  <PDialog
+    v-model:visible="visible"
+    modal
+    position="top"
+    dismissable-mask
+    block-scroll
+    :closable="false"
+    :pt="{
+      root: {
+        class: 'p0 w-full m-0 rounded-t-none',
+      },
+      header: {
+        class: headerClass,
+      },
+      content: {
+        class: 'px-2 py-4',
+      },
+      mask: {
+        class: 'top-14!',
+      },
+    }"
+  >
+    <template #header>
+      <h6 v-if="header" class="text-2xl font-semibold">{{ header }}</h6>
+      <PButton text rounded class="ms-auto w-8 h-8" @click="visible = false">
+        <template #icon>
+          <CrossIcon />
+        </template>
+      </PButton>
+    </template>
     <slot />
-  </PPopover>
-  <PBlockUI
-    full-screen
-    :blocked="blocked"
-    :auto-z-index="false"
-    style="z-index: 9; top: 56px;"
-  />
+  </PDialog>
 </template>
 
 <script setup lang="ts">
 import type { Popover } from "primevue";
+import type { Component } from "vue";
+import CrossIcon from "~/components/icons/cross.vue";
 
-const blocked = defineModel<boolean>("visible", { default: false });
+const { header } = defineProps<{ header?: string; icon: Component }>();
+
+const visible = defineModel<boolean>("visible", { default: false });
 
 const popover = ref<InstanceType<typeof Popover> | null>(null);
 
@@ -35,6 +65,13 @@ const toggle = (event: PointerEvent) => {
 defineExpose({
   toggle,
 });
+
+const headerClass = computed(() => {
+  return header
+    ? "px-5 py-4 border-b-custom-divider border-b justify-between"
+    : "absolute right-5 top-4 p-0";
+});
 </script>
 
 <style scoped></style>
+

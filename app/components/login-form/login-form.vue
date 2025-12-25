@@ -1,24 +1,24 @@
 <template>
-  <PCard pt:content:class="flex flex-col gap-2" pt:root:class="p-5" pt:body:class="p-0">
+  <PCard
+    pt:content:class="flex flex-col gap-2"
+    pt:root:class="p-5"
+    pt:body:class="p-0"
+  >
     <template #title> Войти </template>
     <template #content>
       <form class="flex flex-col gap-4">
         <div class="flex flex-col gap-2">
-          <PInputGroup>
-            <PInputGroupAddon>
-              <EnvelopeIcon />
-            </PInputGroupAddon>
-            <PInputText placeholder="E-mail" />
-          </PInputGroup>
-          <PInputGroup>
-            <PInputGroupAddon>
-              <KeyIcon />
-            </PInputGroupAddon>
-            <PPassword placeholder="Пароль" />
-          </PInputGroup>
+          <UiTextInput
+            :icon="EnvelopeIcon"
+            :input-props="{ placeholder: 'E-mail' }"
+          />
+          <UiTextInput
+            :icon="KeyIcon"
+            :input-props="{ placeholder: 'Пароль' }"
+          />
         </div>
         <div class="flex flex-col gap-2">
-          <PButton type="submit" label="Войти" severity="accent"/>
+          <PButton type="submit" label="Войти" severity="accent" />
           <PButton outlined severity="secondary" label="Создать аккаунт" />
           <PButton text label="Забыли пароль?" severity="secondary" />
         </div>
