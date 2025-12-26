@@ -8,7 +8,8 @@
         <!-- <NuxtPage /> -->
       </main>
       <aside class="pe-7 sticky top-[99px]">
-        <LoginForm />
+        <!-- <LoginForm /> -->
+         <UiUserMenu />
       </aside>
     </div>
   </div>

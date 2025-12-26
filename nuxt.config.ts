@@ -22,7 +22,7 @@ const semanticPreset: MaterialBaseTokenSections.Semantic = {
       color: "#3B82F6",
       shadow: "0 0 0 2.8px #BFDBFE;",
       width: "1px",
-    }
+    },
   },
 };
 
@@ -40,6 +40,7 @@ const MyPreset = definePreset(Material, {
         icon: { focusColor: "{orange.500}", color: "#838B9E" },
         borderRadius: "6px",
         padding: "12px",
+        color: "#323745",
       },
       root: {
         background: "transparent",
@@ -51,6 +52,7 @@ const MyPreset = definePreset(Material, {
         label: {
           fontWeight: "bold",
         },
+        badgeSize: "21px",
       },
       colorScheme: {
         light: {
@@ -105,7 +107,7 @@ const MyPreset = definePreset(Material, {
             background: "{orange.500}",
           },
           tablist: {
-            borderColor: "#E5E7EB"
+            borderColor: "#E5E7EB",
           },
           tab: {
             activeColor: "{orange.500}",
@@ -113,8 +115,8 @@ const MyPreset = definePreset(Material, {
             color: "#6B7280",
             borderColor: "#E5E7EB",
             fontWeight: "bold",
-            padding: "1.125rem"
-          }
+            padding: "1.125rem",
+          },
         },
       },
     },
@@ -135,19 +137,19 @@ const MyPreset = definePreset(Material, {
         light: {
           root: {
             color: "#4B5563",
-            background: "#E5E7EB"
-          }
-        }
-      }
+            background: "#E5E7EB",
+          },
+        },
+      },
     },
     badge: {
       colorScheme: {
         light: {
           warn: {
-            background: "{orange.500}"
-          }
-        }
-      }
+            background: "{orange.500}",
+          },
+        },
+      },
     },
   },
 });
@@ -168,7 +170,7 @@ export default defineNuxtConfig({
             name: "primevue",
             order: "theme, base, primevue",
           },
-          darkModeSelector: '.p-dark'
+          darkModeSelector: ".p-dark",
         },
       },
     },
@@ -180,6 +182,6 @@ export default defineNuxtConfig({
   typescript: {
     typeCheck: true,
   },
-  plugins: ['~/plugins/click-outside.client.ts'],
+  plugins: ["~/plugins/click-outside.client.ts"],
 });
 

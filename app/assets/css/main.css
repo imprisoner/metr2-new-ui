@@ -31,6 +31,7 @@
   --text-2xl-line-height: 100%;
   --text-4xl-line-height: 100%;
 
+  --color-custom-primary: #191D24;
   --color-custom-divider: #E5E7EB;
   --color-custom-secondary: #6B7280;
   --color-custom-icon: #838B9E;
@@ -59,4 +60,5 @@
 
 body {
   background-color: #F2F4F6;
+  color: var(--color-custom-primary);
 }
