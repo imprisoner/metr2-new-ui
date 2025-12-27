@@ -23,7 +23,7 @@
 </template>
 
 <script setup lang="ts">
-import { MOCK_IMAGES, RECOMMENDED_POSTS } from "~/components/const/mock";
+import { MOCK_IMAGES, RECOMMENDED_POSTS } from "~/const/mock";
 
 const recommended = RECOMMENDED_POSTS
 

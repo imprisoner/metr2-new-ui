@@ -25,7 +25,7 @@
 </template>
 
 <script setup lang="ts">
-import { USER_MENU_ITEMS } from "~/components/const";
+import { USER_MENU_ITEMS } from "~/const";
 
 const name = "Алсу Новикова";
 const subscribersCount = 728;

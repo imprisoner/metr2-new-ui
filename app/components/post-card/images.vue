@@ -33,7 +33,7 @@
 </template>
 
 <script setup lang="ts">
-import { MOCK_IMAGES } from '../const/mock';
+import { MOCK_IMAGES } from '~/const/mock';
 
 const images = MOCK_IMAGES
 

@@ -16,6 +16,7 @@ declare module 'vue' {
     PCarousel: typeof import('primevue/carousel')['default']
     PChip: typeof import('primevue/chip')['default']
     PDialog: typeof import('primevue/dialog')['default']
+    PDrawer: typeof import('primevue/drawer')['default']
     PInputGroup: typeof import('primevue/inputgroup')['default']
     PInputGroupAddon: typeof import('primevue/inputgroupaddon')['default']
     PInputText: typeof import('primevue/inputtext')['default']

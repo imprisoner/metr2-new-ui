@@ -35,6 +35,8 @@
   --color-custom-divider: #E5E7EB;
   --color-custom-secondary: #6B7280;
   --color-custom-icon: #838B9E;
+
+  --shadow-custom-card: #191D240D 0px 1px 3px 0px 
 }
 
 @media (max-width: 1024px)  {

@@ -5,7 +5,7 @@
     header="Написать"
     :icon="IconPlus"
   >
-    <UiMobileMenuItem
+    <UiMobileMenuLink
       v-for="(item, index) in items"
       :key="index"
       :to="item.to"
@@ -15,7 +15,7 @@
 
     <UiDivider direction="horizontal"/>
 
-    <UiMobileMenuItem 
+    <UiMobileMenuLink 
       to="#"
       label="В черновики"
       :icon="SheetWithPencilIcon"

@@ -1,11 +1,11 @@
 import type { Component } from "vue";
 
 // ICONS
-import CircledCheckmark from "../icons/circled-checkmark.vue";
-import Diaries from "../icons/diaries.vue";
-import Favorite from "../icons/favorite.vue";
-import Flame from "../icons/flame.vue";
-import Lightning from "../icons/lightning.vue";
+import CircledCheckmark from "~/components/icons/circled-checkmark.vue";
+import Diaries from "~/components/icons/diaries.vue";
+import Favorite from "~/components/icons/favorite.vue";
+import Flame from "~/components/icons/flame.vue";
+import Lightning from "~/components/icons/lightning.vue";
 import DiariesIcon from "~/components/icons/diaries.vue";
 import BookIcon from "~/components/icons/book.vue";
 import PicDoubleIcon from "~/components/icons/pic-double.vue";

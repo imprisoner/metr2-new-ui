@@ -6,7 +6,7 @@
     :icon="UserIcon"
   >
     <template v-for="(item, index) in USER_MENU_ITEMS" :key="index">
-      <UiMobileMenuItem
+      <UiMobileMenuLink
         v-if="item.type === 'button'"
         v-bind="item.props"
       />
@@ -19,7 +19,7 @@
 
 <script setup lang="ts">
 import UserIcon from "~/components/icons/user.vue";
-import { USER_MENU_ITEMS } from "~/components/const";
+import { USER_MENU_ITEMS } from "~/const";
 
 const visible = defineModel("visible", { default: false });
 </script>

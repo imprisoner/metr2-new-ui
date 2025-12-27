@@ -7,9 +7,12 @@
         <slot />
         <!-- <NuxtPage /> -->
       </main>
-      <aside class="pe-7 sticky top-[99px]">
-        <!-- <LoginForm /> -->
-         <UiUserMenu />
+      <aside class="pe-7 sticky top-24.75">
+        <UiSheet>
+          <div class="text-2xl font-semibold mb-4">Войти</div>
+          <LoginForm />
+          <!-- <UiUserMenu /> -->
+        </UiSheet>
       </aside>
     </div>
   </div>

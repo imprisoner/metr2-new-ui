@@ -16,7 +16,7 @@
 </template>
 
 <script setup lang="ts">
-import { MAIN_NAV_ITEMS, MAIN_NAV_ITEMS_ICONS_MAP } from "~/components/const";
+import { MAIN_NAV_ITEMS, MAIN_NAV_ITEMS_ICONS_MAP } from "~/const";
 </script>
 
 <style scoped>

@@ -18,7 +18,7 @@
 </template>
 
 <script setup lang="ts">
-import { RECOMMENDED_POSTS } from "~/components/const/mock";
+import { RECOMMENDED_POSTS } from "~/const/mock";
 import "@splidejs/vue-splide/css";
 import { Splide, SplideSlide } from "@splidejs/vue-splide";
 
