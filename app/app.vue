@@ -4,5 +4,8 @@
   <NuxtLayout>
     <NuxtPage />
   </NuxtLayout>
+  <!-- <DialogLoginOrRegister /> -->
+  <!-- <DialogSendMessage /> -->
+   <DialogComplaint />
 </template>
 

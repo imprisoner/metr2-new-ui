@@ -8,6 +8,7 @@
       </template>
     </PMenu>
     <SidebarFilters />
+    <AboutLinksSection />
   </aside>
 </template>
 

@@ -54,10 +54,7 @@
 
     <hr v-if="isMobile" class="w-full text-custom-divider" />
 
-    <p v-if="isMobile" class="text-xs text-custom-secondary">
-      ©2026 TAGIR.RU | О проекте | Правила конфиденциальности | Правила
-      пользования | Использование cookies
-    </p>
+    <AboutLinksSection v-if="isMobile" />
   </nav>
 </template>
 
@@ -103,3 +100,4 @@ const rightSection = [
   },
 ] as const;
 </script>
+

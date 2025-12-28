@@ -19,7 +19,6 @@
       </template>
     </PButton>
   </header>
-  <DialogLoginOrRegister />
 </template>
 
 <script setup lang="ts"></script>

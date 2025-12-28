@@ -1,52 +1,43 @@
 <template>
-    <form class="flex flex-col gap-4">
-      <div class="flex flex-col gap-2">
-        <UiTextInput
-          :icon="EnvelopeIcon"
-          :input-props="{ placeholder: 'E-mail' }"
-        />
-        <UiTextInput :icon="KeyIcon" :input-props="{ placeholder: 'Пароль' }" />
-      </div>
-      <div class="flex flex-col gap-2">
-        <PButton type="submit" label="Войти" severity="accent" />
-        <PButton outlined severity="secondary" label="Создать аккаунт" />
-        <PButton text label="Забыли пароль?" severity="secondary" />
-      </div>
-    </form>
-    <div class="special py-4.5 mb-2">
-      <hr class="text-custom-divider" />
-      <span class="text-nowrap text-custom-secondary font-bold text-base">
-        или продолжить с
-      </span>
-      <hr class="text-custom-divider" />
+  <p class="text-2xl font-semibold mb-4">Войти</p>
+  <form class="flex flex-col gap-4">
+    <div class="flex flex-col gap-2">
+      <UiTextInput
+        :icon="EnvelopeIcon"
+        :input-props="{ placeholder: 'E-mail' }"
+      />
+      <UiTextInput :icon="KeyIcon" :input-props="{ placeholder: 'Пароль' }" />
     </div>
-    <div class="flex gap-2 justify-center">
-      <PButton outlined rounded severity="secondary">
-        <template #icon>
-          <GoogleIcon />
-        </template>
-      </PButton>
-      <PButton outlined rounded severity="secondary">
-        <template #icon>
-          <YandexIcon />
-        </template>
-      </PButton>
-      <PButton outlined rounded severity="secondary">
-        <template #icon>
-          <VkIcon />
-        </template>
-      </PButton>
+    <div class="flex flex-col gap-2">
+      <PButton type="submit" label="Войти" severity="accent" />
+      <PButton outlined severity="secondary" label="Создать аккаунт" />
+      <PButton text label="Забыли пароль?" severity="secondary" />
     </div>
-  <!-- <PCard
-    pt:content:class="flex flex-col gap-2"
-    pt:root:class="p-5"
-    pt:body:class="p-0"
-  >
-    <template #title> Войти </template>
-    <template #content>
-      
-    </template>
-  </PCard> -->
+  </form>
+  <div class="special py-4.5 mb-2">
+    <hr class="text-custom-divider" />
+    <span class="text-nowrap text-custom-secondary font-bold text-base">
+      или продолжить с
+    </span>
+    <hr class="text-custom-divider" />
+  </div>
+  <div class="flex gap-2 justify-center">
+    <PButton outlined rounded severity="secondary">
+      <template #icon>
+        <GoogleIcon />
+      </template>
+    </PButton>
+    <PButton outlined rounded severity="secondary">
+      <template #icon>
+        <YandexIcon />
+      </template>
+    </PButton>
+    <PButton outlined rounded severity="secondary">
+      <template #icon>
+        <VkIcon />
+      </template>
+    </PButton>
+  </div>
 </template>
 
 <script setup lang="ts">
