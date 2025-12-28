@@ -14,50 +14,10 @@
       <PButton text label="Забыли пароль?" severity="secondary" />
     </div>
   </form>
-  <div class="special py-4.5 mb-2">
-    <hr class="text-custom-divider" />
-    <span class="text-nowrap text-custom-secondary font-bold text-base">
-      или продолжить с
-    </span>
-    <hr class="text-custom-divider" />
-  </div>
-  <div class="flex gap-2 justify-center">
-    <PButton outlined rounded severity="secondary">
-      <template #icon>
-        <GoogleIcon />
-      </template>
-    </PButton>
-    <PButton outlined rounded severity="secondary">
-      <template #icon>
-        <YandexIcon />
-      </template>
-    </PButton>
-    <PButton outlined rounded severity="secondary">
-      <template #icon>
-        <VkIcon />
-      </template>
-    </PButton>
-  </div>
+  <SocialAuthSection />
 </template>
 
 <script setup lang="ts">
 import EnvelopeIcon from "~/components/icons/envelope.vue";
 import KeyIcon from "~/components/icons/key.vue";
-import GoogleIcon from "~/components/icons/google.vue";
-import YandexIcon from "~/components/icons/yandex.vue";
-import VkIcon from "~/components/icons/vkontakte.vue";
 </script>
-
-<style scoped>
-.special {
-  display: grid;
-  grid-template-columns: 0.5fr 1fr 0.5fr;
-  align-items: center;
-  justify-items: center;
-}
-
-.special hr {
-  width: 100%;
-}
-</style>
-
