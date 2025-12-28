@@ -14,6 +14,7 @@ declare module 'vue' {
     PButton: typeof import('primevue/button')['default']
     PCard: typeof import('primevue/card')['default']
     PCarousel: typeof import('primevue/carousel')['default']
+    PCheckbox: typeof import('primevue/checkbox')['default']
     PChip: typeof import('primevue/chip')['default']
     PDialog: typeof import('primevue/dialog')['default']
     PDrawer: typeof import('primevue/drawer')['default']

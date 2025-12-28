@@ -6,6 +6,6 @@
   </NuxtLayout>
   <!-- <DialogLoginOrRegister /> -->
   <!-- <DialogSendMessage /> -->
-   <DialogComplaint />
+   <!-- <DialogComplaint /> -->
 </template>
 

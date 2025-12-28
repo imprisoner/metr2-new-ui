@@ -1,6 +1,6 @@
 <template>
   <UiDialog v-model:visible="visible">
-    <form class="flex flex-col gap-4">
+    <form class="flex flex-col gap-4 max-w-98 flex-1">
       <p class="text-2xl font-semibold">Пожаловаться на контент</p>
       <div class="flex flex-col gap-4">
         <label

@@ -7,9 +7,9 @@
     block-scroll
     maximizable
     :dt="dt"
-    pt:content:class="justify-center flex flex-col"
     class="w-115"
-  >
+    pt:content:class="items-center flex justify-center"
+    >
     <template #maximizebutton>
       <span />
     </template>
@@ -61,9 +61,9 @@ const dt: DialogDesignTokens = {
   },
 };
 
-onMounted(() => {
-  console.log(dialogRef.value)
-  dialogRef.value?.maximize()
-})
+// onMounted(() => {
+//   console.log(dialogRef.value)
+//   dialogRef.value?.maximize()
+// })
 </script>
 

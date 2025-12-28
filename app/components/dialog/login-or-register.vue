@@ -1,5 +1,5 @@
 <template>
-  <UiDialog>
+  <UiDialog visible>
     <LoginForm />
   </UiDialog>
 </template>
