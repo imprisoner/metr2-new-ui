@@ -151,6 +151,11 @@ const MyPreset = definePreset(Material, {
         },
       },
     },
+    breadcrumb: {
+      root: {
+        padding: 'unset'
+      }
+    }
   },
 });
 

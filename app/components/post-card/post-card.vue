@@ -3,7 +3,7 @@
     <!-- TOP -->
     <div class="flex flex-col gap-4">
       <div class="flex justify-between">
-        <PostCardUser />
+        <PostUser />
         <PostCardActions />
       </div>
       <h3 class="text-4xl font-semibold">Как мы решились на лофт</h3>
