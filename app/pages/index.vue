@@ -5,8 +5,8 @@
     <PostCard />
     <PostCard />
 
-    <div class="rounded-lg flex flex-col p-6 gap-6 bg-white">
-      <p class="text-base text-custom-secondary mb-6 font-semibold">
+    <!-- <div class="rounded-lg flex flex-col p-6 gap-6 bg-white">
+      <p class="text-base text-custom-secondary font-semibold">
         Вам может быть интересно
       </p>
 
@@ -18,18 +18,14 @@
       </div>
 
       <PButton outlined severity="secondary" label="Показать ещё" />
-    </div>
+    </div> -->
+
+    <RecommendedSection title="Вам может быть интересно" />
   </div>
 </template>
 
 <script setup lang="ts">
-import { MOCK_IMAGES, RECOMMENDED_POSTS } from "~/const/mock";
-
-const recommended = RECOMMENDED_POSTS
-
-const isLast = (index: number) => {
-  return index === recommended.length - 1;
-};
+import { RECOMMENDED_POSTS } from "~/const/mock";
 </script>
 
 <style scoped></style>

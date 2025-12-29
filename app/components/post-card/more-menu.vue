@@ -5,8 +5,8 @@
     </template>
   </PButton>
   <ClientOnly>
-    <PostCardMoreMenuMobile v-model:visible="visible" />
-    <!-- <PostCardMoreMenuDesktop v-model:visible="visible"/> -->
+    <!-- <PostCardMoreMenuMobile v-model:visible="visible" /> -->
+    <PostCardMoreMenuDesktop v-model:visible="visible"/>
   </ClientOnly>
 </template>
 

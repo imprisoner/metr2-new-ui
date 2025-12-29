@@ -160,14 +160,28 @@
       <p class="text-2xl text-center">Здесь могла бы быть ваша реклама</p>
     </UiSheet>
 
+    <UiSheet class="flex flex-col gap-6">
+      <div class="flex justify-between items-center">
+        <div class="flex gap-2">
+          <h2 class="text-3xl font-semibold">Комментарии</h2>
+          <span class="text-3xl font-semibold text-custom-secondary">12</span>
+        </div>
+      </div>
+      <!-- comment form -->
+
+      <!-- comment form end -->
+
+      <CommentItem v-for="comment in comments" v-bind="comment" />
+    </UiSheet>
+
     <!--  -->
 
-    <UiSheet></UiSheet>
+    <RecommendedSection title="Рекомендуем ещё посмотреть" />
   </div>
 </template>
 
 <script setup lang="ts">
-import { MOCK_IMAGES } from "~/const/mock";
+import { COMMENTS_MOCK, MOCK_IMAGES } from "~/const/mock";
 
 const breadcrumbs = {
   home: { route: "/", label: "Лента" },
@@ -197,12 +211,15 @@ const prevPost = {
   imageUrl: MOCK_IMAGES[4],
   href: "#",
 } as const;
+
 const nextPost = {
   publishDate: "Вчера",
   title: "Какие материалы лучше использовать в лофте",
   imageUrl: MOCK_IMAGES[5],
   href: "#",
 } as const;
+
+const comments = COMMENTS_MOCK;
 </script>
 
 <style scoped>

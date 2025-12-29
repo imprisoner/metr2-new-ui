@@ -1,5 +1,3 @@
-import type { Component } from "vue";
-
 // ICONS
 import CircledCheckmark from "~/components/icons/circled-checkmark.vue";
 import Diaries from "~/components/icons/diaries.vue";
@@ -17,14 +15,8 @@ import UserIcon from "~/components/icons/user.vue";
 import SlashedEyeIcon from "~/components/icons/slashed-eye.vue";
 import CircledCrossIcon from "~/components/icons/circled-cross.vue";
 import FlagIcon from "~/components/icons/flag.vue";
-
-//
-
-interface INavItem {
-  label: string;
-  icon: string;
-  route: string;
-}
+import ShareIcon from "~/components/icons/share.vue";
+import type { INavItem, IUserMenuButton, IUserMenuDivider } from "../types/ui.types";
 
 export const MAIN_NAV_ITEMS: INavItem[] = [
   { label: "Популярное", icon: Flame.name!, route: "#" },
@@ -41,30 +33,6 @@ export const MAIN_NAV_ITEMS_ICONS_MAP = {
   [Favorite.name!]: Favorite,
   [Diaries.name!]: Diaries,
 };
-
-type MenuItemType = "button" | "divider";
-
-interface IUserMenuItem {
-  type: MenuItemType;
-  props: Record<string, any>;
-}
-
-interface IUserMenuButton extends IUserMenuItem {
-  type: "button";
-  props: {
-    to?: string;
-    label: string;
-    icon: Component;
-    count?: number;
-  };
-}
-
-interface IUserMenuDivider extends IUserMenuItem {
-  type: "divider";
-  props: {
-    direction: "horizontal" | "vertical";
-  };
-}
 
 export const USER_MENU_ITEMS: (IUserMenuDivider | IUserMenuButton)[] = [
   {
@@ -136,18 +104,25 @@ export const USER_MENU_ITEMS: (IUserMenuDivider | IUserMenuButton)[] = [
   },
 ] as const;
 
-export const POST_CARD_MORE_MENU_ITEMS: (IUserMenuDivider | IUserMenuButton)[] = [
-  {
-    type: "button",
-    props: { label: "Подписаться", icon: CircledCheckmark },
-  },
+export const POST_CARD_MORE_MENU_ITEMS: (IUserMenuDivider | IUserMenuButton)[] =
+  [
+    {
+      type: "button",
+      props: { label: "Подписаться", icon: CircledCheckmark },
+    },
+    { type: "button", props: { label: "Сообщение", icon: ArrowIcon } },
+    { type: "divider", props: { direction: "horizontal" } },
+    {
+      type: "button",
+      props: { label: "Скрыть из моей ленты", icon: SlashedEyeIcon },
+    },
+    { type: "button", props: { label: "Пожаловаться", icon: FlagIcon } },
+    { type: "divider", props: { direction: "horizontal" } },
+    { type: "button", props: { label: "Поделиться", icon: ShareIcon } },
+    { type: "button", props: { label: "Отписаться", icon: CircledCrossIcon } },
+  ];
+
+export const COMMENT_ACTIONS_MENU_ITEMS: (IUserMenuDivider | IUserMenuButton)[] = [
   { type: "button", props: { label: "Сообщение", icon: ArrowIcon } },
-  { type: "divider", props: { direction: "horizontal" } },
-  {
-    type: "button",
-    props: { label: "Скрыть из моей ленты", icon: SlashedEyeIcon },
-  },
   { type: "button", props: { label: "Пожаловаться", icon: FlagIcon } },
-  { type: "button", props: { label: "Отписаться", icon: CircledCrossIcon } },
-  // { type: "button", props: { label: "Поделиться", icon: ShareIcon } },
-] 
+];
