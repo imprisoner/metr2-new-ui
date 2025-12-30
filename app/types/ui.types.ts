@@ -39,3 +39,9 @@ export interface ICommentItem {
   liked?: boolean;
   children?: ICommentItem[];
 }
+
+export interface FlatOption {
+  imageUrl?: string;
+  type: string;
+  name: string;
+}

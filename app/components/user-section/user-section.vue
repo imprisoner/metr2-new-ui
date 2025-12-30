@@ -24,8 +24,6 @@ const { shareButtonProps } = defineProps<{
   shareButtonProps?: ButtonProps;
   mobile?: boolean;
 }>();
-
-console.log(shareButtonProps);
 </script>
 
 <style scoped></style>
