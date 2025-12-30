@@ -1,4 +1,5 @@
-import type { Component } from "vue";
+import type { Component, ExtractPublicPropTypes } from "vue";
+import UiNoItemsSection from "~/components/ui/no-items-section/no-items-section.vue";
 
 type MenuItemType = "button" | "divider";
 
@@ -45,3 +46,12 @@ export interface FlatOption {
   type: string;
   name: string;
 }
+
+export type NoItemsSectionIcon = "sad" | "smile"
+
+export interface INoItemsSectionProps {
+  title: string;
+  subtitle: string;
+  icon?: NoItemsSectionIcon;
+  withButton?: boolean;
+} 

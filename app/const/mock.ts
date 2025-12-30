@@ -100,3 +100,17 @@ export const COMMENTS_MOCK: ICommentItem[] = [
   },
 ];
 
+export const MOCK_DRAFTS = [
+  {
+    imageUrl: MOCK_IMAGES[0],
+    type: "Дневник",
+    title:
+      "5 находок для ванной с маркетплейсов, которые мгновенно сделают ее уютнее",
+    createdAt: "25 декабря 12:45",
+  },
+  {
+    type: 'Блог',
+    title: 'Эти 6 вещей сделали мою кухню удобнее',
+    createdAt: '12 ноября 19:24'
+  }
+];

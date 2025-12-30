@@ -12,13 +12,9 @@
 <script setup lang="ts">
 import HouseSadIcon from "~/components/icons/house-sad.vue";
 import HouseSmileIcon from "~/components/icons/house-smile.vue";
+import type { INoItemsSectionProps } from "~/types/ui.types";
 
-const { icon = "sad", withButton = true } = defineProps<{
-  icon?: "sad" | "smile";
-  title: string;
-  subtitle: string;
-  withButton?: boolean;
-}>();
+const { icon = "sad", withButton = true } = defineProps<INoItemsSectionProps>();
 
 defineEmits<{
   (e: 'button-click'):void
