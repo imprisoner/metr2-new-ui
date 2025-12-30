@@ -6,7 +6,8 @@
       </template>
     </PButton>
     <ClientOnly>
-      <CommentItemActionsMenuDesktop v-model:visible="visible" />
+      <!-- <CommentItemActionsMenuDesktop v-model:visible="visible" /> -->
+      <CommentItemActionsMenuMobile v-model:visible="visible" />
     </ClientOnly>
   </div>
 </template>

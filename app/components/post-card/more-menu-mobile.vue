@@ -1,16 +1,6 @@
 <template>
-  <PDrawer
+  <UiBottomDrawer
     v-model:visible="visible"
-    position="bottom"
-    style="height: auto"
-    :show-close-icon="false"
-    block-scroll
-    :dt="dt"
-    :pt="{
-      root: {
-        class: 'rounded-t-xl',
-      },
-    }"
   >
     <template v-for="(item, index) in POST_CARD_MORE_MENU_ITEMS" :key="index">
       <UiMobileMenuButton v-if="item.type === 'button'" v-bind="item.props" />
@@ -37,7 +27,7 @@
         </PButton>
       </div>
     </div>
-  </PDrawer>
+  </UiBottomDrawer>
 </template>
 
 <script setup lang="ts">

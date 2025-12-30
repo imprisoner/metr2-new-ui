@@ -1,5 +1,5 @@
 <template>
-  <div class="p-6 shadow-custom-card rounded-lg bg-white">
+  <div class="p-4 lg:p-6 shadow-custom-card rounded-lg bg-white">
     <slot />
   </div>
 </template>
