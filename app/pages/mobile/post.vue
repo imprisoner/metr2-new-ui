@@ -11,10 +11,7 @@
               :model="breadcrumbs.items"
             />
             <h1 class="text-5xl font-semibold">{{ title }}</h1>
-            <div class="flex justify-between">
-              <PostUser />
-              <PostCardActions mobile />
-            </div>
+            <UserSection mobile />
           </div>
           <!-- top end -->
 
@@ -148,10 +145,7 @@
         <!-- posts navigation end -->
 
         <!-- user plate with subscribers counter -->
-        <div class="flex justify-between">
-          <PostUser />
-          <PostCardActions mobile />
-        </div>
+        <UserSection mobile />
         <!-- user plate with subscribers counter end-->
       </UiSheet>
     </div>

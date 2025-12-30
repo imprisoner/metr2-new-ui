@@ -1,5 +1,5 @@
 <template>
-  <UiTextWithLines>или продолжить с</UiTextWithLines>
+  <UiTextWithLines severity="secondary">или продолжить с</UiTextWithLines>
   <div class="flex gap-2 justify-center">
     <PButton outlined rounded severity="secondary">
       <template #icon>

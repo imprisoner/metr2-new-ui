@@ -6,15 +6,9 @@
         <article class="flex flex-col gap-6">
           <!-- post page top -->
           <div class="flex flex-col gap-4">
-            <UiBreadcrumbs
-              :home="breadcrumbs.home"
-              :model="breadcrumbs.items"
-            />
+            <UiBreadcrumbs v-bind="breadcrumbs" />
             <h1 class="text-5xl font-semibold">{{ title }}</h1>
-            <div class="flex justify-between">
-              <PostUser />
-              <PostCardActions />
-            </div>
+            <UserSection />
           </div>
           <!-- top end -->
 
@@ -148,10 +142,7 @@
         <!-- posts navigation end -->
 
         <!-- user plate with subscribers counter -->
-        <div class="flex justify-between">
-          <PostUser />
-          <PostCardActions />
-        </div>
+        <UserSection />
         <!-- user plate with subscribers counter end-->
       </UiSheet>
     </div>

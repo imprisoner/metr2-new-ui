@@ -51,7 +51,6 @@
         <h2 class="text-5xl font-semibold">
           Дневник <span class="text-custom-secondary">14</span>
         </h2>
-        <UiSelect :options="['Свежее','Популярное']" default-value="Свежее" />
       </div>
       <PostCard v-for="i in 2" :key="i" />
     </div>
@@ -83,6 +82,10 @@
 <script setup lang="ts">
 import ChevronUp from "~/components/icons/chevron-up.vue";
 import ImagesGrid from "~/components/ui/images-grid/images-grid.vue";
+
+definePageMeta({
+  layout: 'mobile'
+})
 
 const breadcrumbs = {
   home: { route: "/", label: "Лента" },

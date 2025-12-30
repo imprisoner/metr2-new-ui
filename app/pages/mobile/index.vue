@@ -1,9 +1,9 @@
 <template>
   <div class="flex flex-col gap-4 pb-12">
-    <PostCard />
-    <PostCard />
-    <PostCard />
-    <PostCard />
+    <PostCard mobile />
+    <PostCard mobile />
+    <PostCard mobile />
+    <PostCard mobile />
 
     <div class="rounded-lg flex flex-col p-6 gap-6 bg-white">
       <p class="text-base text-custom-secondary mb-6 font-semibold">

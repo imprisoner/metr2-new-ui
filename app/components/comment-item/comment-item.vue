@@ -17,32 +17,15 @@
         <UiCounter type="likes" :count="likesCount" size="sm" />
         <p @click="mentionUser" class="text-base font-semibold">Ответить</p>
       </div>
-      <PAccordion
-        v-if="children"
-        value="0"
-        :unstyled="true"
-        class="w-full"
-        :dt="dt"
-      >
-        <template #expandicon>
-          <ChevronUpIcon class="rotate-180" />
+      <UiAccordion>
+        <template v-if="children" #header>
+          <span class="text-base font-semibold"
+            >{{ children.length }} ответ</span
+          >
         </template>
-        <template #collapseicon>
-          <ChevronUpIcon />
-        </template>
-        <PAccordionPanel value="0" class="shadow-none">
-          <PAccordionHeader class="justify-start gap-4">
-            <span class="text-base font-semibold"
-              >{{ children.length }} ответ</span
-            >
-          </PAccordionHeader>
-          <PAccordionContent>
-            <div class="flex flex-col gap-4">
-              <CommentItem v-for="comment in children" v-bind="comment" />
-            </div>
-          </PAccordionContent>
-        </PAccordionPanel>
-      </PAccordion>
+        <!--  -->
+        <CommentItem v-for="comment in children" v-bind="comment" />
+      </UiAccordion>
     </div>
     <CommentItemActions
       v-show="showDotsMenuButton || isMenuVisible"
@@ -55,8 +38,6 @@
 
 <script setup lang="ts">
 import type { ICommentItem } from "~/types/ui.types";
-import ChevronUpIcon from "../icons/chevron-up.vue";
-import type { AccordionDesignTokens } from "@primeuix/themes/types/accordion";
 
 const props = defineProps<ICommentItem & { mobile?: boolean }>();
 
@@ -66,40 +47,7 @@ const showDotsMenuButton = ref(false);
 const isMenuVisible = ref(false);
 
 const onToggle = (v: boolean) => {
-  console.log("onToggle", v);
   isMenuVisible.value = v;
 };
-
-const dt: AccordionDesignTokens = {
-  colorScheme: {
-    light: {
-      panel: {
-        borderColor: "transparent",
-      },
-      content: {
-        padding: "0",
-        borderWidth: "0",
-        borderColor: "#FFFFFF",
-      },
-    },
-  },
-  header: {
-    // activeHoverBackground: "#FFFFFF",
-    // activeBackground: "#FFFFFF",
-    hoverBackground: "#FFFFFF",
-    padding: "0 0 16px 0",
-    borderWidth: "0",
-  },
-};
 </script>
-
-<style scoped>
-/* .comment-item__actions {
-  visibility: hidden;
-}
-
-.comment-item:hover .comment-item__actions {
-  visibility: visible;
-} */
-</style>
 

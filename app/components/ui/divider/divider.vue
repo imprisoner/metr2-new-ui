@@ -9,9 +9,10 @@
 </template>
 
 <script setup lang="ts">
-defineProps<{
-  direction: "horizontal" | "vertical";
+const { direction = "horizontal" } = defineProps<{
+  direction?: "horizontal" | "vertical";
 }>();
 </script>
 
 <style scoped></style>
+

@@ -22,7 +22,7 @@
     <div class="flex flex-col gap-2">
       <PButton label="Зарегистрироваться" :disabled="isDisabled" />
       <SocialAuthSection />
-      <UiTextWithLines>Уже есть аккаунт?</UiTextWithLines>
+      <UiTextWithLines severity="secondary">Уже есть аккаунт?</UiTextWithLines>
       <PButton outlined severity="secondary" label="Войти" />
     </div>
   </form>

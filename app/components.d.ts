@@ -30,6 +30,7 @@ declare module 'vue' {
     PPassword: typeof import('primevue/password')['default']
     PPopover: typeof import('primevue/popover')['default']
     PRadioButton: typeof import('primevue/radiobutton')['default']
+    PSelect: typeof import('primevue/select')['default']
     PSelectButton: typeof import('primevue/selectbutton')['default']
     PTab: typeof import('primevue/tab')['default']
     PTabList: typeof import('primevue/tablist')['default']

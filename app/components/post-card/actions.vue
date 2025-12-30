@@ -1,8 +1,7 @@
 <template>
   <div class="flex gap-1">
     <PButton
-      outlined
-      severity="secondary"
+      v-bind="shareButtonProps"
       label="Подписаться"
       class="hidden lg:inline-flex"
     />
@@ -13,8 +12,17 @@
 </template>
 
 <script setup lang="ts">
-defineProps<{ mobile?: boolean }>();
-</script>
+import type { ButtonProps } from "primevue";
 
-<style scoped></style>
+const {
+  shareButtonProps = {
+    severity: "secondary",
+    outlined: true,
+    label: "Подписаться",
+  },
+} = defineProps<{
+  mobile?: boolean;
+  shareButtonProps?: ButtonProps;
+}>();
+</script>
 
