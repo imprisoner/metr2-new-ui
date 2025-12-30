@@ -1,5 +1,15 @@
 <template>
-  <PSelect v-bind="$props" fluid variant="filled" class="rounded-lg" :dt="dt">
+  <PSelect
+    v-bind="$props"
+    fluid
+    variant="filled"
+    class="rounded-lg"
+    :dt="dt"
+    :pt="{
+      overlay: 'hidden lg:block',
+    }"
+    @show="showBottomDrawer"
+  >
     <template #value="{ value }">
       <FlatSelectOption v-if="value" v-bind="value" />
     </template>
@@ -13,6 +23,11 @@
       />
     </template>
   </PSelect>
+  <UiBottomDrawer v-model:visible="isBottomDrawerVisible">
+    <FlatSelectOption v-for="option in flats" v-bind="option" />
+    <UiDivider />
+    <UiButtonAdd :button-props="{ text: true, fluid: true}" class="mb-2.5"/>
+  </UiBottomDrawer>
 </template>
 
 <script setup lang="ts">
@@ -20,7 +35,9 @@ import type { SelectDesignTokens } from "@primeuix/themes/types/select";
 import type { SelectProps } from "primevue";
 import type { FlatOption } from "~/types/ui.types";
 
-defineProps<SelectProps & { options: FlatOption[] }>();
+defineProps<SelectProps & { flats: FlatOption[] }>();
+
+// defineEmits<{ (e: "show"): void }>();
 
 const dt: SelectDesignTokens = {
   root: {
@@ -47,5 +64,10 @@ const dt: SelectDesignTokens = {
 };
 
 const handleAddFlat = () => {};
+
+const isBottomDrawerVisible = ref(false);
+const showBottomDrawer = () => {
+  isBottomDrawerVisible.value = true;
+};
 </script>
 

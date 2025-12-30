@@ -17,13 +17,15 @@
 
     <!--  -->
     <UiSheet>
-      <div class="flex gap-2 items-center">
+      <div class="flex gap-4 lg:gap-2 flex-col lg:flex-row items-center">
         <div class="flex-1">
           <p class="text-xl font-semibold">Не пора ли добавить новую запись?</p>
           <p class="text-base text-custom-secondary">Ваши подписчики ждут</p>
         </div>
-        <UiButtonAdd @click="handleAddRecord"/>
-        <PButton outlined severity="secondary" label="Черновики" @click="goToDrafts" />
+        <div class="flex gap-2 w-full">
+          <UiButtonAdd label="Написать" @click="handleAddRecord" class="flex-1 justify-center!"/>
+          <PButton outlined severity="secondary" label="Черновики" @click="goToDrafts" class="flex-1" />
+        </div>
       </div>
     </UiSheet>
     <!--  -->
@@ -37,6 +39,10 @@ import type { ExtractPublicPropTypes } from "vue";
 import UiNoItemsSection from "~/components/ui/no-items-section/no-items-section.vue";
 import { MOCK_IMAGES } from "~/const/mock";
 import type { FlatOption } from "~/types/ui.types";
+
+definePageMeta({
+  layout: 'mobile'
+})
 
 const currentFlat = ref();
 
@@ -65,6 +71,3 @@ const handleAddRecord = () => {}
 
 const goToDrafts = () => {}
 </script>
-
-<style scoped></style>
-
