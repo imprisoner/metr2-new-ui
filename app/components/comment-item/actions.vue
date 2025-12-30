@@ -6,8 +6,8 @@
       </template>
     </PButton>
     <ClientOnly>
-      <!-- <CommentItemActionsMenuDesktop v-model:visible="visible" /> -->
-      <CommentItemActionsMenuMobile v-model:visible="visible" />
+      <CommentItemActionsMenuMobile v-if="mobile" v-model:visible="visible" />
+      <CommentItemActionsMenuDesktop v-else v-model:visible="visible" />
     </ClientOnly>
   </div>
 </template>
@@ -28,6 +28,8 @@ const emit = defineEmits<{
 const toggle = () => {
   visible.value = !visible.value;
 };
+
+defineProps<{ mobile?: boolean }>()
 </script>
 
 <style scoped>

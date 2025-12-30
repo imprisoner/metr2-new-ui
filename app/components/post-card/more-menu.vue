@@ -5,8 +5,8 @@
     </template>
   </PButton>
   <ClientOnly>
-    <PostCardMoreMenuMobile v-model:visible="visible" />
-    <!-- <PostCardMoreMenuDesktop v-model:visible="visible"/> -->
+    <PostCardMoreMenuMobile v-if="mobile" v-model:visible="visible" />
+    <PostCardMoreMenuDesktop v-else v-model:visible="visible"/>
   </ClientOnly>
 </template>
 
@@ -18,6 +18,8 @@ const visible = ref(false);
 const toggle = () => {
   visible.value = !visible.value;
 };
+
+defineProps<{ mobile?: boolean }>();
 </script>
 
 <style scoped>
@@ -25,3 +27,4 @@ const toggle = () => {
   box-shadow: 0px 2px 12px 0px #0000001a;
 }
 </style>
+

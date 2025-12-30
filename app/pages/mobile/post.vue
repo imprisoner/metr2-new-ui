@@ -13,7 +13,7 @@
             <h1 class="text-5xl font-semibold">{{ title }}</h1>
             <div class="flex justify-between">
               <PostUser />
-              <PostCardActions />
+              <PostCardActions mobile />
             </div>
           </div>
           <!-- top end -->
@@ -150,7 +150,7 @@
         <!-- user plate with subscribers counter -->
         <div class="flex justify-between">
           <PostUser />
-          <PostCardActions />
+          <PostCardActions mobile />
         </div>
         <!-- user plate with subscribers counter end-->
       </UiSheet>
@@ -171,7 +171,7 @@
 
       <!-- comment form end -->
 
-      <CommentItem v-for="comment in comments" v-bind="comment" />
+      <CommentItem v-for="comment in comments" v-bind="comment" mobile />
     </UiSheet>
 
     <!--  -->

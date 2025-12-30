@@ -46,6 +46,7 @@
     </div>
     <CommentItemActions
       v-show="showDotsMenuButton || isMenuVisible"
+      :mobile="mobile"
       class="comment-item__actions absolute right-0 top-0"
       @toggle="onToggle"
     />
@@ -57,7 +58,7 @@ import type { ICommentItem } from "~/types/ui.types";
 import ChevronUpIcon from "../icons/chevron-up.vue";
 import type { AccordionDesignTokens } from "@primeuix/themes/types/accordion";
 
-const props = defineProps<ICommentItem>();
+const props = defineProps<ICommentItem & { mobile?: boolean }>();
 
 const mentionUser = () => {};
 
