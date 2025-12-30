@@ -6,7 +6,7 @@
     option: 'text-base'
   }">
     <template #dropdownicon>
-      <ChevronUpIcon class="rotate-180"/>
+      <ChevronDownIcon />
     </template>
   </PSelect>
 </template>
@@ -14,7 +14,7 @@
 <script setup lang="ts">
 import type { SelectDesignTokens } from "@primeuix/themes/types/select";
 import type { SelectProps } from "primevue";
-import ChevronUpIcon from "~/components/icons/chevron-up.vue";
+import ChevronDownIcon from "~/components/icons/chevron-down.vue";
 
 defineProps<SelectProps>();
 
@@ -40,5 +40,3 @@ const dt:SelectDesignTokens =  {
   }
 }
 </script>
-
-<style scoped></style>
