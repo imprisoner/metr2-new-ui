@@ -1,32 +1,48 @@
 <template>
-  <UiSheet class="flex flex-col gap-6">
+  <UiSheet class="flex flex-col gap-6" v-bind="uiSheetProps">
     <p v-if="title" class="text-base text-custom-secondary font-semibold">
       {{ title }}
     </p>
 
     <div class="flex flex-col gap-4">
       <template v-for="(card, index) in recommended" :key="index">
-        <RecommendedCard v-bind="card" />
+        <PostPreviewCard v-bind="card" />
         <hr v-if="!isLast(index)" class="w-full text-custom-divider" />
       </template>
     </div>
 
-    <PButton outlined severity="secondary" label="Показать ещё" />
+    <PButton
+      v-if="withButton"
+      outlined
+      severity="secondary"
+      :label="buttonLabel"
+      :class="{ 'self-start': !blockButton }"
+    />
   </UiSheet>
 </template>
 
 <script setup lang="ts">
-import { RECOMMENDED_POSTS } from '~/const/mock';
+import { RECOMMENDED_POSTS } from "~/const/mock";
 
-defineProps<{ title?: string }>();
+const {
+  buttonLabel = "Показать ещё",
+  withButton = true,
+  blockButton = true,
+} = defineProps<{
+  title?: string;
+  withButton?: boolean;
+  buttonLabel?: string;
+  blockButton?: boolean;
+  uiSheetProps?: { title: string; count?: number };
+}>();
 
-const recommended = RECOMMENDED_POSTS
+defineEmits<{ (e: "button-click"): void }>();
+
+const recommended = RECOMMENDED_POSTS;
 
 const isLast = (index: number) => {
   return index === recommended.length - 1;
 };
-
-
 </script>
 
 <style scoped></style>

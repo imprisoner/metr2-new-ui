@@ -1,5 +1,5 @@
 <template>
-  <nav class="mobile-nav-tabs">
+  <nav>
     <PTabs :value="MAIN_NAV_ITEMS[0]!.route" pt:root:class="bg-white" :show-navigators="false">
       <PTabList>
         <PTab v-for="tab in MAIN_NAV_ITEMS" :key="tab.route" :value="tab.route">

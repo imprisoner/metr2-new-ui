@@ -2,7 +2,7 @@
   <div>
     <div class="flex flex-col gap-4">
       <template v-for="(card, index) in recommended" :key="index">
-        <RecommendedCard v-bind="card" />
+        <PostPreviewCard v-bind="card" />
         <hr v-if="!isLast(index)" class="w-full text-custom-divider" />
       </template>
     </div>

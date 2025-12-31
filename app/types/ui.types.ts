@@ -54,4 +54,11 @@ export interface INoItemsSectionProps {
   subtitle: string;
   icon?: NoItemsSectionIcon;
   withButton?: boolean;
-} 
+}
+
+export type ProfilePageSectionKey = 'services' | 'portfolio' | 'feedbacks' | 'estate' | 'blog'
+
+export interface IUiTabsItem {
+  label: string;
+  sectionKey: ProfilePageSectionKey;
+}

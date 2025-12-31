@@ -10,7 +10,7 @@
   >
     <SplideSlide v-for="(item, index) in recommended" :key="index">
       <div class="gap-5 flex">
-        <RecommendedCard v-bind="item" />
+        <PostPreviewCard v-bind="item" />
         <UiDivider direction="vertical" />
       </div>
     </SplideSlide>
