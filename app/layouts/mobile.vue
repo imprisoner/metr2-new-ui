@@ -3,7 +3,6 @@
     <UiMobileHeader />
     <main class="pt-3">
       <slot />
-      <!-- <NuxtPage /> -->
     </main>
   </div>
 </template>

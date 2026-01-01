@@ -135,7 +135,7 @@
         <!-- flat-mini-preview end-->
 
         <!-- posts navigation -->
-        <div class="flex gap-2">
+        <div class="flex flex-col gap-2 lg:flex-row">
           <PostNavigationCard type="prev" v-bind="prevPost" />
           <PostNavigationCard type="next" v-bind="nextPost" />
         </div>

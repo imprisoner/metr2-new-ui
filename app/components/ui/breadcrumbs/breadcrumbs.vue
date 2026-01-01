@@ -1,5 +1,5 @@
 <template>
-  <PBreadcrumb :home="home" :model="model" class="text-base">
+  <PBreadcrumb v-bind="$props" class="text-base">
     <template #separator>
       <div class="w-1.5 h-1.5 bg-custom-secondary rounded-full" />
     </template>

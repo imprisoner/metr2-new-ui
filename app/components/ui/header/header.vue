@@ -6,20 +6,44 @@
       <IconsLogo />
     </NuxtLink>
     <UiHeaderNavigation />
-    <div class="flex items-center justify-center w-9 h-9 mx-8">
-      <IconsMagnify />
-    </div>
     <PButton
-      variant="outlined"
-      class="text-white rounded-full border-[#FFFFFF33]"
-      label="Войти"
+      text
+      class="text-white rounded-full hover:border-[#FFFFFF66] active:border-[#FFFFFF99] w-9.5 h-9.5 mx-6"
+      :dt="dt"
     >
       <template #icon>
-        <IconsUser />
+        <IconsMagnify />
+      </template>
+    </PButton>
+    <PButton
+      outlined
+      class="text-white rounded-full border-[#FFFFFF33] hover:border-[#FFFFFF66] active:border-[#FFFFFF99]"
+      label="Войти"
+      :dt="dt"
+    >
+      <template #icon>
+        <IconsUser class="w-3.5 h-3.5" />
       </template>
     </PButton>
   </header>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import type { ButtonDesignTokens } from "@primeuix/themes/types/button";
+
+const dt: ButtonDesignTokens = {
+  outlined: {
+    primary: {
+      activeBackground: "transparent",
+      hoverBackground: "transparent",
+    },
+  },
+  text: {
+    primary: {
+      activeBackground: "transparent",
+      hoverBackground: "transparent",
+    },
+  },
+};
+</script>
 

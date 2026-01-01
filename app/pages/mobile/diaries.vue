@@ -17,7 +17,7 @@
 
     <!--  -->
     <UiSheet>
-      <div class="flex gap-4 lg:gap-2 flex-col lg:flex-row items-center">
+      <div class="flex flex-col lg:flex-row gap-2 lg:items-center">
         <div class="flex-1">
           <p class="text-xl font-semibold">Не пора ли добавить новую запись?</p>
           <p class="text-base text-custom-secondary">Ваши подписчики ждут</p>
