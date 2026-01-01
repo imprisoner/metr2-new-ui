@@ -72,6 +72,8 @@
     <ProfilePageServicesSection />
 
     <ProfilePagePortfolioSection />
+
+    <ProfilePageEstateSection />
   </div>
 </template>
 

@@ -8,7 +8,6 @@
     >
       <PTabList>
         <PTab v-for="tab in tabs" :key="tab.sectionKey" :value="tab.sectionKey">
-          <!-- <NuxtLink :to="tab.route" class="absolute inset-0"> </NuxtLink> -->
           <div class="flex gap-2">
             <span>{{ tab.label }}</span>
           </div>
@@ -24,7 +23,6 @@ import type { IUiTabsItem } from '~/types/ui.types';
 const emit = defineEmits<{(e: 'tab-click', v: string | number): void}>()
 
 const onTabValueUpdate = (v: string | number) => {
-  console.log('Tab updated ', v)
   emit('tab-click', v)
 }
 
