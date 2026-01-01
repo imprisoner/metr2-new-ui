@@ -9,12 +9,9 @@
 </template>
 
 <script setup lang="ts">
-  defineProps<{
-    title?: string;
-    count?: number;
-  }>()
+import type { IUiSheetProps } from "~/types/ui.types";
+
+defineProps<IUiSheetProps>();
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>

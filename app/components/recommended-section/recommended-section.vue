@@ -23,6 +23,7 @@
 
 <script setup lang="ts">
 import { RECOMMENDED_POSTS } from "~/const/mock";
+import type { IUiSheetProps } from "~/types/ui.types";
 
 const {
   buttonLabel = "Показать ещё",
@@ -33,7 +34,7 @@ const {
   withButton?: boolean;
   buttonLabel?: string;
   blockButton?: boolean;
-  uiSheetProps?: { title: string; count?: number };
+  uiSheetProps?: IUiSheetProps;
 }>();
 
 defineEmits<{ (e: "button-click"): void }>();

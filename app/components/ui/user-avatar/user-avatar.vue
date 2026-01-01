@@ -1,15 +1,21 @@
 <template>
-  <PAvatar :size="size" shape="circle" :src="imageUrl" :label="label" />
+  <PAvatar :size="size" shape="circle" :label="computedLabel" :image="imageUrl" class="user-avatar"/>
 </template>
 
 <script setup lang="ts">
 import type { AvatarProps } from "primevue";
 
-const {label= 'P'} = defineProps<{
+const {label= 'P', imageUrl} = defineProps<{
   size?: AvatarProps["size"];
   imageUrl?: string;
   label?: string;
 }>();
+
+const computedLabel = computed(() => imageUrl ? undefined : label)
 </script>
 
-<style scoped></style>
+<style scoped>
+  :deep(.user-avatar > img) {
+    object-fit: cover;
+  }
+</style>

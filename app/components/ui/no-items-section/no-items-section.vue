@@ -1,11 +1,15 @@
 <template>
-  <UiSheet class="flex flex-col gap-4 items-center">
+  <UiSheet class="flex flex-col gap-4 items-center" v-bind="uiSheetProps">
     <Component :is="iconsMap[icon]" />
-    <div class="text-center">
-      <p class="text-xl font-semibold mb-2">{{ title }}</p>
-      <p class="text-base">{{ subtitle }}</p>
-    </div>
-    <UiButtonAdd v-if="withButton" label="Добавить" @click="$emit('button-click')"/>
+    <slot>
+      <div class="text-center">
+        <p v-if="title" class="text-xl font-semibold mb-2">{{ title }}</p>
+        <p v-if="subtitle" class="text-base">{{ subtitle }}</p>
+      </div>
+    </slot>
+    <slot name="button">
+      <UiButtonAdd v-if="withButton" label="Добавить" @click="$emit('button-click')"/>
+    </slot>
   </UiSheet>
 </template>
 

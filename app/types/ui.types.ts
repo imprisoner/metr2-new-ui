@@ -47,18 +47,29 @@ export interface FlatOption {
   name: string;
 }
 
-export type NoItemsSectionIcon = "sad" | "smile"
+export type NoItemsSectionIcon = "sad" | "smile";
 
 export interface INoItemsSectionProps {
-  title: string;
-  subtitle: string;
+  title?: string;
+  subtitle?: string;
   icon?: NoItemsSectionIcon;
   withButton?: boolean;
+  uiSheetProps?: IUiSheetProps;
 }
 
-export type ProfilePageSectionKey = 'services' | 'portfolio' | 'feedbacks' | 'estate' | 'blog'
+export type ProfilePageSectionKey =
+  | "services"
+  | "portfolio"
+  | "feedbacks"
+  | "estate"
+  | "blog";
 
 export interface IUiTabsItem {
   label: string;
   sectionKey: ProfilePageSectionKey;
+}
+
+export interface IUiSheetProps {
+  title?: string;
+  count?: number;
 }

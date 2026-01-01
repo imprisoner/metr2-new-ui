@@ -1,6 +1,6 @@
 <template>
   <div class="flex flex-col gap-4">
-    <h3>{{ name }}</h3>
+    <h3 class="text-4xl font-semibold">{{ name }}</h3>
     <div class="flex gap-2">
       <UiSmallChip v-for="item in tags" :label="item" />
     </div>

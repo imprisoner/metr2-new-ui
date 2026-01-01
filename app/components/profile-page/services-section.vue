@@ -1,6 +1,6 @@
 <template>
-  <UiSheet title="Услуги" :count="3" class="flex flex-col gap-6">
-    <PAccordion :value="[services[0]!.id]" multiple :dt="dt">
+  <UiSheet title="Услуги" :count="3" class="flex flex-col gap-4 lg:gap-6">
+    <PAccordion multiple :dt="dt">
       <!-- icon -->
       <template #expandicon>
         <ChevronUpIcon class="rotate-180 ml-2" />
@@ -10,13 +10,18 @@
       </template>
       <!--  -->
       <PAccordionPanel
-        v-for="item in services"
+        v-for="(item, index) in services"
         :key="item.id"
         :value="item.id"
-        class="shadow-none border-b border-custom-divider"
+        class="shadow-none border-b border-custom-divider mb-0"
+        :class="{
+          'border-none': index === services.length - 1,
+        }"
       >
         <PAccordionHeader>
-          <div class="flex flex-1 items-center justify-between">
+          <div
+            class="flex flex-col lg:flex-row flex-1 lg:items-center justify-between"
+          >
             <h5 class="text-base font-bold">{{ item.name }}</h5>
             <p class="text-base font-normal text-custom-secondary">
               <template v-if="!!item.priceMin">от {{ item.priceMin }}</template>
@@ -48,7 +53,8 @@ const dt: AccordionDesignTokens = {
     light: {
       header: {
         activeColor: "{primary.500}",
-        color: "#6B7280"
+        color: "#6B7280",
+        padding: ".75rem 0",
       },
       panel: {
         borderColor: "transparent",
