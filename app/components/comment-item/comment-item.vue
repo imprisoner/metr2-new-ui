@@ -29,7 +29,6 @@
     </div>
     <CommentItemActions
       v-show="showDotsMenuButton || isMenuVisible"
-      :mobile="mobile"
       class="comment-item__actions absolute right-0 top-0"
       @toggle="onToggle"
     />
@@ -39,7 +38,7 @@
 <script setup lang="ts">
 import type { ICommentItem } from "~/types/ui.types";
 
-const props = defineProps<ICommentItem & { mobile?: boolean }>();
+const props = defineProps<ICommentItem>();
 
 const mentionUser = () => {};
 

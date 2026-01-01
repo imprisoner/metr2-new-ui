@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-col gap-10">
+  <div class="flex flex-col gap-10 pb-10">
     <ProfilePageTopSection />
 
     <ProfilePageServicesSection />
@@ -7,22 +7,23 @@
     <ProfilePagePortfolioSection />
 
     <NoItemsSection
+      class="gap-4! lg:gap-6!"
       :ui-sheet-props="{ title: 'Отзывы' }"
       icon="sad"
       subtitle="Отзывов пока нет. Будьте первым!"
     >
       <template #button>
-        <PButton outlined severity="secondary" @click="addFeedback"/>
+        <PButton outlined severity="secondary" label="Оставить отзыв" @click="addFeedback"/>
       </template>
     </NoItemsSection>
 
-    <SubscribeSection v-bind="user" @subscribe="handleSubscribe" />
+    <SubscribeSection v-bind="user" class="gap-4! lg:gap-6!" @subscribe="handleSubscribe" />
     
     <ProfilePageEstateSection />
     
     <ProfilePageBlogSection />
     
-    <SubscribeSection v-bind="user" @subscribe="handleSubscribe" />
+    <SubscribeSection v-bind="user" class="gap-4! lg:gap-6!" @subscribe="handleSubscribe" />
   </div>
 </template>
 

@@ -10,6 +10,7 @@
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
+    "@nuxtjs/device": "4.0.0",
     "@primeuix/themes": "^2.0.2",
     "@splidejs/vue-splide": "github:joris-gallot/vue-splide",
     "@tailwindcss/vite": "^4.1.18",

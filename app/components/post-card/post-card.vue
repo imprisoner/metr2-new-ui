@@ -1,5 +1,5 @@
 <template>
-  <div class="rounded-lg flex flex-col p-6 gap-6 bg-white">
+  <div class="rounded-lg flex flex-col p-4 lg:p-6 gap-6 bg-white">
     <!-- TOP -->
     <div class="flex flex-col gap-4">
       <UserSection :mobile="mobile" />

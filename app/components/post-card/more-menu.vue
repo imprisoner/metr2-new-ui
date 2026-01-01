@@ -5,8 +5,8 @@
     </template>
   </PButton>
   <ClientOnly>
-    <PostCardMoreMenuMobile v-if="mobile" v-model:visible="visible" />
-    <PostCardMoreMenuDesktop v-else v-model:visible="visible"/>
+    <PostCardMoreMenuMobile v-if="isMobile" v-model:visible="visible" />
+    <PostCardMoreMenuDesktop v-else v-model:visible="visible" />
   </ClientOnly>
 </template>
 
@@ -19,7 +19,7 @@ const toggle = () => {
   visible.value = !visible.value;
 };
 
-defineProps<{ mobile?: boolean }>();
+const { isMobile } = useDevice();
 </script>
 
 <style scoped>

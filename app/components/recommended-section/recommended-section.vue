@@ -4,7 +4,8 @@
       {{ title }}
     </p>
 
-    <div class="flex flex-col gap-4">
+    <MobileRecommendedCarousel v-if="isMobile"/>
+    <div v-else class="flex flex-col gap-4">
       <template v-for="(card, index) in recommended" :key="index">
         <PostPreviewCard v-bind="card" />
         <hr v-if="!isLast(index)" class="w-full text-custom-divider" />
@@ -44,6 +45,8 @@ const recommended = RECOMMENDED_POSTS;
 const isLast = (index: number) => {
   return index === recommended.length - 1;
 };
+
+const { isMobile } = useDevice();
 </script>
 
 <style scoped></style>

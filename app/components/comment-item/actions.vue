@@ -6,7 +6,7 @@
       </template>
     </PButton>
     <ClientOnly>
-      <CommentItemActionsMenuMobile v-if="mobile" v-model:visible="visible" />
+      <CommentItemActionsMenuMobile v-if="isMobile" v-model:visible="visible" />
       <CommentItemActionsMenuDesktop v-else v-model:visible="visible" />
     </ClientOnly>
   </div>
@@ -29,7 +29,7 @@ const toggle = () => {
   visible.value = !visible.value;
 };
 
-defineProps<{ mobile?: boolean }>()
+const { isMobile } = useDevice()
 </script>
 
 <style scoped>

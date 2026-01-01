@@ -17,26 +17,39 @@
 
     <!--  -->
     <UiSheet>
-      <div class="flex gap-2 items-center">
+      <div class="flex flex-col lg:flex-row gap-2 lg:items-center">
         <div class="flex-1">
           <p class="text-xl font-semibold">Не пора ли добавить новую запись?</p>
           <p class="text-base text-custom-secondary">Ваши подписчики ждут</p>
         </div>
-        <UiButtonAdd @click="handleAddRecord"/>
-        <PButton outlined severity="secondary" label="Черновики" @click="goToDrafts" />
+        <div class="flex gap-2 w-full">
+          <UiButtonAdd
+            label="Написать"
+            @click="handleAddRecord"
+            class="flex-1 justify-center!"
+          />
+          <PButton
+            outlined
+            severity="secondary"
+            label="Черновики"
+            @click="goToDrafts"
+            class="flex-1"
+          />
+        </div>
       </div>
     </UiSheet>
     <!--  -->
 
-    <UiNoItemsSection v-bind="recordSectionValues[flats.length ? 1 : 0]" @button-click="handleAddRecord"/>
+    <UiNoItemsSection
+      v-bind="noItemSectionProps"
+      @button-click="handleAddRecord"
+    />
   </div>
 </template>
 
 <script setup lang="ts">
-import type { ExtractPublicPropTypes } from "vue";
-import UiNoItemsSection from "~/components/ui/no-items-section/no-items-section.vue";
 import { MOCK_IMAGES } from "~/const/mock";
-import type { FlatOption } from "~/types/ui.types";
+import type { FlatOption, INoItemsSectionProps } from "~/types/ui.types";
 
 const currentFlat = ref();
 
@@ -48,7 +61,7 @@ const flats: FlatOption[] = [
   },
 ];
 
-const recordSectionValues: ExtractPublicPropTypes<typeof UiNoItemsSection> = [
+const noItemSectionValues: INoItemsSectionProps[] = [
   {
     icon: "sad",
     title: "Здесь пока ничего нет",
@@ -61,10 +74,11 @@ const recordSectionValues: ExtractPublicPropTypes<typeof UiNoItemsSection> = [
   },
 ];
 
-const handleAddRecord = () => {}
+const noItemSectionProps = computed(() => {
+  return noItemSectionValues[flats.length ? 1 : 0] as INoItemsSectionProps;
+});
 
-const goToDrafts = () => {}
+const handleAddRecord = () => {};
+
+const goToDrafts = () => {};
 </script>
-
-<style scoped></style>
-

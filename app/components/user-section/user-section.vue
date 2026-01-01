@@ -13,7 +13,7 @@
         </p>
       </div>
     </div>
-    <PostCardActions :share-button-props="shareButtonProps" :mobile="mobile" />
+    <PostCardActions :share-button-props="shareButtonProps" />
   </div>
 </template>
 
@@ -22,7 +22,6 @@ import type { ButtonProps } from "primevue";
 
 const { shareButtonProps } = defineProps<{
   shareButtonProps?: ButtonProps;
-  mobile?: boolean;
 }>();
 </script>
 

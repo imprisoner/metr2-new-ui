@@ -9,33 +9,32 @@
       </div>
     </UiSheet>
 
-    <UiNoItemsSection v-bind="noItemsSection" @button-click="handleAddRecord"/>
+    <UiNoItemsSection v-bind="noItemsSection" @button-click="handleAddRecord" />
 
     <UiSheet>
       <template v-for="(draft, index) in drafts">
-        <DraftCard  v-bind="draft"/>
-        <UiDivider v-if="index !== drafts.length - 1" class="my-4.5"/>
+        <DraftCard v-bind="draft" />
+        <UiDivider v-if="index !== drafts.length - 1" class="my-4.5" />
       </template>
     </UiSheet>
   </div>
 </template>
 
 <script setup lang="ts">
-import DraftCard from '~/components/draft-card/draft-card.vue';
-import { MOCK_DRAFTS } from '~/const/mock';
-import type { INoItemsSectionProps } from '~/types/ui.types';
+import DraftCard from "~/components/draft-card/draft-card.vue";
+import { MOCK_DRAFTS } from "~/const/mock";
+import type { INoItemsSectionProps } from "~/types/ui.types";
 
-  const noItemsSection: INoItemsSectionProps = {
-    title: 'Здесь пока ничего нет',
-    subtitle: 'Здесь будут храниться ваши черновики из Дневников, Блога или Портфолио',
-    icon: 'sad'
-  }
+const noItemsSection: INoItemsSectionProps = {
+  title: "Здесь пока ничего нет",
+  subtitle:
+    "Здесь будут храниться ваши черновики из Дневников, Блога или Портфолио",
+  icon: "sad",
+};
 
-  const handleAddRecord = () => {}
+const handleAddRecord = () => {};
 
-  const drafts = MOCK_DRAFTS
+const drafts = MOCK_DRAFTS;
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>

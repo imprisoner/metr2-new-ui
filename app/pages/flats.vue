@@ -48,7 +48,7 @@
     <!-- ДНЕВНИК -->
     <div class="flex flex-col gap-6">
       <div class="flex flex-1 justify-between">
-        <h2 class="text-5xl font-semibold">
+        <h2 class="text-5xl font-semibold p-4 lg:p-0">
           Дневник <span class="text-custom-secondary">14</span>
         </h2>
         <UiSelect :options="['Свежее','Популярное']" default-value="Свежее" />
@@ -86,10 +86,10 @@ import ImagesGrid from "~/components/ui/images-grid/images-grid.vue";
 
 const breadcrumbs = {
   home: { route: "/", label: "Лента" },
-  items: [
+  model: [
     {
-      route: "/popular",
-      label: "Популярное",
+      route: "#",
+      label: "Nilin743",
     },
   ],
 };

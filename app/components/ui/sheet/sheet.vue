@@ -1,8 +1,8 @@
 <template>
   <section class="p-4 lg:p-6 shadow-custom-card rounded-lg bg-white">
-    <div class="flex gap-2 text-5xl font-semibold">
-      <h2 v-if="title">{{ title }}</h2>
-      <span class="text-custom-secondary" v-if="!!count">{{ count }}</span>
+    <div v-if="title" class="flex gap-2 text-5xl font-semibold">
+      <h2>{{ title }}</h2>
+      <span v-if="!!count" class="text-custom-secondary">{{ count }}</span>
     </div>
     <slot />
   </section>
@@ -15,3 +15,4 @@ defineProps<IUiSheetProps>();
 </script>
 
 <style scoped></style>
+

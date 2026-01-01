@@ -162,7 +162,7 @@ const MyPreset = definePreset(Material, {
 export default defineNuxtConfig({
   compatibilityDate: "2025-07-15",
   devtools: { enabled: true },
-  modules: ["@primevue/nuxt-module"],
+  modules: ["@primevue/nuxt-module", "@nuxtjs/device"],
   primevue: {
     components: {
       prefix: "P",
@@ -189,4 +189,3 @@ export default defineNuxtConfig({
   },
   plugins: ["~/plugins/click-outside.client.ts"],
 });
-
