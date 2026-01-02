@@ -20,6 +20,7 @@
       class="text-white rounded-full border-[#FFFFFF33] hover:border-[#FFFFFF66] active:border-[#FFFFFF99]"
       label="Войти"
       :dt="dt"
+      @click="showForm('login')"
     >
       <template #icon>
         <IconsUser class="w-3.5 h-3.5" />
@@ -30,6 +31,7 @@
 
 <script setup lang="ts">
 import type { ButtonDesignTokens } from "@primeuix/themes/types/button";
+
 
 const dt: ButtonDesignTokens = {
   outlined: {
@@ -45,5 +47,7 @@ const dt: ButtonDesignTokens = {
     },
   },
 };
+
+const { showForm } = useLoginOrRegisterDialog();
 </script>
 

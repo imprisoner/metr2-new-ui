@@ -37,8 +37,14 @@
         <!--  -->
 
         <UiMobileHeaderUserMenu
+          v-if="authorized"
           :visible="visible.user"
           @update:visible="onUpdateVisibility($event, 'user')"
+        />
+        <UiRoundWhiteButton
+          v-else
+          :icon="UserIcon"
+          @click="showForm('login')"
         />
       </div>
     </div>
@@ -47,6 +53,8 @@
 </template>
 
 <script setup lang="ts">
+import UserIcon from "~/components/icons/user.vue";
+
 type MenuKey = "burger" | "search" | "plus" | "user";
 const visible = reactive<Record<MenuKey, boolean>>({
   burger: false,
@@ -60,7 +68,11 @@ const onUpdateVisibility = (value: boolean, updatedKey: MenuKey) => {
     visible[key] = false;
   });
 
-  visible[updatedKey] = value
+  visible[updatedKey] = value;
 };
+
+const authorized = false;
+
+const { showForm } = useLoginOrRegisterDialog();
 </script>
 

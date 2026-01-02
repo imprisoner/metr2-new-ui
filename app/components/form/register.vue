@@ -1,5 +1,5 @@
 <template>
-  <form class="flex flex-col gap-4 max-w-98 flex-1">
+  <UiDialogFormWrapper>
     <p class="text-2xl font-semibold">Создать аккаунт</p>
     <UiTextInput label="E-mail" :input-props="{ placeholder: 'Почта' }" />
     <UiTextInput label="Пароль" :input-props="{ placeholder: 'Пароль' }" />
@@ -22,15 +22,21 @@
     <div class="flex flex-col gap-2">
       <PButton label="Зарегистрироваться" :disabled="isDisabled" />
       <SocialAuthSection />
-      <UiTextWithLines severity="secondary">Уже есть аккаунт?</UiTextWithLines>
-      <PButton outlined severity="secondary" label="Войти" />
+      <UiTextWithLines severity="secondary"
+        >Уже есть аккаунт?</UiTextWithLines
+      >
+      <PButton
+        outlined
+        severity="secondary"
+        label="Войти"
+        @click="showForm('login')"
+      />
     </div>
-  </form>
+  </UiDialogFormWrapper>
 </template>
 
 <script setup lang="ts">
 const isDisabled = true;
+
+const { showForm } = useLoginOrRegisterDialog();
 </script>
-
-<style scoped></style>
-

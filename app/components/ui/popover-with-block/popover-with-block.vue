@@ -1,16 +1,5 @@
 <template>
-  <PButton
-    rounded
-    variant="outlined"
-    class="bg-white border-white w-8 h-8"
-    @click="visible = !visible"
-  >
-    <template #icon>
-      <div class="w-3.5 h-3.5 flex">
-        <Component :is="icon" />
-      </div>
-    </template>
-  </PButton>
+  <RoundWhiteButton :icon="icon" @click="visible = !visible"/>
   <PDialog
     v-model:visible="visible"
     modal
@@ -49,6 +38,7 @@
 import type { Popover } from "primevue";
 import type { Component } from "vue";
 import CrossIcon from "~/components/icons/cross.vue";
+import RoundWhiteButton from "../round-white-button/round-white-button.vue";
 
 const { header } = defineProps<{ header?: string; icon: Component }>();
 
@@ -71,6 +61,7 @@ const headerClass = computed(() => {
     ? "px-5 py-4 border-b-custom-divider border-b justify-between"
     : "absolute right-5 top-4 p-0";
 });
+
 </script>
 
 <style scoped></style>

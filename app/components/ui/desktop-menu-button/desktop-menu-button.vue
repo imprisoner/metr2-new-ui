@@ -5,6 +5,7 @@
     text
     class="justify-start w-full rounded-none"
     pt:label:class="font-normal"
+    @click="item.handler"
   >
     <template #icon>
       <span class="h-5 w-5 me-2">

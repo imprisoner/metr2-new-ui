@@ -8,15 +8,17 @@
       </main>
       <aside class="pe-7 sticky top-24.75">
         <UiSheet>
-          <LoginForm />
-          <!-- <UiUserMenu /> -->
+          <UiUserMenu v-if="isAuthorized" />
+          <FormLogin v-else/>
         </UiSheet>
       </aside>
     </div>
   </div>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+  const isAuthorized = false
+</script>
 
 <style scoped>
 .layout-grid {

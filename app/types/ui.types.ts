@@ -16,6 +16,7 @@ export interface IUserMenuButton extends IUserMenuItem {
     icon: Component;
     count?: number;
   };
+  handler?: () => void
 }
 
 export interface IUserMenuDivider extends IUserMenuItem {

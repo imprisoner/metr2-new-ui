@@ -23,6 +23,7 @@ declare module 'vue' {
     PChip: typeof import('primevue/chip')['default']
     PDialog: typeof import('primevue/dialog')['default']
     PDrawer: typeof import('primevue/drawer')['default']
+    PDynamicDialog: typeof import('primevue/dynamicdialog')['default']
     PInputGroup: typeof import('primevue/inputgroup')['default']
     PInputGroupAddon: typeof import('primevue/inputgroupaddon')['default']
     PInputText: typeof import('primevue/inputtext')['default']

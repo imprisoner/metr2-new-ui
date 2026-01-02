@@ -1,9 +1,11 @@
 <template>
-  <UiBottomDrawer
-    v-model:visible="visible"
-  >
-    <template v-for="(item, index) in POST_CARD_MORE_MENU_ITEMS" :key="index">
-      <UiMobileMenuButton v-if="item.type === 'button'" v-bind="item.props" />
+  <UiBottomDrawer v-model:visible="visible" :dt="dt">
+    <template v-for="(item, index) in dotsMenuItems" :key="index">
+      <UiMobileMenuButton
+        v-if="item.type === 'button'"
+        v-bind="item.props"
+        @click="item.handler"
+      />
       <UiDivider
         v-else-if="item.type === 'divider'"
         v-bind="item.props"
@@ -32,13 +34,13 @@
 
 <script setup lang="ts">
 import type { DrawerDesignTokens } from "@primeuix/themes/types/drawer";
-import { POST_CARD_MORE_MENU_ITEMS } from "~/const";
 import ChainsIcon from "../icons/share/chains.vue";
 import MaxIcon from "../icons/share/max.vue";
 import PinterestIcon from "../icons/share/pinterest.vue";
 import TelegramIcon from "../icons/share/telegram.vue";
 import VkIcon from "../icons/share/vk.vue";
 import WhatsappIcon from "../icons/share/whatsapp.vue";
+import { useDotsMenuItems } from "~/composables/useDotsMenuItems";
 
 const dt: DrawerDesignTokens = {
   content: {
@@ -59,4 +61,7 @@ const shareButtons = [
   { provider: "max", icon: MaxIcon, handler: () => {} },
   { provider: "whatsapp", icon: WhatsappIcon, handler: () => {} },
 ] as const;
+
+const { dotsMenuItems } = useDotsMenuItems();
 </script>
+
