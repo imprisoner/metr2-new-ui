@@ -8,6 +8,8 @@ RUN npm i -g pnpm@latest-10
 RUN pnpm install
 # Copy the rest of the application code
 COPY . .
+#Prepare Nuxt project
+RUN npm run postinstall
 # Build the Nuxt project
 RUN npm run build
 
