@@ -15,7 +15,7 @@ const computedLabel = computed(() => imageUrl ? undefined : label)
 </script>
 
 <style scoped>
-  :deep(.user-avatar > img) {
+  :deep(img) {
     object-fit: cover;
   }
 </style>
