@@ -1,0 +1,8 @@
+services:
+  newui:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: metr2-new-ui
+    ports:
+      - "127.0.0.1:3000:3000"
