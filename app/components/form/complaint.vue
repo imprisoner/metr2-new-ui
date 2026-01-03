@@ -1,5 +1,11 @@
 <template>
-  <UiDialogFormWrapper>
+  <PForm
+    v-slot="$form"
+    :resolver
+    :initial-values
+    class="flex flex-col gap-4 max-w-98 flex-1 h-full justify-center"
+    @submit="onSubmit"
+  >
     <p class="text-2xl font-semibold">Пожаловаться на контент</p>
     <div class="flex flex-col gap-4">
       <label
@@ -25,10 +31,13 @@
       />
       <PButton outlined severity="secondary" label="Отмена" type="submit" />
     </div>
-  </UiDialogFormWrapper>
+  </PForm>
 </template>
 
 <script setup lang="ts">
+import type { FormSubmitEvent } from "@primevue/forms";
+import resolver, { type ComplaintSchema } from "~/schemas/complaint";
+
 const message = ref("");
 
 const COMPLAINT_REASONS = [
@@ -59,4 +68,14 @@ const COMPLAINT_REASONS = [
 ] as const;
 
 const reasonValues = ref([]);
+
+const initialValues: ComplaintSchema = {}
+
+const onSubmit = (e: FormSubmitEvent) => {
+  const event = e as FormSubmitEvent<ComplaintSchema>;
+
+  const { valid, values } = event;
+
+  // TODO
+};
 </script>

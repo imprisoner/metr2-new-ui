@@ -1,5 +1,11 @@
 <template>
-  <UiDialogFormWrapper>
+  <PForm
+    v-slot="$form"
+    :resolver
+    :initial-values
+    class="flex flex-col gap-4 max-w-98 flex-1 h-full justify-center"
+    @submit="onSubmit"
+  >
     <p class="text-2xl font-semibold">Создать аккаунт</p>
     <UiTextInput label="E-mail" :input-props="{ placeholder: 'Почта' }" />
     <UiTextInput label="Пароль" :input-props="{ placeholder: 'Пароль' }" />
@@ -22,9 +28,7 @@
     <div class="flex flex-col gap-2">
       <PButton label="Зарегистрироваться" :disabled="isDisabled" />
       <SocialAuthSection />
-      <UiTextWithLines severity="secondary"
-        >Уже есть аккаунт?</UiTextWithLines
-      >
+      <UiTextWithLines severity="secondary">Уже есть аккаунт?</UiTextWithLines>
       <PButton
         outlined
         severity="secondary"
@@ -32,11 +36,30 @@
         @click="showForm('login')"
       />
     </div>
-  </UiDialogFormWrapper>
+  </PForm>
 </template>
 
 <script setup lang="ts">
+import type { FormSubmitEvent } from "@primevue/forms";
+import resolver, { type RegisterSchema } from "~/schemas/register";
+const { showForm } = useLoginOrRegisterDialog();
+
 const isDisabled = true;
 
-const { showForm } = useLoginOrRegisterDialog();
+const initialValues: RegisterSchema = {
+  name: "",
+  email: "",
+  password: "",
+  passwordConfirm: "",
+  role: "",
+};
+
+const onSubmit = (e: FormSubmitEvent) => {
+  const event = e as FormSubmitEvent<RegisterSchema>;
+
+  const { valid, values } = event;
+
+  // TODO
+};
 </script>
+
