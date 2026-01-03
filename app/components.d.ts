@@ -24,6 +24,7 @@ declare module 'vue' {
     PDialog: typeof import('primevue/dialog')['default']
     PDrawer: typeof import('primevue/drawer')['default']
     PDynamicDialog: typeof import('primevue/dynamicdialog')['default']
+    PEditor: typeof import('primevue/editor')['default']
     PForm: typeof import('@primevue/forms/form')['default']
     PInputGroup: typeof import('primevue/inputgroup')['default']
     PInputGroupAddon: typeof import('primevue/inputgroupaddon')['default']
@@ -45,5 +46,6 @@ declare module 'vue' {
   }
   export interface ComponentCustomProperties {
     Ripple: typeof import('primevue/ripple')['default']
+    Tooltip: typeof import('primevue/tooltip')['default']
   }
 }

@@ -1,16 +1,21 @@
 <template>
-  <div class="flex gap-3">
-    <PAvatar
-      :size="size === 'sm' ? 'normal' : 'large'"
-      label="U"
-      shape="circle"
-    />
-    <PTextarea
-      :size="size === 'sm' ? 'small' : 'large'"
-      placeholder="Поделитесь мнением"
-      class="flex-1"
-      :class="heightClass"
-    />
+  <div>
+    <div class="flex gap-3">
+      <PAvatar
+        :size="size === 'sm' ? 'normal' : 'large'"
+        label="U"
+        shape="circle"
+      />
+      <PTextarea
+        v-show="!showFullEditor"
+        :size="size === 'sm' ? 'small' : 'large'"
+        placeholder="Поделитесь мнением"
+        class="flex-1"
+        :class="heightClass"
+        @focus="showFullEditor = true"
+      />
+      <UiWysiwygEditor v-show="showFullEditor" v-model:content="content" class="h-auto" />
+    </div>
   </div>
 </template>
 
@@ -20,6 +25,10 @@ const { size } = defineProps<{
 }>();
 
 const heightClass = size === "sm" ? "h-11" : "h-27";
+
+const content = ref("")
+
+const showFullEditor = ref(false)
 </script>
 
 <style scoped></style>
