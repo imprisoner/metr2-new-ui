@@ -1,6 +1,6 @@
 <template>
-  <UiInputWrapper :icon :label :invalid="invalid" :message="message">
-    <PInputText
+  <UiInputWrapper :label :icon :invalid :message>
+    <PInputNumber
       v-bind="inputProps"
       fluid
       :class="{
@@ -11,12 +11,12 @@
 </template>
 
 <script setup lang="ts">
-import type { InputTextProps } from "primevue";
+import type { InputNumberProps } from "primevue";
 import type { UiInputWrapperProps } from "~/types/ui.types";
 
 defineProps<
   UiInputWrapperProps & {
-    inputProps: Omit<InputTextProps, "fluid">;
+    inputProps: Omit<InputNumberProps, "fluid">;
   }
 >();
 </script>

@@ -7,13 +7,34 @@
     @submit="onSubmit"
   >
     <p class="text-2xl font-semibold">Создать аккаунт</p>
-    <UiTextInput label="E-mail" :input-props="{ placeholder: 'Почта' }" />
-    <UiTextInput label="Пароль" :input-props="{ placeholder: 'Пароль' }" />
+    <UiTextInput
+      label="E-mail"
+      name="email"
+      :input-props="{ placeholder: 'Почта' }"
+      :invalid="$form.email?.invalid"
+      :message="$form.email?.error?.message"
+    />
+    <UiTextInput
+      label="Пароль"
+      name="password"
+      :input-props="{ placeholder: 'Пароль' }"
+      :invalid="$form.password?.invalid"
+      :message="$form.password?.error?.message"
+    />
     <UiTextInput
       label="Повторите пароль"
+      name="passwordConfirm"
       :input-props="{ placeholder: 'Пароль' }"
+      :invalid="$form.passwordConfirm?.invalid"
+      :message="$form.passwordConfirm?.error?.message"
     />
-    <UiTextInput label="Имя" :input-props="{ placeholder: 'ФИО' }" />
+    <UiTextInput
+      label="Имя"
+      name="name"
+      :input-props="{ placeholder: 'ФИО' }"
+      :invalid="$form.name?.invalid"
+      :message="$form.name?.error?.message"
+    />
     <UiCheckboxInput
       label="Я подрядчик (предоставляю услуги)"
       :input-props="{}"

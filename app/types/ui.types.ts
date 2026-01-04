@@ -16,7 +16,7 @@ export interface IUserMenuButton extends IUserMenuItem {
     icon: Component;
     count?: number;
   };
-  handler?: () => void
+  handler?: () => void;
 }
 
 export interface IUserMenuDivider extends IUserMenuItem {
@@ -73,4 +73,11 @@ export interface IUiTabsItem {
 export interface IUiSheetProps {
   title?: string;
   count?: number;
+}
+
+export interface UiInputWrapperProps {
+  icon?: Component;
+  label?: string;
+  invalid?: boolean;
+  message?: string;
 }

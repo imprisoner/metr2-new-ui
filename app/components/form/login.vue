@@ -11,13 +11,14 @@
       <UiTextInput
         :icon="EnvelopeIcon"
         :input-props="{ placeholder: 'E-mail', name: 'email' }"
-        :form-field-state="$form.email"
-        :form="$form"
+        :invalid="$form.email?.invalid"
+        :message="$form.email?.error?.message"
       />
       <UiTextInput
         :icon="KeyIcon"
         :input-props="{ placeholder: 'Пароль', name: 'password' }"
-        :form-field-state="$form.password"
+        :invalid="$form.password?.invalid"
+        :message="$form.password?.error?.message"
       />
     </div>
     <div class="flex flex-col gap-2">
@@ -50,10 +51,7 @@ const initialValues: LoginSchema = {
 const onSubmit = (e: FormSubmitEvent) => {
   const event = e as FormSubmitEvent<LoginSchema>;
 
-  const {
-    valid,
-    values
-  } = event;
+  const { valid, values } = event;
 
   // TODO
 };

@@ -7,15 +7,7 @@
         class="object-cover absolute left-0 top-0 h-50"
       />
       <div class="flex flex-col gap-4 z-1">
-        <div
-          class="user-avatar border-2 border-white rounded-full w-31 h-31 overflow-hidden"
-        >
-          <UiUserAvatar
-            :image-url="avatar"
-            size="xlarge"
-            class="w-full h-full object-cover"
-          />
-        </div>
+        <ProfilePageAvatarArea :avatar-url="avatar"/>
         <div class="flex flex-col lg:flex-row items-center gap-2">
           <h1 class="text-5xl font-semibold">{{ name }}</h1>
           <span v-if="isOnline" class="text-xs text-custom-success"
@@ -25,21 +17,7 @@
       </div>
       <!--  -->
       <!-- actions -->
-      <div class="flex gap-2 w-full lg:w-auto">
-        <PButton label="Подписаться" class="flex-1 min-w-fit"/>
-        <PButton outlined severity="secondary" label="Написать" pt:label:class="lg:hidden" class="flex-1 lg:flex-auto">
-          <template #icon>
-            <ArrowIcon class="w-3.5 h-3.5"/>
-          </template>
-          <!-- <span class="lg:hidden">
-            Написать
-          </span> -->
-        </PButton>
-        <!-- TODO profile more menu? -->
-        <PButton text>
-          <DotsIcon />
-        </PButton>
-      </div>
+      <ProfilePageActionsArea />
     </div>
     <!--  -->
 
