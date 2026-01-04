@@ -159,7 +159,7 @@
         </div>
       </div>
       <!-- comment form -->
-
+      <CommentForm size="lg" />
       <!-- comment form end -->
 
       <CommentItem v-for="comment in comments" v-bind="comment" />
