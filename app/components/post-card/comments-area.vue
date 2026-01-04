@@ -9,7 +9,14 @@
         :key="comment.name"
         v-bind="comment"
       />
-      <CommentForm size="sm"/>
+      <div class="flex gap-3 items-start">
+        <UiUserAvatar
+          label="U"
+          shape="circle"
+          class="shrink-0 mt-1"
+        />
+        <FormComment size="sm" />
+      </div>
     </div>
   </div>
 </template>

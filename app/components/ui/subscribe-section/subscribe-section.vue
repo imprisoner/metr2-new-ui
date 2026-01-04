@@ -27,7 +27,6 @@ const { avatarUrl } = defineProps<{
 defineEmits<{
   (e: "subscribe"): void;
 }>();
-console.log(avatarUrl)
 </script>
 
 <style scoped></style>

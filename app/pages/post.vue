@@ -159,7 +159,15 @@
         </div>
       </div>
       <!-- comment form -->
-      <CommentForm size="lg" />
+       <div class="flex gap-3 items-start">
+        <UiUserAvatar
+          size="large"
+          label="U"
+          shape="circle"
+          class="shrink-0 mt-1"
+        />
+      <FormComment size="lg" />
+      </div>
       <!-- comment form end -->
 
       <CommentItem v-for="comment in comments" v-bind="comment" />

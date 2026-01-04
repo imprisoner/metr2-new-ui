@@ -1,61 +1,50 @@
 <template>
-  <div>
-    <div class="flex gap-3 items-start">
-      <PAvatar
-        :size="size === 'sm' ? 'normal' : 'large'"
-        label="U"
-        shape="circle"
-        class="shrink-0 mt-1"
-      />
-
-      <div class="flex-1 transition-all duration-300">
-        <!-- 
+  <div class="flex-1 transition-all duration-300">
+    <!-- 
           Standard Textarea 
           We use absolute positioning or a simple v-if swap. 
           Here, v-if swap is cleanest with mode="out-in" 
         -->
-        <Transition
-          name="expand"
-          mode="out-in"
-          @enter="onEnter"
-          @after-enter="onAfterEnter"
-          @leave="onLeave"
-        >
-          <!-- State 1: Simple Textarea -->
-          <div v-if="!showFullEditor" key="textarea" class="w-full">
-            <PTextarea
-            size="small"
-              placeholder="Поделитесь мнением"
-              class="h-14 w-full resize-none transition-shadow"
-              @focus="enableEditor"
-            />
-          </div>
+    <Transition
+      name="expand"
+      mode="out-in"
+      @enter="onEnter"
+      @after-enter="onAfterEnter"
+      @leave="onLeave"
+    >
+      <!-- State 1: Simple Textarea -->
+      <div v-if="!showFullEditor" key="textarea" class="w-full">
+        <PTextarea
+          size="small"
+          placeholder="Поделитесь мнением"
+          class="h-14 w-full resize-none transition-shadow"
+          @focus="enableEditor"
+        />
+      </div>
 
-          <!-- State 2: Full WYSIWYG Editor -->
-          <div
-            v-else
-            key="editor"
-            class="w-full overflow-hidden flex flex-col gap-2"
-          >
-            <!-- 
+      <!-- State 2: Full WYSIWYG Editor -->
+      <div
+        v-else
+        key="editor"
+        class="w-full overflow-hidden flex flex-col gap-2"
+      >
+        <!-- 
                Wrapper div is crucial for the height animation to work 
                on the container rather than the component itself 
              -->
-            <UiWysiwygEditor
-              ref="editorRef"
-              v-model:content="content"
-              class="h-auto"
-            />
+        <UiWysiwygEditor
+          ref="editorRef"
+          v-model:content="content"
+          class="h-auto"
+        />
 
-            <!-- Optional: Cancel/Save buttons can go here -->
-            <div class="flex fade-in">
-              <PButton label="Отправить" />
-              <!-- Add your submit button here -->
-            </div>
-          </div>
-        </Transition>
+        <!-- Optional: Cancel/Save buttons can go here -->
+        <div class="flex fade-in">
+          <PButton label="Отправить" />
+          <!-- Add your submit button here -->
+        </div>
       </div>
-    </div>
+    </Transition>
   </div>
 </template>
 
@@ -112,7 +101,6 @@ const onLeave = (el: Element) => {
 
   element.style.height = "0";
 };
-
 </script>
 
 <style scoped>

@@ -29,9 +29,6 @@ const {formFieldState, form} = defineProps<{
   formFieldState?: FormFieldState;
   form?: Record<string, any>
 }>();
-
-console.log(form)
-console.log(formFieldState)
 </script>
 
 <style scoped></style>
