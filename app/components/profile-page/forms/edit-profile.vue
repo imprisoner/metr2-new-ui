@@ -56,18 +56,21 @@
     </div>
 
     <div class="flex justify-end gap-3 mt-4">
-      <PButton label="Отменить" outlined severity="secondary" @click="onCancel" />
+      <PButton
+        label="Отменить"
+        outlined
+        severity="secondary"
+        @click="onCancel"
+      />
       <PButton type="submit" label="Сохранить" />
     </div>
   </PForm>
 </template>
 
 <script setup lang="ts">
-import { zodResolver } from "@primevue/forms/resolvers/zod";
-import z from "zod";
+import resolver, { type ProfileInfoSchema } from "~/schemas/profile-info";
 
-const onCancel = () => {
-};
+const onCancel = () => {};
 
 const genderOptions = ref(["Мужчина", "Женщина"]);
 const cities = ref([
@@ -76,7 +79,7 @@ const cities = ref([
   { name: "Казань", code: "KZN" },
 ]);
 
-const initialValues = ref({
+const initialValues = ref<ProfileInfoSchema>({
   name: "Алсу Новикова",
   gender: "Женщина",
   nickname: "user482845",
@@ -84,16 +87,6 @@ const initialValues = ref({
   about: "",
   city: null,
 });
-
-const schema = z.object({
-  name: z.string().min(1, "Name is required"),
-  nickname: z.string().min(1, "Nickname is required"),
-  age: z.number().nullable(),
-  about: z.string().optional(),
-  city: z.any().optional(),
-});
-
-const resolver = zodResolver(schema);
 
 const onFormSubmit = ({ valid, values }: any) => {
   if (valid) {
