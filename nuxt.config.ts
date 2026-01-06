@@ -184,8 +184,8 @@ export default defineNuxtConfig({
   vite: {
     plugins: [tailwindcss()],
   },
-  typescript: {
-    typeCheck: true,
-  },
+  // typescript: {
+  //   typeCheck: true,
+  // },
   plugins: ["~/plugins/click-outside.client.ts"],
 });

@@ -1,6 +1,6 @@
 import { z } from "zod";
 import { zodResolver } from "@primevue/forms/resolvers/zod";
-import { error } from "~/utils/message";
+import { error } from "~/shared/utils/message";
 
 export const sendMessageSchema = z.object({
   // email: z.email(error.wrongValue).nonempty(error.required),

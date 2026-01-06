@@ -1,4 +1,4 @@
-import { error } from "~/utils/message";
+import { error } from "~/shared/utils/message";
 import { z } from "zod";
 
 export const latinOnlyWithNumbersSchema = z

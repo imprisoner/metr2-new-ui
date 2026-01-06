@@ -13,6 +13,7 @@
     "@nuxtjs/device": "4.0.0",
     "@pinia/nuxt": "0.11.3",
     "@primeuix/themes": "^2.0.2",
+    "@primeuix/utils": "^0.6.3",
     "@primevue/forms": "^4.5.4",
     "@splidejs/vue-splide": "github:joris-gallot/vue-splide",
     "@tailwindcss/vite": "^4.1.18",
@@ -23,6 +24,7 @@
     "tailwindcss": "^4.1.18",
     "tailwindcss-primeui": "^0.6.1",
     "vue": "^3.5.25",
+    "vue-advanced-cropper": "^2.8.9",
     "vue-router": "^4.6.3",
     "zod": "^4.3.4"
   },

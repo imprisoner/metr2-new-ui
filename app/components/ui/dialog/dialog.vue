@@ -3,7 +3,7 @@
     ref="dialogRef"
     v-model:visible="store.visible"
     v-bind="props"
-    class="w-115"
+    class="lg:min-w-115 max-w-full"
     pt:content:class="lg:items-center lg:flex lg:justify-center p-4 lg:p-10 pt-0!"
     pt:header:class="justify-end"
   >

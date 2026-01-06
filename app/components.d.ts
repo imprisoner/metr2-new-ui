@@ -25,6 +25,7 @@ declare module 'vue' {
     PDrawer: typeof import('primevue/drawer')['default']
     PDynamicDialog: typeof import('primevue/dynamicdialog')['default']
     PEditor: typeof import('primevue/editor')['default']
+    PFileUpload: typeof import('primevue/fileupload')['default']
     PForm: typeof import('@primevue/forms/form')['default']
     PInputGroup: typeof import('primevue/inputgroup')['default']
     PInputGroupAddon: typeof import('primevue/inputgroupaddon')['default']

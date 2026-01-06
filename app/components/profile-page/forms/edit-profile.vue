@@ -4,11 +4,12 @@
     :initialValues="initialValues"
     :resolver="resolver"
     @submit="onFormSubmit"
-    class="flex flex-col gap-5"
+    class="flex flex-col gap-4 h-full lg:h-auto justify-center"
   >
+    <p class="text-2xl font-semibold">Редактирование профиля</p>
+
     <div class="flex flex-col gap-2">
-      <label for="name">Имя</label>
-      <UiTextInput :input-props="{ name: 'name' }" />
+      <UiTextInput :input-props="{ name: 'name' }" label="Имя" />
     </div>
 
     <div class="w-full">
@@ -21,48 +22,50 @@
 
     <div class="grid grid-cols-2 gap-4">
       <div class="flex flex-col gap-2">
-        <label for="nickname">Никнейм</label>
-        <UiTextInput :input-props="{ name: 'nickname' }" />
+        <UiTextInput :input-props="{ name: 'nickname' }" label="Никнейм"/>
       </div>
 
       <div class="flex flex-col gap-2">
-        <label for="age">Возраст</label>
         <UiNumberInput
           :input-props="{ name: 'age', inputId: 'age', useGrouping: false }"
+          label="Возраст"
         />
       </div>
     </div>
 
     <div class="flex flex-col gap-2">
-      <label for="about">О себе</label>
-      <PTextarea
-        name="about"
-        rows="4"
-        placeholder="Краткая информация о вас, вашем доме, увлечениях"
-        class="w-full resize-none"
-      />
+      <UiInputWrapper label="О себе">
+        <PTextarea
+          name="about"
+          rows="4"
+          placeholder="Краткая информация о вас, вашем доме, увлечениях"
+          class="w-full resize-none"
+        />
+      </UiInputWrapper>
     </div>
 
     <div class="flex flex-col gap-2">
-      <label for="city">Город</label>
-      <PMultiSelect
-        name="city"
-        :options="cities"
-        optionLabel="name"
-        placeholder="Выберите один или несколько городов"
-        display="chip"
-        class="w-full flex items-center"
-      />
+      <UiInputWrapper label="Город">
+        <PMultiSelect
+          name="city"
+          :options="cities"
+          optionLabel="name"
+          placeholder="Выберите один или несколько городов"
+          display="chip"
+          class="w-full flex items-center"
+        />
+      </UiInputWrapper>
     </div>
 
-    <div class="flex justify-end gap-3 mt-4">
+    <div class="flex flex-col-reverse lg:flex-row lg:justify-end gap-3">
       <PButton
         label="Отменить"
         outlined
         severity="secondary"
+        class="flex-1 lg:flex-auto"
         @click="onCancel"
       />
-      <PButton type="submit" label="Сохранить" />
+      <PButton type="submit" class="flex-1 lg:flex-auto" label="Сохранить" />
     </div>
   </PForm>
 </template>

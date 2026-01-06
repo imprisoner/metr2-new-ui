@@ -4,11 +4,12 @@
 </template>
 
 <script setup lang="ts">
-import ProfilePageFormsEditProfile from "~/components/profile-page/forms/edit-profile.vue"
 const { openDialog } = useDialogStore();
 
+const profileFormComponent = defineAsyncComponent(() => import("../forms/edit-profile.vue"))
+
 const onEditClick = () => {
-  openDialog(ProfilePageFormsEditProfile)
+  openDialog(profileFormComponent)
 }
 
 const logout = () => {
