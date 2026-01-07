@@ -4,10 +4,10 @@
     <div class="flex flex-col lg:flex-row items-center lg:items-end gap-4 justify-between mt-28 mb-4">
       <img
         src="/images/profile-top-bg.webp"
-        class="object-cover absolute left-0 top-0 h-50"
+        class="object-cover absolute left-0 top-0 h-50 w-full"
       />
       <div class="flex flex-col gap-4 z-1">
-        <ProfilePageAvatarArea :avatar-url="avatar"/>
+        <ProfilePageAvatarArea :avatar-url="avatar" />
         <div class="flex flex-col lg:flex-row items-center gap-2">
           <h1 class="text-5xl font-semibold">{{ name }}</h1>
           <span v-if="isOnline" class="text-xs text-custom-success"

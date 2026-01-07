@@ -101,7 +101,7 @@
           <!--  -->
           <div class="flex justify-between items-center">
             <div class="flex gap-1">
-              <UiSmallChip v-for="item in chips" :key="item" :label="item" />
+              <UiChip v-for="item in chips" :key="item" size="sm" :label="item" />
             </div>
             <span class="text-base text-custom-secondary">{{ createdAt }}</span>
           </div>

@@ -91,8 +91,8 @@ const MyPreset = definePreset(Material, {
       colorScheme: {
         light: {
           root: {
-            paddingY: "0.325rem",
-            paddingX: "1rem",
+            paddingY: "6px",
+            paddingX: "16px",
             background: "#EFF3F8",
             color: "#4B5563",
             borderRadius: "1rem",
@@ -155,7 +155,7 @@ const MyPreset = definePreset(Material, {
       root: {
         padding: 'unset'
       }
-    }
+    },
   },
 });
 

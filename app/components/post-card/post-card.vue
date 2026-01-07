@@ -5,7 +5,7 @@
       <UserSection :mobile="mobile" />
       <h3 class="text-4xl font-semibold">Как мы решились на лофт</h3>
       <div class="flex gap-1">
-        <UiSmallChip v-for="tag in mockTags" :key="tag" :label="tag" />
+        <UiChip v-for="tag in mockTags" size="sm" :key="tag" :label="tag" />
       </div>
     </div>
     <!-- BODY -->

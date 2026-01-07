@@ -24,6 +24,15 @@
     <ProfilePageBlogSection />
     
     <SubscribeSection v-bind="user" class="gap-4! lg:gap-6!" @subscribe="handleSubscribe" />
+
+    <NoItemsSection
+      class="gap-4! lg:gap-6!"
+      :ui-sheet-props="{ title: 'Квартиры, дома' }"
+      icon="sad"
+      title="Вы ещё не добавили жильё"
+      subtitle="Добавьте квартиру или дом, чтобы рассказать о нём и привлечь внимание"
+      @button-click="showAddEstateDialog"
+    />
   </div>
 </template>
 
@@ -42,6 +51,14 @@ const handleSubscribe = () => {
 const user = {
   avatarUrl: '/images/user-avatar.png',
   name: 'Julia Sh.'
+}
+
+const { openDialog } = useDialogStore()
+
+const addEstateFormComponent = defineAsyncComponent(() => import('~/components/profile-page/forms/add-estate.vue'))
+
+const showAddEstateDialog = () => {
+  openDialog(addEstateFormComponent, true)
 }
 </script>
 

@@ -4,8 +4,12 @@ import type { Component } from "vue";
 export const useDialogStore = defineStore("dialog", () => {
   const currentComponent = shallowRef<Component>();
   const visible = ref(false);
+  const dialogProps = reactive({
+    maximize: false
+  });
 
-  const openDialog = (content: Component) => {
+  const openDialog = (content: Component, maximize: boolean = false) => {
+    dialogProps.maximize = maximize
     currentComponent.value = content;
     visible.value = true;
   };
@@ -20,6 +24,8 @@ export const useDialogStore = defineStore("dialog", () => {
   return {
     currentComponent,
     visible,
-    openDialog
+    dialogProps,
+    openDialog,
   };
 });
+

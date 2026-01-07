@@ -45,8 +45,8 @@ const { isMobile } = useDevice();
 
 const store = useDialogStore();
 
-onMounted(() => {
-  if (isMobile) dialogRef.value?.maximize();
-});
+onUpdated(() => {
+  if (isMobile || store.dialogProps.maximize) dialogRef.value?.maximize();
+})
 </script>
 

@@ -6,18 +6,13 @@
         Найдите единомышленников с квартирой или домом как ваш.
       </p>
     </div>
-    <PSelectButton
-      v-model="estateTypeValue"
-      :options="estateTypeOptions"
-      class="custom-select-button"
-      fluid
-    />
+    <EstateTypeSelect v-model="estateTypeValue" />
 
     <div class="flex flex-col gap-3">
       <!-- roomness chips -->
       <div class="flex flex-wrap gap-1">
         <NuxtLink v-for="(label, index) in roomnessChips" :key="index" to="#">
-          <PChip :label="label" :pt="{ root: { class: 'text-base' } }" />
+          <UiChip :label="label" />
         </NuxtLink>
       </div>
 
@@ -28,7 +23,7 @@
           :key="index"
           to="#"
         >
-          <PChip :label="label" :pt="{ root: { class: 'text-base' } }" />
+          <UiChip :label="label" />
         </NuxtLink>
       </div>
     </div>
@@ -48,7 +43,6 @@
 import FiltersIcon from "~/components/icons/filters.vue";
 
 const estateTypeValue = ref<string>("Квартира");
-const estateTypeOptions = ["Квартира", "Частный дом"];
 
 const roomnessChips = ["Студия", "1-комн", "2-комн", "3-комн", "4+"];
 
@@ -61,12 +55,3 @@ const buildingTypesChips = [
   "Старый фонд",
 ];
 </script>
-
-<style>
-.custom-select-button.p-selectbutton > button {
-  font-size: 14px;
-  flex: 1;
-  padding: 10.5px 0;
-}
-</style>
-

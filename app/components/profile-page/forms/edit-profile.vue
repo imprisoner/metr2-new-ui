@@ -36,6 +36,7 @@
     <div class="flex flex-col gap-2">
       <UiInputWrapper label="О себе">
         <PTextarea
+          size="small"
           name="about"
           rows="4"
           placeholder="Краткая информация о вас, вашем доме, увлечениях"

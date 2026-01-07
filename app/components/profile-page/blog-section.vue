@@ -1,14 +1,6 @@
 <template>
-  <UiSheet title="Блог" class="flex flex-col gap-4 lg:gap-6">
-    <RecommendedSection />
-    <PButton outlined severity="secondary" @click=""/>
-  </UiSheet>
+  <RecommendedSection :ui-sheet-props="{ title: 'Блог' }" class="gap-4
+  lg:gap-6"/>
 </template>
 
-<script setup lang="ts">
-
-</script>
-
-<style scoped>
-
-</style>
+<script setup lang="ts"></script>
