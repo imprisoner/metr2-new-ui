@@ -13,7 +13,9 @@
         </p>
       </div>
     </div>
-    <PostCardActions :share-button-props="shareButtonProps" />
+    <ClientOnly>
+      <PostCardActions :share-button-props="shareButtonProps" />
+    </ClientOnly>
   </div>
 </template>
 

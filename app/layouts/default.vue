@@ -1,23 +1,21 @@
 <template>
-  <div>
-    <UiHeader />
-    <div class="layout-grid pt-10 max-w-360 mx-auto">
-      <UiSidebar />
-      <main>
-        <slot />
-      </main>
-      <aside class="pe-7 sticky top-24.75">
-        <UiSheet>
-          <UiUserMenu v-if="isAuthorized" />
-          <FormLogin v-else/>
-        </UiSheet>
-      </aside>
-    </div>
+  <UiHeader />
+  <div class="layout-grid pt-10 max-w-360 mx-auto">
+    <UiSidebar />
+    <main>
+      <slot />
+    </main>
+    <aside class="pe-7 sticky top-24.75">
+      <UiSheet>
+        <UiUserMenu v-if="isAuthorized" />
+        <FormLogin v-else/>
+      </UiSheet>
+    </aside>
   </div>
 </template>
 
 <script setup lang="ts">
-  const isAuthorized = false
+const isAuthorized = false;
 </script>
 
 <style scoped>
@@ -31,3 +29,4 @@
   height: fit-content;
 }
 </style>
+

@@ -1,6 +1,6 @@
 <template>
   <div class="flex-1">
-    <PEditor v-model="content" class="w-full" :dt="dt" editor-style="height: 250px;" :pt="{
+    <PEditor ref="editor" v-model="content" class="w-full" :dt="dt" editor-style="height: 250px;" :pt="{
       toolbar: 'px-3.5 py-[10.5px]',
       content: 'text-base'
     }">
@@ -34,6 +34,10 @@ const dt: EditorDesignTokens = {
     color: "#6B7280",
   }
 };
+
+const editorRef = useTemplateRef('editor')
+
+defineExpose({ editor: editorRef})
 </script>
 
 <style scoped>

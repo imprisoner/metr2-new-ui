@@ -30,7 +30,7 @@ const icons: Record<CounterType, Component> = {
 
 const { size = "normal" } = defineProps<{
   type: CounterType;
-  count: number;
+  count?: number;
   size?: "sm" | "normal";
 }>();
 </script>

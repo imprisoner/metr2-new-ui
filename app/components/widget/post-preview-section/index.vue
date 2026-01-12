@@ -4,9 +4,9 @@
       {{ title }}
     </p>
 
-    <MobileRecommendedCarousel v-if="isMobile" />
+    <WidgetPostPreviewSectionMobileCarousel v-if="isMobile" :items />
     <div v-else class="flex flex-col gap-4">
-      <template v-for="(card, index) in recommended" :key="index">
+      <template v-for="(card, index) in items" :key="index">
         <PostPreviewCard v-bind="card" />
         <hr v-if="!isLast(index)" class="w-full text-custom-divider" />
       </template>
@@ -23,23 +23,19 @@
 </template>
 
 <script setup lang="ts">
-import { RECOMMENDED_POSTS } from "~/const/mock";
+import type { IPostPreviewEntity } from '~/types/ui.types';
 
-const { buttonLabel = "Все работы" } = defineProps<{
+const { buttonLabel = "Все работы", items } = defineProps<{
   title?: string;
   withButton?: boolean;
   buttonLabel?: string;
   blockButton?: boolean;
+  items: IPostPreviewEntity[];
 }>();
 
-defineEmits<{ (e: "button-click"): void }>();
-
-const recommended = RECOMMENDED_POSTS;
-
 const isLast = (index: number) => {
-  return index === recommended.length - 1;
+  return index === items.length - 1;
 };
 
 const { isMobile } = useDevice();
 </script>
-

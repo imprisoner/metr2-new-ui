@@ -1,7 +1,6 @@
 <template>
   <UiPopoverWithBlock
     v-model:visible="visible"
-    ref="popover"
     :icon="IconBurger"
   >
     <UiHeaderNavigation :is-mobile="true" />

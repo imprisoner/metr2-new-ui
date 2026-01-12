@@ -5,7 +5,6 @@ import ArrowIcon from "~/components/icons/arrow.vue";
 import SlashedEyeIcon from "~/components/icons/slashed-eye.vue";
 import CircledCrossIcon from "~/components/icons/circled-cross.vue";
 import FlagIcon from "~/components/icons/flag.vue";
-import ShareIcon from "~/components/icons/share.vue";
 
 export const useDotsMenuItems = () => {
   const { openDialog } = useDialogStore();
@@ -53,7 +52,6 @@ export const useDotsMenuItems = () => {
   const DESKTOP_ITEMS: (IUserMenuDivider | IUserMenuButton)[] = [
     { type: "divider", props: { direction: "horizontal" } },
     { type: "button", props: { label: "Отписаться", icon: CircledCrossIcon } },
-    { type: "button", props: { label: "Поделиться", icon: ShareIcon } },
   ];
 
   const { isDesktop } = useDevice();

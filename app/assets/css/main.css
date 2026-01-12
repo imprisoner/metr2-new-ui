@@ -38,7 +38,9 @@
   --color-custom-surface-ground: #EFF3F8;
   --color-custom-success: #16A34A;
 
-  --shadow-custom-card: #191D240D 0px 1px 3px 0px
+  --shadow-custom-card: #191D240D 0px 1px 3px 0px;
+
+  --radius-custom-lg: 10px;
 }
 
 @media (max-width: 1024px)  {

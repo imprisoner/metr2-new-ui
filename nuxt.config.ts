@@ -42,6 +42,9 @@ const MyPreset = definePreset(Material, {
         padding: "12px",
         color: "#323745",
       },
+      list: {
+        padding: "0"
+      },
       root: {
         background: "transparent",
         borderColor: "transparent",

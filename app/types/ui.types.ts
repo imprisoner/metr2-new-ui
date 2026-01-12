@@ -81,3 +81,24 @@ export interface UiInputWrapperProps {
   invalid?: boolean;
   message?: string;
 }
+
+export interface IServiceItemProps {
+  id: string;
+  name: string;
+  description?: string;
+  priceMin: number;
+  priceMax: number;
+}
+
+export interface IPostPreviewEntity {
+  user: {
+    avatarUrl?: string;
+    name: string;
+  },
+  imageUrl?: string;
+  type: string;
+  title: string;
+  commentsCount?: number;
+  favoritesCount?: number;
+  likesCount?: number;
+}

@@ -1,7 +1,6 @@
 <template>
   <UiPopoverWithBlock
     v-model:visible="visible"
-    ref="popover"
     header="Написать"
     :icon="IconPlus"
   >

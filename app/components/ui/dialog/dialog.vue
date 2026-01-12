@@ -1,6 +1,6 @@
 <template>
   <PDialog
-    ref="dialogRef"
+    ref="dialog"
     v-model:visible="store.visible"
     v-bind="props"
     class="lg:min-w-115 max-w-full"
@@ -31,15 +31,13 @@
 </template>
 
 <script setup lang="ts">
+import type { Dialog } from "primevue";
 import CrossIcon from "~/components/icons/cross.vue";
 import { props } from "~/const/components/dialog";
 
-interface PDialogInstance {
-  maximize: () => void;
-  close: () => void;
-}
-
-const dialogRef = ref<PDialogInstance | null>(null);
+const dialogRef = useTemplateRef<typeof Dialog & { maximize: () => void }>(
+  "dialog"
+);
 
 const { isMobile } = useDevice();
 
@@ -47,6 +45,6 @@ const store = useDialogStore();
 
 onUpdated(() => {
   if (isMobile || store.dialogProps.maximize) dialogRef.value?.maximize();
-})
+});
 </script>
 

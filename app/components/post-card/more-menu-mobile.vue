@@ -17,7 +17,7 @@
       <UiMobileMenuButton label="Поделиться" />
       <div class="flex gap-2 p-2">
         <PButton
-          v-for="item in shareButtons"
+          v-for="item in SHARE_BUTTONS"
           :key="item.provider"
           text
           class="p-0 w-12 h-12"
@@ -34,13 +34,9 @@
 
 <script setup lang="ts">
 import type { DrawerDesignTokens } from "@primeuix/themes/types/drawer";
-import ChainsIcon from "../icons/share/chains.vue";
-import MaxIcon from "../icons/share/max.vue";
-import PinterestIcon from "../icons/share/pinterest.vue";
-import TelegramIcon from "../icons/share/telegram.vue";
-import VkIcon from "../icons/share/vk.vue";
-import WhatsappIcon from "../icons/share/whatsapp.vue";
+
 import { useDotsMenuItems } from "~/composables/useDotsMenuItems";
+import { SHARE_BUTTONS } from "~/const";
 
 const dt: DrawerDesignTokens = {
   content: {
@@ -52,15 +48,6 @@ const dt: DrawerDesignTokens = {
 };
 
 const visible = defineModel<boolean>("visible");
-
-const shareButtons = [
-  { provider: "copy", icon: ChainsIcon, handler: () => {} },
-  { provider: "telegram", icon: TelegramIcon, handler: () => {} },
-  { provider: "vkontakte", icon: VkIcon, handler: () => {} },
-  { provider: "pinterest", icon: PinterestIcon, handler: () => {} },
-  { provider: "max", icon: MaxIcon, handler: () => {} },
-  { provider: "whatsapp", icon: WhatsappIcon, handler: () => {} },
-] as const;
 
 const { dotsMenuItems } = useDotsMenuItems();
 </script>

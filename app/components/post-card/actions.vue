@@ -5,15 +5,12 @@
       label="Подписаться"
       class="hidden lg:inline-flex"
     />
-    <div class="relative">
-      <PostCardMoreMenu />
-    </div>
+    <PostCardMoreMenu />
   </div>
 </template>
 
 <script setup lang="ts">
 import type { ButtonProps } from "primevue";
-
 
 const {
   shareButtonProps = {

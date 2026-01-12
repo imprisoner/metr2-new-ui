@@ -1,7 +1,7 @@
 <template>
-  <PForm class="flex flex-col gap-6 w-full h-full">
+  <PForm class="flex flex-col gap-4 lg:gap-6 w-full h-full px-2 lg:px-0">
     <p class="text-2xl font-semibold">Добавление квартиры или дома</p>
-    <div class="flex gap-10 flex-1">
+    <div class="flex flex-col lg:flex-row gap-6 lg:gap-10 flex-1">
       <div class="flex flex-1 flex-col gap-4">
         <EstateTypeSelect v-model="estateTypeValue" />
         <div class="flex gap-4">
@@ -36,8 +36,8 @@
         <UiChipSelectInput :options="finishing" label="Отделка"/>
       </div>
       <!--  -->
-      <div class="flex-1 flex">
-        <UiFileUpload class="w-full"/>
+      <div class="flex-1 flex pb-10 lg:pb-0">
+        <UiFileUpload class="w-full" multiple />
       </div>
     </div>
   </PForm>

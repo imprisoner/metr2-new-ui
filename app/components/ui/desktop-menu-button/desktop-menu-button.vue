@@ -8,9 +8,7 @@
     @click="item.handler"
   >
     <template #icon>
-      <span class="h-5 w-5 me-2">
-        <Component :is="item.props.icon" class="w-full h-full" />
-      </span>
+      <Component :is="item.props.icon" class="h-3.5 w-3.5" />
     </template>
   </PButton>
   <UiDivider

@@ -101,7 +101,12 @@
           <!--  -->
           <div class="flex justify-between items-center">
             <div class="flex gap-1">
-              <UiChip v-for="item in chips" :key="item" size="sm" :label="item" />
+              <UiChip
+                v-for="item in chips"
+                :key="item"
+                size="sm"
+                :label="item"
+              />
             </div>
             <span class="text-base text-custom-secondary">{{ createdAt }}</span>
           </div>
@@ -159,14 +164,14 @@
         </div>
       </div>
       <!-- comment form -->
-       <div class="flex gap-3 items-start">
+      <div class="flex gap-3 items-start">
         <UiUserAvatar
           size="large"
           label="U"
           shape="circle"
           class="shrink-0 mt-1"
         />
-      <FormComment size="lg" />
+        <FormComment size="lg" />
       </div>
       <!-- comment form end -->
 
@@ -174,13 +179,19 @@
     </UiSheet>
 
     <!--  -->
-
-    <RecommendedSection title="Рекомендуем ещё посмотреть" />
+    <UiSheet>
+      <WidgetPostPreviewSection
+        title="Рекомендуем ещё посмотреть"
+        with-button
+        block-button
+        :items="RECOMMENDED_POSTS"
+      />
+    </UiSheet>
   </div>
 </template>
 
 <script setup lang="ts">
-import { COMMENTS_MOCK, MOCK_IMAGES } from "~/const/mock";
+import { COMMENTS_MOCK, MOCK_IMAGES, RECOMMENDED_POSTS } from "~/const/mock";
 
 const breadcrumbs = {
   home: { route: "/", label: "Лента" },

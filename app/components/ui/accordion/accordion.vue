@@ -1,5 +1,5 @@
 <template>
-  <PAccordion value="0" :unstyled="true" class="w-full" :dt="dt">
+  <PAccordion :value="`${value}`" :unstyled="true" class="w-full" :dt="dt" :pt="pt">
     <template #expandicon>
       <ChevronUpIcon class="rotate-180" />
     </template>
@@ -7,13 +7,11 @@
       <ChevronUpIcon />
     </template>
     <PAccordionPanel value="0" class="shadow-none">
-      <PAccordionHeader class="justify-start gap-4">
+      <PAccordionHeader :class="headerClass">
         <slot name="header" />
       </PAccordionHeader>
       <PAccordionContent>
-        <div class="flex flex-col gap-4">
-          <slot />
-        </div>
+        <slot />
       </PAccordionContent>
     </PAccordionPanel>
   </PAccordion>
@@ -22,6 +20,12 @@
 <script setup lang="ts">
 import type { AccordionDesignTokens } from "@primeuix/themes/types/accordion";
 import ChevronUpIcon from "~/components/icons/chevron-up.vue";
+
+const props = defineProps<{
+  dt?: AccordionDesignTokens;
+  value?: number;
+  headerClass?: string
+}>();
 
 const dt: AccordionDesignTokens = {
   colorScheme: {
@@ -41,6 +45,7 @@ const dt: AccordionDesignTokens = {
     padding: "0 0 16px 0",
     borderWidth: "0",
   },
+  ...props.dt,
 };
 </script>
 

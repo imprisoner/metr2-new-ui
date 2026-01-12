@@ -8,7 +8,7 @@
       gap: '1.25rem',
     }"
   >
-    <SplideSlide v-for="(item, index) in recommended" :key="index">
+    <SplideSlide v-for="(item, index) in items" :key="index">
       <div class="gap-5 flex">
         <PostPreviewCard v-bind="item" />
         <UiDivider direction="vertical" />
@@ -18,17 +18,11 @@
 </template>
 
 <script setup lang="ts">
-import { RECOMMENDED_POSTS } from "~/const/mock";
 import "@splidejs/vue-splide/css";
 import { Splide, SplideSlide } from "@splidejs/vue-splide";
+import type { IPostPreviewEntity } from "~/types/ui.types";
 
-const recommended = RECOMMENDED_POSTS;
+defineProps<{items: IPostPreviewEntity[]}>()
 
-const responsiveOptions = [
-  {
-    breakpoint: "767px",
-    numVisible: 1,
-    numScroll: 2,
-  },
-];
 </script>
+

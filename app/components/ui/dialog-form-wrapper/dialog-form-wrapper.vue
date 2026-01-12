@@ -1,6 +1,6 @@
 <template>
   <PForm
-    ref="formRef"
+    ref="form"
     v-slot="$form"
     class="flex flex-col gap-4 max-w-98 flex-1 h-full justify-center"
     @submit="$emit('submit', $event)"
@@ -20,7 +20,7 @@ defineEmits<{
 
 defineProps<FormProps>();
 
-const formRef = ref(null);
+const formRef = useTemplateRef('form');
 
 defineExpose({formRef})
 </script>

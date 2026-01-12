@@ -1,87 +1,17 @@
 <template>
-  <UiSheet title="Услуги" :count="3" class="flex flex-col gap-4 lg:gap-6">
-    <PAccordion multiple :dt="dt">
-      <!-- icon -->
-      <template #expandicon>
-        <ChevronUpIcon class="rotate-180 ml-2" />
-      </template>
-      <template #collapseicon>
-        <ChevronUpIcon class="ml-2" />
-      </template>
-      <!--  -->
-      <PAccordionPanel
-        v-for="(item, index) in services"
-        :key="item.id"
-        :value="item.id"
-        class="shadow-none border-b border-custom-divider mb-0"
-        :class="{
-          'border-none': index === services.length - 1,
-        }"
-      >
-        <PAccordionHeader>
-          <div
-            class="flex flex-col lg:flex-row flex-1 lg:items-center justify-between"
-          >
-            <h5 class="text-base font-bold">{{ item.name }}</h5>
-            <p class="text-base font-normal text-custom-secondary">
-              <template v-if="!!item.priceMin">от {{ item.priceMin }}</template>
-              <template v-if="!!item.priceMax">до {{ item.priceMax }}</template>
-              <template v-if="!(item.priceMin || item.priceMax)"
-                >по договорённости</template
-              >
-            </p>
-          </div>
-        </PAccordionHeader>
-        <PAccordionContent class="text-base">
-          {{ item.description }}
-        </PAccordionContent>
-      </PAccordionPanel>
-    </PAccordion>
+  <ProfilePageSectionWrapper
+    title="Услуги"
+    :count="3"
+    class="flex flex-col gap-4 lg:gap-6"
+  >
+    <ProfilePageServicesList :items="services" />
     <!--  -->
-    <div>
-      <PButton outlined severity="secondary" label="Оставить отзыв" />
-    </div>
-  </UiSheet>
+    <PButton v-if="!isOwner" outlined severity="secondary" label="Оставить отзыв" class="w-fit"/>
+  </ProfilePageSectionWrapper>
 </template>
 
 <script setup lang="ts">
-import type { AccordionDesignTokens } from "@primeuix/themes/types/accordion";
-import ChevronUpIcon from "~/components/icons/chevron-up.vue";
-
-const dt: AccordionDesignTokens = {
-  colorScheme: {
-    light: {
-      header: {
-        activeColor: "{primary.500}",
-        color: "#6B7280",
-        padding: ".75rem 0",
-      },
-      panel: {
-        borderColor: "transparent",
-        borderWidth: "0",
-      },
-      content: {
-        color: "#4B5563",
-        padding: "0 0 1rem 0",
-        borderWidth: "0",
-        borderColor: "transparent",
-      },
-    },
-  },
-  header: {
-    hoverBackground: "#FFFFFF",
-    padding: ".75rem 0",
-    borderWidth: "0",
-  },
-};
-
-interface IServiceItemProps {
-  id: string;
-  name: string;
-  description?: string;
-  priceMin: number;
-  priceMax: number;
-}
+import type { IServiceItemProps } from "~/types/ui.types";
 
 const services: IServiceItemProps[] = [
   {
@@ -108,7 +38,7 @@ const services: IServiceItemProps[] = [
     priceMax: 0,
   },
 ];
-</script>
 
-<style scoped></style>
+const { isOwner } = storeToRefs(useAuthStore());
+</script>
 

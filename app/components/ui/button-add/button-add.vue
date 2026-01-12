@@ -1,10 +1,10 @@
 <template>
   <PButton
     v-bind="buttonProps"
-    :label="label"
-    class="justify-start"
+    :label="computedLabel"
+    class="{'justify-start': !iconOnly}"
     :pt="{
-      label: 'font-normal text-base',
+      label: 'font-semibold text-base',
     }"
   >
     <template #icon>
@@ -17,9 +17,12 @@
 import type { ButtonProps } from "primevue";
 import PlusIcon from "~/components/icons/plus.vue";
 
-const { label = "Добавить" } = defineProps<{
+const { label = "Добавить", iconOnly = false } = defineProps<{
   buttonProps?: ButtonProps;
   label?: string;
+  iconOnly?: boolean;
 }>();
+
+const computedLabel = !iconOnly ? label : undefined;
 </script>
 

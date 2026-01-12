@@ -33,7 +33,7 @@
                on the container rather than the component itself 
              -->
         <UiWysiwygEditor
-          ref="editorRef"
+          ref="editor"
           v-model:content="content"
           class="h-auto"
         />
@@ -59,17 +59,20 @@ const { size } = defineProps<{
 
 const content = ref("");
 const showFullEditor = ref(false);
-const editorRef = ref<typeof WysiwygEditor>();
+const editorRef = useTemplateRef('editor');
 
 const enableEditor = async () => {
   showFullEditor.value = true;
 
   // Wait for DOM update then focus the editor
   // Note: Your UiWysiwygEditor must expose a focus() method or inner element
-  await nextTick();
-  if (editorRef.value?.focus) {
-    editorRef.value.focus();
-  }
+
+  // TODO focus on editor
+  
+  // await nextTick();
+  // if (editorRef.value?.editor?.focus !== undefined) {
+  //   editorRef.value?.editor.focus();
+  // }
 };
 
 // 2. Animation Hooks (The "Unfolding" Magic)

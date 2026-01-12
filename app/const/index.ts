@@ -17,6 +17,12 @@ import CircledCrossIcon from "~/components/icons/circled-cross.vue";
 import FlagIcon from "~/components/icons/flag.vue";
 import ShareIcon from "~/components/icons/share.vue";
 import type { INavItem, IUserMenuButton, IUserMenuDivider } from "../types/ui.types";
+import ChainsIcon from "~/components/icons/share/chains.vue";
+import MaxIcon from "~/components/icons/share/max.vue";
+import PinterestIcon from "~/components/icons/share/pinterest.vue";
+import TelegramIcon from "~/components/icons/share/telegram.vue";
+import VkIcon from "~/components/icons/share/vk.vue";
+import WhatsappIcon from "~/components/icons/share/whatsapp.vue";
 
 export const MAIN_NAV_ITEMS: INavItem[] = [
   { label: "Популярное", icon: Flame.name!, route: "#" },
@@ -126,3 +132,12 @@ export const COMMENT_ACTIONS_MENU_ITEMS: (IUserMenuDivider | IUserMenuButton)[] 
   { type: "button", props: { label: "Сообщение", icon: ArrowIcon } },
   { type: "button", props: { label: "Пожаловаться", icon: FlagIcon } },
 ];
+
+export const SHARE_BUTTONS = [
+  { provider: "copy", icon: ChainsIcon, handler: () => {} },
+  { provider: "telegram", icon: TelegramIcon, handler: () => {} },
+  { provider: "vkontakte", icon: VkIcon, handler: () => {} },
+  { provider: "pinterest", icon: PinterestIcon, handler: () => {} },
+  { provider: "max", icon: MaxIcon, handler: () => {} },
+  { provider: "whatsapp", icon: WhatsappIcon, handler: () => {} },
+] as const;

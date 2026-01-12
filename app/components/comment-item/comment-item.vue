@@ -17,14 +17,16 @@
         <UiCounter type="likes" :count="likesCount" size="sm" />
         <p @click="mentionUser" class="text-base font-semibold">Ответить</p>
       </div>
-      <UiAccordion>
-        <template v-if="children" #header>
+      <UiAccordion v-if="children" :value="0" header-class="justify-start gap-4">
+        <template #header>
           <span class="text-base font-semibold"
             >{{ children.length }} ответ</span
           >
         </template>
         <!--  -->
-        <CommentItem v-for="comment in children" v-bind="comment" />
+        <div class="flex flex-col gap-4">
+          <CommentItem v-for="comment in children" v-bind="comment" />
+        </div>
       </UiAccordion>
     </div>
     <CommentItemActions

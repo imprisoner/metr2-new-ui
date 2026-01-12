@@ -1,13 +1,15 @@
 <template>
-  <PButton text @click="toggle">
-    <template #icon>
-      <DotsIcon />
-    </template>
-  </PButton>
-  <ClientOnly>
-    <PostCardMoreMenuMobile v-if="isMobile" v-model:visible="visible" />
-    <PostCardMoreMenuDesktop v-else v-model:visible="visible" />
-  </ClientOnly>
+  <div class="relative" v-click-outside="() => visible = false">
+    <PButton text @click="toggle">
+      <template #icon>
+        <DotsIcon />
+      </template>
+    </PButton>
+    <!-- <ClientOnly>
+      <PostCardMoreMenuMobile v-if="isMobile" v-model:visible="visible" />
+      <PostCardMoreMenuDesktop v-else v-model:visible="visible" />
+    </ClientOnly> -->
+  </div>
 </template>
 
 <script setup lang="ts">
@@ -19,7 +21,8 @@ const toggle = () => {
   visible.value = !visible.value;
 };
 
-const { isMobile } = useDevice();
+// const { isMobile } = useDevice();
+const isMobile = false
 </script>
 
 <style scoped>
