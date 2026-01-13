@@ -5,15 +5,14 @@
         <DotsIcon />
       </template>
     </PButton>
-    <!-- <ClientOnly>
+    <ClientOnly>
       <PostCardMoreMenuMobile v-if="isMobile" v-model:visible="visible" />
       <PostCardMoreMenuDesktop v-else v-model:visible="visible" />
-    </ClientOnly> -->
+    </ClientOnly>
   </div>
 </template>
 
 <script setup lang="ts">
-import DotsIcon from "~/components/icons/dots.vue";
 
 const visible = ref(false);
 

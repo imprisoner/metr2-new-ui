@@ -6,7 +6,8 @@
       :class="{ 'flex-row-reverse': type === 'next' }"
     >
       <div class="flex gap-1 items-center text-custom-secondary">
-        <Component :is="type === 'next' ? ChevronRightIcon : ChevronLeftIcon" />
+        <ChevronLeftIcon v-if="type === 'prev'"/>
+        <ChevronRightIcon v-else />
         <span class="text-base font-semibold">
           {{ type === 'next' ? 'Следующий' : 'Предыдущий' }} пост
         </span>
@@ -27,9 +28,6 @@
 </template>
 
 <script setup lang="ts">
-import ChevronLeftIcon from "../icons/chevron-left.vue";
-import ChevronRightIcon from "../icons/chevron-right.vue";
-
 defineProps<{
   type: "next" | "prev";
   title: string;
@@ -40,4 +38,3 @@ defineProps<{
 </script>
 
 <style scoped></style>
-

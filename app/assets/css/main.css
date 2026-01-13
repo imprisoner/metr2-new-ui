@@ -1,6 +1,10 @@
 @import "tailwindcss";
 @import "tailwindcss-primeui";
 
+/* specify explicitly which dirs should scan - decision for nuxt layers */
+
+@source "../../../layers/";
+
 @theme {
   --color-orange-50: #ffeceb;
   --color-orange-100: #ffdddb;

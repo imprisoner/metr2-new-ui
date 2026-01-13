@@ -1,10 +1,10 @@
 import type { IUserMenuButton, IUserMenuDivider } from "~/types/ui.types";
 
-import CircledCheckmark from "~/components/icons/circled-checkmark.vue";
-import ArrowIcon from "~/components/icons/arrow.vue";
-import SlashedEyeIcon from "~/components/icons/slashed-eye.vue";
-import CircledCrossIcon from "~/components/icons/circled-cross.vue";
-import FlagIcon from "~/components/icons/flag.vue";
+import CircledCheckmark from "#layers/ui/app/icons/circled-checkmark-icon.vue";
+import ArrowIcon from "#layers/ui/app/icons/arrow-icon.vue";
+import SlashedEyeIcon from "#layers/ui/app/icons/slashed-eye-icon.vue";
+import CircledCrossIcon from "#layers/ui/app/icons/circled-cross-icon.vue";
+import FlagIcon from "#layers/ui/app/icons/flag-icon.vue";
 
 export const useDotsMenuItems = () => {
   const { openDialog } = useDialogStore();

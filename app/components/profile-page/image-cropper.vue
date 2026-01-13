@@ -3,7 +3,7 @@
     <div class="cropper">
       <div class="flex flex-col-reverse max-w-full">
         <Cropper
-          class="max-h-75! mx-auto rounded-[10px] overflow-hidden"
+          class="max-h-75! mx-auto rounded-custom-lg overflow-hidden"
           :src="imageSource"
           :stencil-component="CircleStencil"
           :resize-image="false"
@@ -42,7 +42,6 @@ import {
   type CropperResult,
 } from "vue-advanced-cropper";
 import "vue-advanced-cropper/dist/style.css";
-import canvasToBase64 from "~/shared/utils/canvasToBase64";
 
 const { imageSource } = defineProps<{
   imageSource: string;

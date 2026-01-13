@@ -37,8 +37,8 @@
 
 <script setup lang="ts">
 import type { FormSubmitEvent } from "@primevue/forms";
-import EnvelopeIcon from "~/components/icons/envelope.vue";
-import KeyIcon from "~/components/icons/key.vue";
+import EnvelopeIcon from "#layers/ui/app/icons/envelope-icon.vue";
+import KeyIcon from "#layers/ui/app/icons/key-icon.vue";
 import resolver, { type LoginSchema } from "~/schemas/login";
 
 const { showForm } = useLoginOrRegisterDialog();

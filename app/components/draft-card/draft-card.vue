@@ -21,7 +21,6 @@
 
 <script setup lang="ts">
 import type { TagDesignTokens } from '@primeuix/themes/types/tag';
-import PencilIcon from '~/components/icons/pencil.vue';
 
 defineProps<{
   imageUrl?: string;

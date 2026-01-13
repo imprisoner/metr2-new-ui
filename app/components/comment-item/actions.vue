@@ -13,8 +13,6 @@
 </template>
 
 <script setup lang="ts">
-import DotsIcon from "~/components/icons/dots.vue";
-
 const visible = ref(false);
 
 watch(() => visible.value, (v) => {

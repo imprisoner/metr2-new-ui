@@ -17,8 +17,6 @@
 </template>
 
 <script setup lang="ts">
-import PhotoDeviceIcon from "../icons/photo-device.vue";
-
 defineProps<{
   avatarUrl?: string;
   isOwner?: boolean;

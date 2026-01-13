@@ -16,26 +16,24 @@
     </UiSheet>
 
     <!--  -->
-    <UiSheet>
-      <div class="flex flex-col lg:flex-row gap-2 lg:items-center">
-        <div class="flex-1">
-          <p class="text-xl font-semibold">Не пора ли добавить новую запись?</p>
-          <p class="text-base text-custom-secondary">Ваши подписчики ждут</p>
-        </div>
-        <div class="flex gap-2 w-full">
-          <UiButtonAdd
-            label="Написать"
-            @click="handleAddRecord"
-            class="flex-1 justify-center!"
-          />
-          <PButton
-            outlined
-            severity="secondary"
-            label="Черновики"
-            @click="goToDrafts"
-            class="flex-1"
-          />
-        </div>
+    <UiSheet class="flex flex-col lg:flex-row gap-2 lg:items-center">
+      <div class="flex-1">
+        <p class="text-xl font-semibold">Не пора ли добавить новую запись?</p>
+        <p class="text-base text-custom-secondary">Ваши подписчики ждут</p>
+      </div>
+      <div class="flex gap-2 w-full lg:w-fit">
+        <UiButtonAdd
+          label="Написать"
+          @click="handleAddRecord"
+          class="flex-1 justify-center!"
+        />
+        <PButton
+          outlined
+          severity="secondary"
+          label="Черновики"
+          @click="goToDrafts"
+          class="flex-1"
+        />
       </div>
     </UiSheet>
     <!--  -->
@@ -82,3 +80,4 @@ const handleAddRecord = () => {};
 
 const goToDrafts = () => {};
 </script>
+

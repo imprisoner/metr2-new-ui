@@ -13,14 +13,11 @@
     </PButton>
     <PButton outlined rounded severity="secondary">
       <template #icon>
-        <VkIcon />
+        <VkontakteIcon />
       </template>
     </PButton>
   </div>
 </template>
 
 <script setup lang="ts">
-import GoogleIcon from "~/components/icons/google.vue";
-import YandexIcon from "~/components/icons/yandex.vue";
-import VkIcon from "~/components/icons/vkontakte.vue";
 </script>

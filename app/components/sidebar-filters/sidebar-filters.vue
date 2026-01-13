@@ -40,8 +40,6 @@
 </template>
 
 <script setup lang="ts">
-import FiltersIcon from "~/components/icons/filters.vue";
-
 const estateTypeValue = ref<string>("Квартира");
 
 const roomnessChips = ["Студия", "1-комн", "2-комн", "3-комн", "4+"];

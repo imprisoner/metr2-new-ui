@@ -6,7 +6,7 @@
 
     <ProfilePagePortfolioSection />
 
-    <NoItemsSection
+    <UiNoItemsSection
       class="gap-4! lg:gap-6!"
       :ui-sheet-props="{ title: 'Отзывы' }"
       icon="sad"
@@ -15,17 +15,17 @@
       <template #button>
         <PButton outlined severity="secondary" label="Оставить отзыв" @click="addFeedback"/>
       </template>
-    </NoItemsSection>
+    </UiNoItemsSection>
 
-    <SubscribeSection v-bind="user" class="gap-4! lg:gap-6!" @subscribe="handleSubscribe" />
+    <UiSubscribeSection v-bind="user" class="gap-4! lg:gap-6!" @subscribe="handleSubscribe" />
     
     <ProfilePageEstateSection />
     
     <ProfilePageBlogSection />
     
-    <SubscribeSection v-bind="user" class="gap-4! lg:gap-6!" @subscribe="handleSubscribe" />
+    <UiSubscribeSection v-bind="user" class="gap-4! lg:gap-6!" @subscribe="handleSubscribe" />
 
-    <NoItemsSection
+    <UiNoItemsSection
       class="gap-4! lg:gap-6!"
       :ui-sheet-props="{ title: 'Квартиры, дома' }"
       icon="sad"
@@ -37,8 +37,6 @@
 </template>
 
 <script setup lang="ts">
-import NoItemsSection from "~/components/ui/no-items-section/no-items-section.vue";
-import SubscribeSection from "~/components/ui/subscribe-section/subscribe-section.vue";
 
 const addFeedback = () => {
   // TODO

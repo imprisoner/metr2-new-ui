@@ -20,7 +20,7 @@
         </div>
       </div>
       <!--  -->
-      <ImagesGrid class="h-100" />
+      <UiImagesGrid class="h-100" />
       <!--  -->
       <p
         class="ellipsis-3 text-xl"
@@ -36,7 +36,7 @@
         @click="toggleExpandText"
       >
         <span class="text-base font-semibold">Показать полностью</span>
-        <ChevronUp
+        <ChevronUpIcon
           :class="{
             'rotate-180': isTextExpanded,
           }"
@@ -81,9 +81,6 @@
 </template>
 
 <script setup lang="ts">
-import ChevronUp from "~/components/icons/chevron-up.vue";
-import ImagesGrid from "~/components/ui/images-grid/images-grid.vue";
-
 const breadcrumbs = {
   home: { route: "/", label: "Лента" },
   model: [

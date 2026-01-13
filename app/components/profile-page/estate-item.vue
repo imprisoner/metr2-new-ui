@@ -7,7 +7,7 @@
     <div class="flex gap-2">
       <UiChip v-for="item in tags" size="sm" :label="item" />
     </div>
-    <ImagesGrid />
+    <UiImagesGrid />
     <div v-if="isOwner" class="flex gap-2 flex-col lg:flex-row">
       <UiButtonAdd label="Новая запись" />
       <PButton outlined severity="secondary" label="Все записи"/>
@@ -24,7 +24,6 @@
 </template>
 
 <script setup lang="ts">
-import ImagesGrid from "~/components/ui/images-grid/images-grid.vue";
 import { RECOMMENDED_POSTS } from "~/const/mock";
 
 defineProps<{

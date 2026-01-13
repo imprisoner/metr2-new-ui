@@ -34,7 +34,6 @@
 </template>
 
 <script setup lang="ts">
-import ShareIcon from "~/components/icons/share.vue";
 import { SHARE_BUTTONS } from "~/const";
 
 const visible = defineModel<boolean>("visible");

@@ -16,8 +16,6 @@
 </template>
 
 <script setup lang="ts">
-import PencilIcon from "~/components/icons/pencil.vue";
-
 const { openDialog } = useDialogStore();
 
 const profileFormComponent = defineAsyncComponent(

@@ -44,7 +44,6 @@
 
 <script setup lang="ts">
 import type { AccordionDesignTokens } from "@primeuix/themes/types/accordion";
-import ChevronUpAltIcon from "~/components/icons/chevron-up-alt.vue";
 import type { IServiceItemProps } from "~/types/ui.types";
 
 defineProps<{ items: IServiceItemProps[] }>();

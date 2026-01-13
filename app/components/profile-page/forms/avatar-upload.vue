@@ -25,7 +25,6 @@
 
 <script setup lang="ts">
 import type { FileUploadSelectEvent } from "primevue";
-import fileToBase64 from "~/shared/utils/fileToBase64";
 
 const imageSource = ref<string>();
 

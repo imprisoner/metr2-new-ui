@@ -14,12 +14,12 @@ export const useDialogStore = defineStore("dialog", () => {
     visible.value = true;
   };
 
-  watch(
-    () => visible.value,
-    (visible) => {
-      if (!visible) currentComponent.value = undefined;
-    }
-  );
+  // watch(
+  //   () => visible.value,
+  //   (visible) => {
+  //     if (!visible) currentComponent.value = undefined;
+  //   }
+  // );
 
   return {
     currentComponent,

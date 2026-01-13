@@ -1,28 +1,28 @@
 // ICONS
-import CircledCheckmark from "~/components/icons/circled-checkmark.vue";
-import Diaries from "~/components/icons/diaries.vue";
-import Favorite from "~/components/icons/favorite.vue";
-import Flame from "~/components/icons/flame.vue";
-import Lightning from "~/components/icons/lightning.vue";
-import DiariesIcon from "~/components/icons/diaries.vue";
-import BookIcon from "~/components/icons/book.vue";
-import PicDoubleIcon from "~/components/icons/pic-double.vue";
-import CardIcon from "~/components/icons/card.vue";
-import StarIcon from "~/components/icons/star.vue";
-import SheetWithPencilIcon from "~/components/icons/sheet-with-pencil.vue";
-import ArrowIcon from "~/components/icons/arrow.vue";
-import UserIcon from "~/components/icons/user.vue";
-import SlashedEyeIcon from "~/components/icons/slashed-eye.vue";
-import CircledCrossIcon from "~/components/icons/circled-cross.vue";
-import FlagIcon from "~/components/icons/flag.vue";
-import ShareIcon from "~/components/icons/share.vue";
+import CircledCheckmark from "#layers/ui/app/icons/circled-checkmark-icon.vue";
+import Diaries from "#layers/ui/app/icons/diaries-icon.vue";
+import Favorite from "#layers/ui/app/icons/favorite-icon.vue";
+import Flame from "#layers/ui/app/icons/flame-icon.vue";
+import Lightning from "#layers/ui/app/icons/lightning-icon.vue";
+import DiariesIcon from "#layers/ui/app/icons/diaries-icon.vue";
+import BookIcon from "#layers/ui/app/icons/book-icon.vue";
+import PicDoubleIcon from "#layers/ui/app/icons/pic-double-icon.vue";
+import CardIcon from "#layers/ui/app/icons/card-icon.vue";
+import StarIcon from "#layers/ui/app/icons/star-icon.vue";
+import SheetWithPencilIcon from "#layers/ui/app/icons/sheet-with-pencil-icon.vue";
+import ArrowIcon from "#layers/ui/app/icons/arrow-icon.vue";
+import UserIcon from "#layers/ui/app/icons/user-icon.vue";
+import SlashedEyeIcon from "#layers/ui/app/icons/slashed-eye-icon.vue";
+import CircledCrossIcon from "#layers/ui/app/icons/circled-cross-icon.vue";
+import FlagIcon from "#layers/ui/app/icons/flag-icon.vue";
+import ShareIcon from "#layers/ui/app/icons/share-icon.vue";
 import type { INavItem, IUserMenuButton, IUserMenuDivider } from "../types/ui.types";
-import ChainsIcon from "~/components/icons/share/chains.vue";
-import MaxIcon from "~/components/icons/share/max.vue";
-import PinterestIcon from "~/components/icons/share/pinterest.vue";
-import TelegramIcon from "~/components/icons/share/telegram.vue";
-import VkIcon from "~/components/icons/share/vk.vue";
-import WhatsappIcon from "~/components/icons/share/whatsapp.vue";
+import ChainsIcon from "#layers/ui/app/icons/share/chains-icon.vue";
+import MaxIcon from "#layers/ui/app/icons/share/max-icon.vue";
+import PinterestIcon from "#layers/ui/app/icons/share/pinterest-icon.vue";
+import TelegramIcon from "#layers/ui/app/icons/share/telegram-icon.vue";
+import VkIcon from "#layers/ui/app/icons/share/vk-icon.vue";
+import WhatsappIcon from "#layers/ui/app/icons/share/whatsapp-icon.vue";
 
 export const MAIN_NAV_ITEMS: INavItem[] = [
   { label: "Популярное", icon: Flame.name!, route: "#" },

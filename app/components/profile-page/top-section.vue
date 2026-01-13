@@ -55,9 +55,6 @@
 </template>
 
 <script setup lang="ts">
-import DotsIcon from "~/components/icons/dots.vue";
-import ArrowIcon from "~/components/icons/arrow.vue";
-
 const avatar = "/images/user-avatar.png";
 const name = "Julia Sh.";
 const isOnline = true;
