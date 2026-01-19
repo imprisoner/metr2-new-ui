@@ -16,7 +16,11 @@ import SlashedEyeIcon from "#layers/ui/app/icons/slashed-eye-icon.vue";
 import CircledCrossIcon from "#layers/ui/app/icons/circled-cross-icon.vue";
 import FlagIcon from "#layers/ui/app/icons/flag-icon.vue";
 import ShareIcon from "#layers/ui/app/icons/share-icon.vue";
-import type { INavItem, IUserMenuButton, IUserMenuDivider } from "../types/ui.types";
+import type {
+  INavItem,
+  IUserMenuButton,
+  IUserMenuDivider,
+} from "../types/ui.types";
 import ChainsIcon from "#layers/ui/app/icons/share/chains-icon.vue";
 import MaxIcon from "#layers/ui/app/icons/share/max-icon.vue";
 import PinterestIcon from "#layers/ui/app/icons/share/pinterest-icon.vue";
@@ -44,9 +48,10 @@ export const USER_MENU_ITEMS: (IUserMenuDivider | IUserMenuButton)[] = [
   {
     type: "button",
     props: {
-      to: "#",
+      to: "/diaries",
       label: "Дневники",
       icon: DiariesIcon,
+      quickAccess: { type: "diary" },
     },
   },
   {
@@ -55,6 +60,7 @@ export const USER_MENU_ITEMS: (IUserMenuDivider | IUserMenuButton)[] = [
       to: "#",
       label: "Блог",
       icon: BookIcon,
+      quickAccess: { type: "blog" },
     },
   },
   {
@@ -63,6 +69,7 @@ export const USER_MENU_ITEMS: (IUserMenuDivider | IUserMenuButton)[] = [
       to: "#",
       label: "Портфолио",
       icon: PicDoubleIcon,
+      quickAccess: { type: "portfolio" },
     },
   },
   {
@@ -84,7 +91,7 @@ export const USER_MENU_ITEMS: (IUserMenuDivider | IUserMenuButton)[] = [
   {
     type: "button",
     props: {
-      to: "#",
+      to: "/drafts",
       label: "Черновики",
       icon: SheetWithPencilIcon,
       count: 1,
@@ -103,7 +110,7 @@ export const USER_MENU_ITEMS: (IUserMenuDivider | IUserMenuButton)[] = [
   {
     type: "button",
     props: {
-      to: "#",
+      to: "/profile",
       label: "Профиль",
       icon: UserIcon,
     },
@@ -128,7 +135,10 @@ export const POST_CARD_MORE_MENU_ITEMS: (IUserMenuDivider | IUserMenuButton)[] =
     { type: "button", props: { label: "Отписаться", icon: CircledCrossIcon } },
   ];
 
-export const COMMENT_ACTIONS_MENU_ITEMS: (IUserMenuDivider | IUserMenuButton)[] = [
+export const COMMENT_ACTIONS_MENU_ITEMS: (
+  | IUserMenuDivider
+  | IUserMenuButton
+)[] = [
   { type: "button", props: { label: "Сообщение", icon: ArrowIcon } },
   { type: "button", props: { label: "Пожаловаться", icon: FlagIcon } },
 ];
@@ -141,3 +151,6 @@ export const SHARE_BUTTONS = [
   { provider: "max", icon: MaxIcon, handler: () => {} },
   { provider: "whatsapp", icon: WhatsappIcon, handler: () => {} },
 ] as const;
+
+export const OAUTH_PROVIDERS = ["google", "yandex", "vk"] as const;
+

@@ -1,0 +1,43 @@
+import type { AuthRecord } from "pocketbase";
+import { tryToRefreshToken } from "~/api/functions";
+import { pb } from "~/api/client";
+import { useAuthStore } from "~/stores/auth";
+import type { DictCitiesRecord, UsersResponse } from "~/types/pocketbase-types";
+
+export default defineNuxtPlugin(async () => {
+  const cookie = useCookie<{ token: string; record: AuthRecord }>("pb_auth", {
+    path: "/",
+    secure: true,
+    sameSite: "lax",
+    httpOnly: false, // change to "true" if you want only server-side access
+    maxAge: 604800,
+  });
+
+  // load the store data from the cookie value
+  pb.authStore.save(cookie.value?.token, cookie.value?.record);
+
+  // send back the default 'pb_auth' cookie to the client with the latest store state
+
+  const authStore = useAuthStore();
+
+  pb.authStore.onChange(() => {
+    cookie.value = {
+      token: pb.authStore.token,
+      record: pb.authStore.record,
+    };
+
+    authStore.isAuthorized = pb.authStore.isValid;
+    authStore.userInfo = pb.authStore.record as unknown as UsersResponse<{
+      location: DictCitiesRecord;
+    }>;
+  });
+
+  try {
+    tryToRefreshToken()
+    // get an up-to-date auth store state by verifying and refreshing the loaded auth model (if any)
+  } catch {
+    // clear the auth store on failed refresh
+    pb.authStore.clear();
+  }
+});
+

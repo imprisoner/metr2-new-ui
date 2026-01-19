@@ -1,5 +1,6 @@
 import type { Component, ExtractPublicPropTypes } from "vue";
 import UiNoItemsSection from "~/components/ui/no-items-section/no-items-section.vue";
+import type { PostType } from "./common.types";
 
 type MenuItemType = "button" | "divider";
 
@@ -8,22 +9,29 @@ export interface IUserMenuItem {
   props: Record<string, any>;
 }
 
+export interface IUserMenuButtonProps {
+  to?: string;
+  label: string;
+  icon: Component;
+  count?: number;
+  quickAccess?: {
+    type: PostType;
+  };
+}
+
 export interface IUserMenuButton extends IUserMenuItem {
   type: "button";
-  props: {
-    to?: string;
-    label: string;
-    icon: Component;
-    count?: number;
-  };
-  handler?: () => void;
+  props: IUserMenuButtonProps;
+  // handler?: () => void;
+}
+
+export interface IUserMenuDividerProps {
+  direction: "horizontal" | "vertical";
 }
 
 export interface IUserMenuDivider extends IUserMenuItem {
   type: "divider";
-  props: {
-    direction: "horizontal" | "vertical";
-  };
+  props: IUserMenuDividerProps;
 }
 
 export interface INavItem {
@@ -94,11 +102,12 @@ export interface IPostPreviewEntity {
   user: {
     avatarUrl?: string;
     name: string;
-  },
+  };
   imageUrl?: string;
-  type: string;
+  type: PostType;
   title: string;
   commentsCount?: number;
   favoritesCount?: number;
   likesCount?: number;
 }
+

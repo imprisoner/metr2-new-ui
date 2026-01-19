@@ -29,6 +29,7 @@ declare module 'vue' {
     PMultiSelect: typeof import('primevue/multiselect')['default']
     PSelect: typeof import('primevue/select')['default']
     PSelectButton: typeof import('primevue/selectbutton')['default']
+    PSplitButton: typeof import('primevue/splitbutton')['default']
     PTab: typeof import('primevue/tab')['default']
     PTabList: typeof import('primevue/tablist')['default']
     PTabs: typeof import('primevue/tabs')['default']
