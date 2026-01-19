@@ -141,3 +141,5 @@ export const SHARE_BUTTONS = [
   { provider: "max", icon: MaxIcon, handler: () => {} },
   { provider: "whatsapp", icon: WhatsappIcon, handler: () => {} },
 ] as const;
+
+export const OAUTH_PROVIDERS = ["google", "yandex", "vk"] as const;

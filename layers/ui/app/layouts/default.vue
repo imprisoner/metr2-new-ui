@@ -6,16 +6,16 @@
       <slot />
     </main>
     <aside class="pe-7 sticky top-24.75">
-      <UiSheet>
-        <UiUserMenu v-if="isAuthorized" />
-        <FormLogin v-else/>
+      <UiUserMenu v-if="isAuthorized" />
+      <UiSheet v-else>
+        <FormLogin />
       </UiSheet>
     </aside>
   </div>
 </template>
 
 <script setup lang="ts">
-const isAuthorized = false;
+const { isAuthorized } = storeToRefs(useAuthStore());
 </script>
 
 <style scoped>

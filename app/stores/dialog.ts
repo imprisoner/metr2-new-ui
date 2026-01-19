@@ -14,18 +14,21 @@ export const useDialogStore = defineStore("dialog", () => {
     visible.value = true;
   };
 
-  // watch(
-  //   () => visible.value,
-  //   (visible) => {
-  //     if (!visible) currentComponent.value = undefined;
-  //   }
-  // );
+  const closeDialog = (clear?: boolean) => {
+    visible.value = false;
+
+    if (clear) {
+      dialogProps.maximize = false;
+      currentComponent.value = undefined;
+    }
+  }
 
   return {
     currentComponent,
     visible,
     dialogProps,
     openDialog,
+    closeDialog
   };
 });
 

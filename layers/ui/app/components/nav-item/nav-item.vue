@@ -9,8 +9,9 @@
     :dt="dt"
   >
     <template v-if="icon" #icon>
-      <Component :is="icon" class="w-5 h-5 text-custom-icon"/>
+      <Component :is="icon" class="w-5 h-5 text-custom-icon" />
     </template>
+    <!-- <PlusCircleIcon v-if="action" @click.prevent="action" /> -->
   </PButton>
 </template>
 
@@ -18,24 +19,30 @@
 import type { ComponentsDesignTokens } from "@primeuix/themes/types";
 import type { Component } from "vue";
 
-defineProps<{ label: string; count?: number; icon?: Component }>();
+defineProps<{
+  label: string;
+  count?: number;
+  icon?: Component;
+  action?: () => void;
+}>();
 
-const dt: ComponentsDesignTokens['button'] = {
+const dt: ComponentsDesignTokens["button"] = {
   root: {
     label: {
-      fontWeight: "medium"
+      fontWeight: "medium",
     },
+    paddingX: "12px",
+    paddingY: "12px",
   },
   colorScheme: {
     light: {
       text: {
         secondary: {
-          color: "{primary.500}"
-        }
-      }
-    }
-  }
-} 
-
+          color: "{primary.500}",
+        },
+      },
+    },
+  },
+};
 </script>
 

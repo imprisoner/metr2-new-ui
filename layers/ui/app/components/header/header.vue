@@ -6,47 +6,25 @@
       <LogoIcon />
     </NuxtLink>
     <UiHeaderNavigation />
-    <PButton
-      text
-      class="text-white rounded-full hover:border-[#FFFFFF66] active:border-[#FFFFFF99] w-9.5 h-9.5 mx-6"
-      :dt="dt"
-    >
-      <template #icon>
-        <MagnifyIcon />
-      </template>
-    </PButton>
-    <PButton
-      outlined
-      class="text-white rounded-full border-[#FFFFFF33] hover:border-[#FFFFFF66] active:border-[#FFFFFF99]"
-      label="Войти"
-      :dt="dt"
-      @click="showForm('login')"
-    >
-      <template #icon>
-        <UserIcon class="w-3.5 h-3.5" />
-      </template>
-    </PButton>
+    <UiHeaderButton
+      :icon="MagnifyIcon"
+      class="mx-6 w-9.5 h-9.5"
+      :border="false"
+    />
+    <NuxtLink v-if="isAuthorized" to="/profile">
+      <UiHeaderButton label="Профиль" :icon="UserIcon" />
+    </NuxtLink>
+    <UiHeaderButton v-else label="Войти" @click="showForm('login')" />
   </header>
 </template>
 
 <script setup lang="ts">
-import type { ButtonDesignTokens } from "@primeuix/themes/types/button";
-
-const dt: ButtonDesignTokens = {
-  outlined: {
-    primary: {
-      activeBackground: "transparent",
-      hoverBackground: "transparent",
-    },
-  },
-  text: {
-    primary: {
-      activeBackground: "transparent",
-      hoverBackground: "transparent",
-    },
-  },
-};
+import MagnifyIcon from "../../icons/magnify-icon.vue";
+import UserIcon from "../../icons/user-icon.vue";
+import UiHeaderButton from "./header-button.vue";
 
 const { showForm } = useLoginOrRegisterDialog();
+
+const { isAuthorized } = storeToRefs(useAuthStore());
 </script>
 
