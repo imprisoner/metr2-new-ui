@@ -1,15 +1,15 @@
 <template>
   <nav>
     <PTabs
-      v-model:value="tabValue"
+      v-model:value="visibleSection"
       pt:root:class="bg-white"
       :show-navigators="false"
-      @update:value="onTabValueUpdate"
     >
       <PTabList>
         <PTab v-for="tab in tabs" :key="tab.sectionKey" :value="tab.sectionKey">
-          <div class="flex gap-2">
+          <div class="flex gap-1">
             <span>{{ tab.label }}</span>
+            <span class="text-xs">{{tab.count}}</span>
           </div>
         </PTab>
       </PTabList>
@@ -18,37 +18,50 @@
 </template>
 
 <script setup lang="ts">
+import { UsersProfileViewRoleOptions } from '~/types/pocketbase-types';
 import type { IUiTabsItem } from '~/types/ui.types';
 
-const emit = defineEmits<{(e: 'tab-click', v: string | number): void}>()
+const { visibleSection, pageData } = storeToRefs(useUsersPageStore());
 
-const onTabValueUpdate = (v: string | number) => {
-  emit('tab-click', v)
-}
+const contractorsTabs = computed<IUiTabsItem[]>(() => ([
+    {
+      label: "Услуги",
+      sectionKey: "services",
+      count: pageData.value?.serviceCount,
+    },
+    {
+      label: "Портфолио",
+      sectionKey: "portfolio",
+      count: pageData.value?.portfolioCount,
+    },
+    {
+      label: "Отзывы",
+      sectionKey: "feedbacks",
+      count: undefined /** TODO pageData.value?.feedbacksCount */,
+    },
+  ]));
 
-const tabs: IUiTabsItem[] = [
-  {
-    label: "Услуги",
-    sectionKey: 'services',
-  },
-  {
-    label: "Портфолио",
-    sectionKey: 'portfolio',
-  },
-  {
-    label: "Отзывы",
-    sectionKey: 'feedbacks',
-  },
-  {
-    label: "Квартиры/дома",
-    sectionKey: 'estate',
-  },
-  {
-    label: "Блог",
-    sectionKey: 'blog',
-  },
-] as const;
+  const commonTabs = computed<IUiTabsItem[]>(() => ([
+    {
+      label: "Квартиры/дома",
+      sectionKey: "estate",
+      count: pageData.value?.flatsCount,
+    },
+    {
+      label: "Блог",
+      sectionKey: "blog",
+      count: pageData.value?.blogCount,
+    },
+  ]));
 
-const tabValue = ref(tabs[0]!.sectionKey);
+  const tabs = computed(() => {
+    if (!pageData.value) {
+      return [];
+    }
+
+    return pageData.value.role === UsersProfileViewRoleOptions.contractor
+      ? contractorsTabs.value
+      : commonTabs.value;
+  });
 </script>
 

@@ -6,10 +6,12 @@
       <slot />
     </main>
     <aside class="pe-7 sticky top-24.75">
-      <UiUserMenu v-if="isAuthorized" />
-      <UiSheet v-else>
-        <FormLogin />
-      </UiSheet>
+      <ClientOnly>
+        <UiUserMenu v-if="isAuthorized" />
+        <UiSheet v-else>
+          <FormLogin />
+        </UiSheet>
+      </ClientOnly>
     </aside>
   </div>
 </template>

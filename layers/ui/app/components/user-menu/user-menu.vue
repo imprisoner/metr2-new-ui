@@ -22,8 +22,10 @@
 
       <template #item="{ item }">
         <NuxtLink :to="item.props.to">
-          <div class="flex items-center gap-2 px-[17.5px] py-3.5 cursor-pointer text-base">
-            <Component :is="item.props.icon" class="w-3.5 h-3.5"/>
+          <div
+            class="flex items-center gap-2 px-[17.5px] py-3.5 cursor-pointer text-base"
+          >
+            <Component :is="item.props.icon" class="w-3.5 h-3.5" />
             {{ item.props.label }}
           </div>
         </NuxtLink>
@@ -50,10 +52,7 @@ const subscribersCount = 728;
 const { userInfo } = storeToRefs(useAuthStore());
 
 const avatarUrl = computed(() => {
-  console.log(userInfo.value.avatar);
   if (userInfo.value.avatar) {
-    console.log("has avatar url");
-    console.log(getPocketbaseFilePath(userInfo.value, userInfo.value.avatar));
     return getPocketbaseFilePath(userInfo.value, userInfo.value.avatar);
   }
 

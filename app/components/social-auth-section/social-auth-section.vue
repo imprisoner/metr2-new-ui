@@ -17,7 +17,7 @@
 </template>
 
 <script setup lang="ts">
-import { authenticateWithProvider } from "~/api/functions";
+import { authenticateWithProvider } from "~/api/auth";
 import type { OAUTH_PROVIDERS } from "~/const";
 import GoogleIcon from "~~/layers/ui/app/icons/google-icon.vue";
 import VkontakteIcon from "~~/layers/ui/app/icons/vkontakte-icon.vue";

@@ -1,46 +1,19 @@
 <template>
   <div class="flex flex-col gap-10 pb-10">
-    <ProfilePageTopSection />
+    <ProfilePageTopSection @tab-click="onTabClick" />
 
-    <ProfilePageServicesSection />
+    <Component :is="sections[visibleSection]" />
 
-    <ProfilePagePortfolioSection />
-
-    <UiNoItemsSection
+    <UiSubscribeSection
+      v-bind="user"
       class="gap-4! lg:gap-6!"
-      :ui-sheet-props="{ title: 'Отзывы' }"
-      icon="sad"
-      subtitle="Отзывов пока нет. Будьте первым!"
-    >
-      <template #button>
-        <PButton outlined severity="secondary" label="Оставить отзыв" @click="addFeedback"/>
-      </template>
-    </UiNoItemsSection>
-
-    <UiSubscribeSection v-bind="user" class="gap-4! lg:gap-6!" @subscribe="handleSubscribe" />
-    
-    <ProfilePageEstateSection />
-    
-    <ProfilePageBlogSection />
-    
-    <UiSubscribeSection v-bind="user" class="gap-4! lg:gap-6!" @subscribe="handleSubscribe" />
-
-    <UiNoItemsSection
-      class="gap-4! lg:gap-6!"
-      :ui-sheet-props="{ title: 'Квартиры, дома' }"
-      icon="sad"
-      title="Вы ещё не добавили жильё"
-      subtitle="Добавьте квартиру или дом, чтобы рассказать о нём и привлечь внимание"
-      @button-click="showAddEstateDialog"
+      @subscribe="handleSubscribe"
     />
   </div>
 </template>
 
 <script setup lang="ts">
-
-const addFeedback = () => {
-  // TODO
-}
+import type { ProfilePageSectionKey } from '~/types/ui.types'
 
 const handleSubscribe = () => {
   // TODO
@@ -51,18 +24,18 @@ const user = {
   name: 'Julia Sh.'
 }
 
-const { openDialog } = useDialogStore()
+const visibleSection = ref<ProfilePageSectionKey>('estate')
 
-const addEstateFormComponent = defineAsyncComponent(() => import('~/components/profile-page/forms/add-estate.vue'))
+const onTabClick = (sectionKey: ProfilePageSectionKey) => {
+  visibleSection.value = sectionKey
+}
 
-const showAddEstateDialog = () => {
-  openDialog(addEstateFormComponent, true)
+const sections: Record<ProfilePageSectionKey, Component> = {
+  services: defineAsyncComponent(() => import('~/components/profile-page/sections/services.vue')),
+  portfolio: defineAsyncComponent(() => import('~/components/profile-page/sections/portfolio.vue')),
+  estate: defineAsyncComponent(() => import('~/components/profile-page/sections/estate.vue')),
+  blog: defineAsyncComponent(() => import('~/components/profile-page/sections/blog.vue')),
+  feedbacks: defineAsyncComponent(() => import('~/components/profile-page/sections/feedbacks.vue')),
 }
 </script>
-
-<style scoped>
-/* .bg-tagir {
-    background: center / cover no-repeat url('/images/profile-top-bg.webp');
-  } */
-</style>
 

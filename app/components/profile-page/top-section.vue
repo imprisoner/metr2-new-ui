@@ -1,7 +1,9 @@
 <template>
   <UiSheet class="relative flex flex-col gap-4 overflow-hidden pb-0!">
     <!-- user avatar, actions and background image -->
-    <div class="flex flex-col lg:flex-row items-center lg:items-end gap-4 justify-between mt-28 mb-4">
+    <div
+      class="flex flex-col lg:flex-row items-center lg:items-end gap-4 justify-between mt-28 mb-4"
+    >
       <img
         src="/images/profile-top-bg.webp"
         class="object-cover absolute left-0 top-0 h-50 w-full"
@@ -50,13 +52,23 @@
 
     <UiDivider />
 
-    <ProfilePageTabs />
+    <ProfilePageTabs :user-role="role" />
   </UiSheet>
 </template>
 
 <script setup lang="ts">
-const avatar = "/images/user-avatar.png";
-const name = "Julia Sh.";
+import type { UsersProfileViewRoleOptions } from '~/types/pocketbase-types';
+
+interface IProfilePageTopSectionProps {
+  name: string;
+  role: UsersProfileViewRoleOptions;
+  avatar: string;
+  about: string;
+  postCount: number;
+}
+
+const props = defineProps<IProfilePageTopSectionProps>();
+
 const isOnline = true;
 
 const cities = [
@@ -78,27 +90,23 @@ const cities = [
   },
 ];
 
-const about =
-  "Привет, я Юля! Я вместе с кошками Люся и Варя создаю уют и красоту. Буду рада, если вы подпишитесь ❤️";
-
 const counters = [
   {
-    count: "1 256",
+    count: 1256,
     label: "подписок",
   },
   {
-    count: "45K",
+    count: 45000,
     label: "лайков",
   },
   {
-    count: "14",
+    count: props.postCount,
     label: "записей",
   },
   {
-    count: "48",
+    count: 48,
     label: "подписок",
   },
 ];
 </script>
 
-<style scoped></style>

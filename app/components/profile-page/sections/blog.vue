@@ -14,6 +14,5 @@
 
 <script setup lang="ts">
 import { RECOMMENDED_POSTS } from '~/const/mock';
-
 </script>
 

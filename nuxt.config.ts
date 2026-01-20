@@ -43,7 +43,7 @@ const MyPreset = definePreset(Material, {
         color: "#323745",
       },
       list: {
-        padding: "0"
+        padding: "0",
       },
       root: {
         background: "transparent",
@@ -156,8 +156,8 @@ const MyPreset = definePreset(Material, {
     },
     breadcrumb: {
       root: {
-        padding: 'unset'
-      }
+        padding: "unset",
+      },
     },
   },
 });
@@ -191,4 +191,7 @@ export default defineNuxtConfig({
   //   typeCheck: true,
   // },
   plugins: ["~/plugins/click-outside.client.ts"],
+  experimental: {
+    typedPages: true,
+  },
 });

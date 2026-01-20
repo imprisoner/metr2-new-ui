@@ -1,6 +1,6 @@
 <template>
   <div
-    class="user-avatar border-2 border-white rounded-full w-31 h-31 overflow-hidden relative cursor-pointer"
+    class="user-avatar border-2 border-white rounded-full w-31 h-31 overflow-hidden relative cursor-pointer bg-white"
   >
     <UiUserAvatar
       :image-url="avatarUrl"

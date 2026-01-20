@@ -11,10 +11,12 @@
       class="mx-6 w-9.5 h-9.5"
       :border="false"
     />
-    <NuxtLink v-if="isAuthorized" to="/profile">
-      <UiHeaderButton label="Профиль" :icon="UserIcon" />
-    </NuxtLink>
-    <UiHeaderButton v-else label="Войти" @click="showForm('login')" />
+    <!-- <ClientOnly> -->
+      <NuxtLink v-if="isAuthorized" to="/profile">
+        <UiHeaderButton label="Профиль" :icon="UserIcon" />
+      </NuxtLink>
+      <UiHeaderButton v-else label="Войти" @click="showForm('login')" />
+    <!-- </ClientOnly> -->
   </header>
 </template>
 

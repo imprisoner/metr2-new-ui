@@ -76,6 +76,7 @@ export type ProfilePageSectionKey =
 export interface IUiTabsItem {
   label: string;
   sectionKey: ProfilePageSectionKey;
+  count?: number | null;
 }
 
 export interface IUiSheetProps {

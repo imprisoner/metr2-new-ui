@@ -1,5 +1,5 @@
 import type { AuthRecord } from "pocketbase";
-import { tryToRefreshToken } from "~/api/functions";
+import { tryToRefreshToken } from "~/api/auth";
 import { pb } from "~/api/client";
 import { useAuthStore } from "~/stores/auth";
 import type { DictCitiesRecord, UsersResponse } from "~/types/pocketbase-types";
@@ -20,6 +20,12 @@ export default defineNuxtPlugin(async () => {
 
   const authStore = useAuthStore();
 
+  // setting initial values
+  authStore.isAuthorized = pb.authStore.isValid;
+  authStore.userInfo = pb.authStore.record as unknown as UsersResponse<{
+    location: DictCitiesRecord;
+  }>;
+
   pb.authStore.onChange(() => {
     cookie.value = {
       token: pb.authStore.token,
@@ -33,7 +39,7 @@ export default defineNuxtPlugin(async () => {
   });
 
   try {
-    tryToRefreshToken()
+    tryToRefreshToken();
     // get an up-to-date auth store state by verifying and refreshing the loaded auth model (if any)
   } catch {
     // clear the auth store on failed refresh
