@@ -1,10 +1,12 @@
 <template>
   <ProfilePageSectionWrapper title="Портфолио" :count="5">
-    <RecommendedSection
-      with-button
-      button-label="Все работы"
+    <WidgetPostPreviewSection
+      v-if="posts.length"
+      :items="posts as IPostPreviewEntity[]"
+      :with-button="false"
       :block-button="false"
-      class="gap-4! lg:gap-6!"
+      :with-author="false"
+      button-label="Все работы"
     />
     <UiNoItemsSection
       class="gap-4! lg:gap-6!"
@@ -25,6 +27,18 @@
 </template>
 
 <script setup lang="ts">
-  const addPortfolio = () => {}
+import { getFullPortfolioListByUserId } from "~/api/posts";
+import type { PostPreviewDto } from "~/dto/posts.dto";
+import type { IPostPreviewEntity } from "~/types/ui.types";
+
+const addPortfolio = () => {
+  /**TODO call post creation form */
+};
+
+const posts = ref<PostPreviewDto[]>([]);
+
+const { pageData } = storeToRefs(useUsersPageStore());
+
+posts.value = await getFullPortfolioListByUserId(pageData.value?.userId);
 </script>
 

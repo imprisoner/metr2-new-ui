@@ -4,41 +4,35 @@
     :count="3"
     class="flex flex-col gap-4 lg:gap-6"
   >
-    <ProfilePageServicesList :items="services" />
+    <ProfilePageServicesList v-if="services.length" :items="services" />
     <!--  -->
-    <PButton v-if="!isOwner" outlined severity="secondary" label="Оставить отзыв" class="w-fit"/>
+    <PButton
+      v-if="!isOwner"
+      outlined
+      severity="secondary"
+      label="Оставить отзыв"
+      class="w-fit"
+    />
   </ProfilePageSectionWrapper>
 </template>
 
 <script setup lang="ts">
-import type { IServiceItemProps } from "~/types/ui.types";
-
-const services: IServiceItemProps[] = [
-  {
-    id: "1",
-    name: "Строительство бань и саун",
-    description: "Строим бани и сауны, недорого, качественно, в любых объёмах",
-    priceMin: 500000,
-    priceMax: 1000000,
-  },
-  {
-    id: "2",
-    name: "Демонтаж стен и перегородок",
-    description:
-      "Демонтируем стены и перегородки, недорого, качественно, в любых объёмах",
-    priceMin: 500000,
-    priceMax: 0,
-  },
-  {
-    id: "3",
-    name: "Строительство коттеджей",
-    description:
-      "Строим коттеджи, недорого, качественно, в любых объёмах. Строим коттеджи, недорого, качественно, в любых объёмах. Строим коттеджи, недорого, качественно, в любых объёмах. ",
-    priceMin: 0,
-    priceMax: 0,
-  },
-];
+import { getFullContractorsServicesListByUserId } from "~/api/contractors";
+import type { ContractorServicesDto } from "~/dto/contractors.dto";
 
 const { isOwner } = storeToRefs(useAuthStore());
+
+const { pageData } = storeToRefs(useUsersPageStore());
+const items = ref<ContractorServicesDto[]>();
+
+items.value = await getFullContractorsServicesListByUserId(pageData.value?.userId);
+
+const services = computed(() => {
+  if (!items.value?.length) {
+    return [];
+  }
+
+  return items.value;
+});
 </script>
 

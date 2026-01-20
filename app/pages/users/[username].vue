@@ -8,10 +8,13 @@
       :name="pageData.name"
     />
 
-    <Component :is="sections[store.visibleSection]" />
+    <KeepAlive>
+      <Component :is="sections[store.visibleSection]" />
+    </KeepAlive>
 
     <UiSubscribeSection
-      v-bind="user"
+      :avatar-url="pageData.avatar"
+      :name="pageData.name"
       class="gap-4! lg:gap-6!"
       @subscribe="handleSubscribe"
     />
@@ -19,18 +22,8 @@
 </template>
 
 <script setup lang="ts">
-import { getUserProfileByUsername } from "~/api/users";
 import { UsersProfileViewRoleOptions } from "~/types/pocketbase-types";
 import type { ProfilePageSectionKey } from "~/types/ui.types";
-
-const user = {
-  avatarUrl: "/images/user-avatar.png",
-  name: "Julia Sh.",
-};
-
-const route = useRoute("users-username");
-
-const username = route.params.username;
 
 const handleSubscribe = () => {
   // TODO

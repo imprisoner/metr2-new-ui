@@ -1,6 +1,5 @@
-import type { Component, ExtractPublicPropTypes } from "vue";
-import UiNoItemsSection from "~/components/ui/no-items-section/no-items-section.vue";
-import type { PostType } from "./common.types";
+import type { Component } from "vue";
+import type { PostsTypeOptions } from "./pocketbase-types";
 
 type MenuItemType = "button" | "divider";
 
@@ -15,7 +14,7 @@ export interface IUserMenuButtonProps {
   icon: Component;
   count?: number;
   quickAccess?: {
-    type: PostType;
+    type: PostsTypeOptions;
   };
 }
 
@@ -100,15 +99,14 @@ export interface IServiceItemProps {
 }
 
 export interface IPostPreviewEntity {
-  user: {
+  author: {
     avatarUrl?: string;
     name: string;
   };
   imageUrl?: string;
-  type: PostType;
+  type: string;
   title: string;
   commentsCount?: number;
   favoritesCount?: number;
   likesCount?: number;
 }
-

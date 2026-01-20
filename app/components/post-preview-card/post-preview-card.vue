@@ -9,18 +9,16 @@
       <img :src="imageUrl" alt="" class="object-cover w-full h-full" />
     </div>
     <div class="flex flex-col lg:gap-2 gap-4 flex-1">
-      <div class="flex gap-2 lg:items-center flex-col lg:flex-row">
-        <div class="flex gap-2 lg:items-center">
-          <UiUserAvatar :image-url="user.avatarUrl" />
+      <div v-if="withAuthor" class="flex gap-2 lg:items-center">
+        <UiUserAvatar :image-url="author.avatarUrl" />
+        <div
+          class="flex lg:gap-2 lg:items-center flex-col lg:flex-row text-base font-semibold"
+        >
+          <p>{{ author.name }}</p>
           <div
-            class="flex lg:gap-2 lg:items-center flex-col lg:flex-row text-base font-semibold"
-          >
-            <p>{{ user.name }}</p>
-            <div
-              class="rounded-full bg-custom-secondary w-1 h-1 hidden lg:block"
-            />
-            <span>{{ type }}</span>
-          </div>
+            class="rounded-full bg-custom-secondary w-1 h-1 hidden lg:block"
+          />
+          <span>{{ type }}</span>
         </div>
       </div>
       <p class="flex-1 text-xl font-semibold">{{ title }}</p>
@@ -30,13 +28,17 @@
         <UiCounter type="likes" :count="likesCount" />
       </div>
     </div>
-    <UiButtonEdit v-if="editable" class="h-8 w-8"/>
+    <UiButtonEdit v-if="editable" class="h-8 w-8" />
   </div>
 </template>
 
 <script setup lang="ts">
 import type { IPostPreviewEntity } from "~/types/ui.types";
 
-defineProps<IPostPreviewEntity & { editable?: boolean }>();
+const { withAuthor = true } = defineProps<
+  IPostPreviewEntity & { withAuthor?: boolean }
+>();
+
+const editable = false;
 </script>
 

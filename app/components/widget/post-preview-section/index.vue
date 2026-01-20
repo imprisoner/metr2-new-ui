@@ -7,8 +7,8 @@
     <WidgetPostPreviewSectionMobileCarousel v-if="isMobile" :items />
     <div v-else class="flex flex-col gap-4">
       <template v-for="(card, index) in items" :key="index">
-        <PostPreviewCard v-bind="card" />
-        <hr v-if="!isLast(index)" class="w-full text-custom-divider" />
+        <PostPreviewCard v-bind="card" :with-author/>
+        <UiDivider v-if="!isLast(index)" class="w-full text-custom-divider" />
       </template>
     </div>
 
@@ -25,9 +25,10 @@
 <script setup lang="ts">
 import type { IPostPreviewEntity } from '~/types/ui.types';
 
-const { buttonLabel = "Все работы", items } = defineProps<{
+const { buttonLabel = "Все работы", items, withAuthor = true } = defineProps<{
   title?: string;
   withButton?: boolean;
+  withAuthor?: boolean;
   buttonLabel?: string;
   blockButton?: boolean;
   items: IPostPreviewEntity[];
