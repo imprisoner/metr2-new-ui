@@ -27,6 +27,7 @@ import PinterestIcon from "#layers/ui/app/icons/share/pinterest-icon.vue";
 import TelegramIcon from "#layers/ui/app/icons/share/telegram-icon.vue";
 import VkIcon from "#layers/ui/app/icons/share/vk-icon.vue";
 import WhatsappIcon from "#layers/ui/app/icons/share/whatsapp-icon.vue";
+import { pb } from "~/api/client";
 
 export const MAIN_NAV_ITEMS: INavItem[] = [
   { label: "Популярное", icon: Flame.name!, route: "#" },
@@ -110,7 +111,7 @@ export const USER_MENU_ITEMS: (IUserMenuDivider | IUserMenuButton)[] = [
   {
     type: "button",
     props: {
-      to: "/profile",
+      to: `/users/${pb.authStore.record!.username}`,
       label: "Профиль",
       icon: UserIcon,
     },

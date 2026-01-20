@@ -3,6 +3,10 @@ import type {
   ContractorsServicesResponse,
   DictCitiesRecord,
   DictSpecialtyServicesRecord,
+  FlatsResponse,
+  PostFlatsRecord,
+  PostFlatsResponse,
+  PostsRecord,
   PostsResponse,
   UsersProfileViewResponse,
   UsersRecord,
@@ -23,6 +27,14 @@ export interface FullContractorsServicesListResponse extends ContractorsServices
   specialtyService: DictSpecialtyServicesRecord;
 }> {}
 
-export interface PostsResponseWithAuthor extends PostsResponse<string, {
-  author: UsersRecord;
+export interface PostsResponseWithAuthor extends PostsResponse<
+  string,
+  {
+    author: UsersRecord;
+  }
+> {}
+
+export interface FlatsResponseWithPosts extends FlatsResponse<{
+  post_flats_via_flat: PostFlatsResponse<{ post: PostsRecord }>[];
 }> {}
+

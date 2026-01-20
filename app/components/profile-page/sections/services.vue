@@ -1,7 +1,7 @@
 <template>
   <ProfilePageSectionWrapper
     title="Услуги"
-    :count="3"
+    :count="services.length"
     class="flex flex-col gap-4 lg:gap-6"
   >
     <ProfilePageServicesList v-if="services.length" :items="services" />

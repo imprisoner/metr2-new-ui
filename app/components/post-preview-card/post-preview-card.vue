@@ -10,11 +10,11 @@
     </div>
     <div class="flex flex-col lg:gap-2 gap-4 flex-1">
       <div v-if="withAuthor" class="flex gap-2 lg:items-center">
-        <UiUserAvatar :image-url="author.avatarUrl" />
+        <UiUserAvatar :image-url="author!.avatarUrl" />
         <div
           class="flex lg:gap-2 lg:items-center flex-col lg:flex-row text-base font-semibold"
         >
-          <p>{{ author.name }}</p>
+          <p>{{ author!.name }}</p>
           <div
             class="rounded-full bg-custom-secondary w-1 h-1 hidden lg:block"
           />

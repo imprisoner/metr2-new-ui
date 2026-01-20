@@ -1,10 +1,10 @@
 <template>
-  <UiSheet class="flex flex-col gap-4 items-center" v-bind="uiSheetProps">
+  <UiSheet class="flex flex-col gap-4 items-center shadow-none" v-bind="uiSheetProps">
     <Component :is="iconsMap[icon]" />
     <slot>
       <div class="text-center">
         <p v-if="title" class="text-xl font-semibold mb-2">{{ title }}</p>
-        <p v-if="subtitle" class="text-base">{{ subtitle }}</p>
+        <p v-if="subtitle" class="text-base text-custom-secondary">{{ subtitle }}</p>
       </div>
     </slot>
     <slot name="button">

@@ -93,7 +93,7 @@ const cities = [
 const counters = [
   {
     count: 1256,
-    label: "подписок",
+    label: "подписчиков",
   },
   {
     count: 45000,

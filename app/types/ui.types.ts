@@ -99,7 +99,7 @@ export interface IServiceItemProps {
 }
 
 export interface IPostPreviewEntity {
-  author: {
+  author?: {
     avatarUrl?: string;
     name: string;
   };
@@ -109,4 +109,15 @@ export interface IPostPreviewEntity {
   commentsCount?: number;
   favoritesCount?: number;
   likesCount?: number;
+}
+
+export interface IEstateItemProps {
+  id: string;
+  name: string;
+  tags: string[];
+}
+
+export interface IEstateWithPosts {
+  estate: IEstateItemProps;
+  posts: IPostPreviewEntity[];
 }

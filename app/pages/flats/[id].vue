@@ -2,7 +2,8 @@
   <div class="flex flex-col gap-10 pb-10">
     <UiSheet class="flex flex-col gap-6">
       <div class="flex flex-col gap-3">
-        <UiBreadcrumbs v-bind="breadcrumbs" />
+        <!-- TODO some error -->
+        <!-- <UiBreadcrumbs v-bind="breadcrumbs" /> -->
         <h1 class="text-5xl">Моя квартирка</h1>
       </div>
       <!--  -->
@@ -32,7 +33,7 @@
       </p>
       <!--  -->
       <div
-        class="flex gap-2 items-baseline cursor-pointer"
+        class="flex gap-2 items-center cursor-pointer"
         @click="toggleExpandText"
       >
         <span class="text-base font-semibold">Показать полностью</span>
@@ -93,15 +94,15 @@ const breadcrumbs = {
 
 const counters = [
   {
-    count: "14",
+    count: 14,
     label: "записей",
   },
   {
-    count: "45K",
+    count: 45000,
     label: "лайков",
   },
   {
-    count: "834",
+    count: 834,
     label: "сохранено",
   },
 ];

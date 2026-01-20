@@ -6,5 +6,5 @@
 </template>
 
 <script setup lang="ts">
-const isOwner = true;
+const { isOwner} = storeToRefs(useUsersPageStore());
 </script>

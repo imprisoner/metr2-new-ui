@@ -9,7 +9,7 @@
         <PTab v-for="tab in tabs" :key="tab.sectionKey" :value="tab.sectionKey">
           <div class="flex gap-1">
             <span>{{ tab.label }}</span>
-            <span class="text-xs">{{tab.count}}</span>
+            <span v-if="Boolean(tab.count)" class="text-xs">{{tab.count}}</span>
           </div>
         </PTab>
       </PTabList>

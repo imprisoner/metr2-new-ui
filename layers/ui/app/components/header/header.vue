@@ -12,7 +12,7 @@
       :border="false"
     />
     <!-- <ClientOnly> -->
-      <NuxtLink v-if="isAuthorized" to="/profile">
+      <NuxtLink v-if="isAuthorized" :to="`/users/${userInfo.username}`">
         <UiHeaderButton label="Профиль" :icon="UserIcon" />
       </NuxtLink>
       <UiHeaderButton v-else label="Войти" @click="showForm('login')" />
@@ -27,6 +27,6 @@ import UiHeaderButton from "./header-button.vue";
 
 const { showForm } = useLoginOrRegisterDialog();
 
-const { isAuthorized } = storeToRefs(useAuthStore());
+const { isAuthorized, userInfo } = storeToRefs(useAuthStore());
 </script>
 

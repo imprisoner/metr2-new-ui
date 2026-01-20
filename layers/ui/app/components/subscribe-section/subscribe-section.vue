@@ -1,6 +1,6 @@
 <template>
   <div class="flex flex-col py-10 items-center justify-center gap-4">
-    <div class="flex flex-col gap-2">
+    <div class="flex flex-col gap-2 items-center">
       <UiUserAvatar size="xlarge" :image-url="avatarUrl" />
       <span class="text-xl font-semibold">{{ name }}</span>
     </div>

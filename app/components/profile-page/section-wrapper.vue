@@ -1,6 +1,6 @@
 <template>
   <UiSheet :title :count class="flex flex-col gap-4 lg:gap-6 relative">
-    <template v-if="isOwner" #controls>
+    <template v-if="isOwner && showButton" #controls>
       <UiButtonAdd
         :button-props="{
           outlined: true,
@@ -19,7 +19,8 @@
 defineProps<{
   title: string;
   count?: number;
+  showButton?: boolean;
 }>();
 
-const { isOwner } = storeToRefs(useAuthStore());
+const { isOwner } = storeToRefs(useUsersPageStore());
 </script>

@@ -14,8 +14,8 @@ export const useUsersPageStore = defineStore("users-page", () => {
 
   const pageData = ref<Awaited<ReturnType<typeof getUserProfileByUsername>>>();
 
-  const getUserProfileData = async () => {
-    pageData.value = await getUserProfileByUsername(route.params.username);
+  const getUserProfileData = async (username: string) => {
+    pageData.value = await getUserProfileByUsername(username);
   };
 
   // tabs

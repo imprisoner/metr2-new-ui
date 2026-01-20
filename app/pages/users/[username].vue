@@ -48,8 +48,9 @@ const sections: Record<ProfilePageSectionKey, Component> = {
 };
 
 const store = useUsersPageStore();
+const route = useRoute("users-username");
 
-await store.getUserProfileData();
+await store.getUserProfileData(route.params.username);
 
 const pageData = store.pageData!;
 
