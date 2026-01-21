@@ -47,6 +47,7 @@ export enum Collections {
 	PostFlats = "post_flats",
 	PostServices = "post_services",
 	Posts = "posts",
+	SubscriptionsAuthors = "subscriptions_authors",
 	UserProfiles = "user_profiles",
 	Users = "users",
 	UsersProfileView = "users_profile_view",
@@ -142,11 +143,11 @@ export type BlogPostsRecord = {
 }
 
 export type CommentsPostsRecord = {
-	author?: RecordIdString
+	author: RecordIdString
 	content?: HTMLString
 	created?: IsoDateString
 	id: string
-	post?: RecordIdString
+	post: RecordIdString
 	updated?: IsoDateString
 }
 
@@ -363,27 +364,27 @@ export type JournalsRecord = {
 }
 
 export type LikesCommentsPostsRecord = {
-	comment?: RecordIdString
+	comment: RecordIdString
 	created?: IsoDateString
 	id: string
 	updated?: IsoDateString
-	user?: RecordIdString
+	user: RecordIdString
 }
 
 export type LikesFlatsRecord = {
 	created?: IsoDateString
-	flat?: RecordIdString
+	flat: RecordIdString
 	id: string
 	updated?: IsoDateString
-	user?: RecordIdString
+	user: RecordIdString
 }
 
 export type LikesPostsRecord = {
 	created?: IsoDateString
 	id: string
-	post?: RecordIdString
+	post: RecordIdString
 	updated?: IsoDateString
-	user?: RecordIdString
+	user: RecordIdString
 }
 
 export type PostFlatsRecord = {
@@ -410,8 +411,7 @@ export enum PostsStatusOptions {
 	"pending" = "pending",
 }
 export type PostsRecord<Tcontent_json = unknown> = {
-	author?: RecordIdString
-	content?: HTMLString
+	author: RecordIdString
 	content_json?: null | Tcontent_json
 	created?: IsoDateString
 	id: string
@@ -423,6 +423,14 @@ export type PostsRecord<Tcontent_json = unknown> = {
 	type: PostsTypeOptions
 	updated?: IsoDateString
 	videos?: string[]
+}
+
+export type SubscriptionsAuthorsRecord = {
+	author: RecordIdString
+	created?: IsoDateString
+	id: string
+	subscriber: RecordIdString
+	updated?: IsoDateString
 }
 
 export enum UserProfilesGenderOptions {
@@ -537,6 +545,7 @@ export type LikesPostsResponse<Texpand = unknown> = Required<LikesPostsRecord> &
 export type PostFlatsResponse<Texpand = unknown> = Required<PostFlatsRecord> & BaseSystemFields<Texpand>
 export type PostServicesResponse<Texpand = unknown> = Required<PostServicesRecord> & BaseSystemFields<Texpand>
 export type PostsResponse<Tcontent_json = unknown, Texpand = unknown> = Required<PostsRecord<Tcontent_json>> & BaseSystemFields<Texpand>
+export type SubscriptionsAuthorsResponse<Texpand = unknown> = Required<SubscriptionsAuthorsRecord> & BaseSystemFields<Texpand>
 export type UserProfilesResponse<Texpand = unknown> = Required<UserProfilesRecord> & BaseSystemFields<Texpand>
 export type UsersResponse<Texpand = unknown> = Required<UsersRecord> & AuthSystemFields<Texpand>
 export type UsersProfileViewResponse<TblogCount = unknown, TcontractorCitiesList = unknown, TflatsCount = unknown, TportfolioCount = unknown, TpostCount = unknown, TserviceCount = unknown, Tservices = unknown, Texpand = unknown> = Required<UsersProfileViewRecord<TblogCount, TcontractorCitiesList, TflatsCount, TportfolioCount, TpostCount, TserviceCount, Tservices>> & BaseSystemFields<Texpand>
@@ -585,6 +594,7 @@ export type CollectionRecords = {
 	post_flats: PostFlatsRecord
 	post_services: PostServicesRecord
 	posts: PostsRecord
+	subscriptions_authors: SubscriptionsAuthorsRecord
 	user_profiles: UserProfilesRecord
 	users: UsersRecord
 	users_profile_view: UsersProfileViewRecord
@@ -632,6 +642,7 @@ export type CollectionResponses = {
 	post_flats: PostFlatsResponse
 	post_services: PostServicesResponse
 	posts: PostsResponse
+	subscriptions_authors: SubscriptionsAuthorsResponse
 	user_profiles: UserProfilesResponse
 	users: UsersResponse
 	users_profile_view: UsersProfileViewResponse
@@ -682,6 +693,7 @@ export type TypedPocketBase = PocketBase & {
 	collection(idOrName: 'post_flats'): RecordService<PostFlatsResponse>
 	collection(idOrName: 'post_services'): RecordService<PostServicesResponse>
 	collection(idOrName: 'posts'): RecordService<PostsResponse>
+	collection(idOrName: 'subscriptions_authors'): RecordService<SubscriptionsAuthorsResponse>
 	collection(idOrName: 'user_profiles'): RecordService<UserProfilesResponse>
 	collection(idOrName: 'users'): RecordService<UsersResponse>
 	collection(idOrName: 'users_profile_view'): RecordService<UsersProfileViewResponse>
