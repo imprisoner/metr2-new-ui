@@ -23,18 +23,10 @@
     </div>
     <!--  -->
 
-    <p class="text-xl font-semibold">
-      <span
-        v-for="city in cities"
-        :class="{
-          'text-custom-secondary': !city.isCapital,
-        }"
-        >{{ city.name }},
-      </span>
-    </p>
+    <ProfilePageLocationsArea />
     <!--  -->
 
-    <p class="text-base text-custom-secondary">{{ about }}</p>
+    <p v-if="Boolean(about)" class="text-base text-custom-secondary">{{ about }}</p>
     <!--  -->
     <UiDivider />
     <!--  -->
@@ -109,4 +101,3 @@ const counters = [
   },
 ];
 </script>
-

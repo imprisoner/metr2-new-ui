@@ -32,7 +32,7 @@
       </template>
     </PSplitButton>
     <div class="flex flex-col">
-      <template v-for="(item, index) in USER_MENU_ITEMS" :key="index">
+      <template v-for="(item, index) in items" :key="index">
         <UiNavItem v-if="item.type === 'button'" v-bind="item.props" />
         <UiDivider
           v-else-if="item.type === 'divider'"
@@ -45,8 +45,6 @@
 </template>
 
 <script setup lang="ts">
-import { USER_MENU_ITEMS } from "~/const";
-
 const subscribersCount = 728;
 
 const { userInfo } = storeToRefs(useAuthStore());
@@ -59,7 +57,9 @@ const avatarUrl = computed(() => {
   return undefined;
 });
 
-const splitButtonItems = USER_MENU_ITEMS.filter(
+const { items } = useUserMenu()
+
+const splitButtonItems = items.value.filter(
   (item) => item.type === "button" && Boolean(item.props.quickAccess),
 );
 </script>

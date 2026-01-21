@@ -40,4 +40,3 @@ const visible = defineModel<boolean>("visible");
 
 const { dotsMenuItems } = useDotsMenuItems();
 </script>
-

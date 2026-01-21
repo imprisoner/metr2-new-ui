@@ -5,8 +5,8 @@
       pt:root:class="bg-white"
       :show-navigators="false"
     >
-      <PTabList>
-        <PTab v-for="tab in tabs" :key="tab.sectionKey" :value="tab.sectionKey">
+      <PTabList v-if="tabs.length">
+        <PTab v-for="tab in tabs" :key="tab.sectionKey" :value="tab.sectionKey" :disabled="false">
           <div class="flex gap-1">
             <span>{{ tab.label }}</span>
             <span v-if="Boolean(tab.count)" class="text-xs">{{tab.count}}</span>
@@ -64,4 +64,3 @@ const contractorsTabs = computed<IUiTabsItem[]>(() => ([
       : commonTabs.value;
   });
 </script>
-

@@ -26,10 +26,10 @@ const onEditClick = () => {
   openDialog(profileFormComponent);
 };
 
+const store = useAuthStore()
+
 const logout = () => {
-  // TODO handler
+  store.logout()
+  navigateTo('/')
 };
 </script>
-
-<style scoped></style>
-

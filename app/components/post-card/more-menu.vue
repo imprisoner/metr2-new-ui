@@ -29,4 +29,3 @@ const isMobile = false
   box-shadow: 0px 2px 12px 0px #0000001a;
 }
 </style>
-

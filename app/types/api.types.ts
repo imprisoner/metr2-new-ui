@@ -4,7 +4,6 @@ import type {
   DictCitiesRecord,
   DictSpecialtyServicesRecord,
   FlatsResponse,
-  PostFlatsRecord,
   PostFlatsResponse,
   PostsRecord,
   PostsResponse,

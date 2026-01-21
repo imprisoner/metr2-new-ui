@@ -33,6 +33,3 @@ const mockComments = [
   },
 ];
 </script>
-
-<style scoped></style>
-

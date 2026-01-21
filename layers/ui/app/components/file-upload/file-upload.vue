@@ -46,6 +46,7 @@
 </template>
 
 <script setup lang="ts">
+import UiFileUploadItem from "./item.vue"
 import type { FileUploadDesignTokens } from "@primeuix/themes/types/fileupload";
 import type {
   FileUploadProps,

@@ -34,6 +34,3 @@ defineProps<{ mobile?: boolean }>();
 
 const mockTags = ["Студия", "Ремонт", "Лофт", "Квартира"];
 </script>
-
-<style scoped></style>
-
