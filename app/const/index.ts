@@ -4,14 +4,7 @@ import Diaries from "#layers/ui/app/icons/diaries-icon.vue";
 import Favorite from "#layers/ui/app/icons/favorite-icon.vue";
 import Flame from "#layers/ui/app/icons/flame-icon.vue";
 import Lightning from "#layers/ui/app/icons/lightning-icon.vue";
-import DiariesIcon from "#layers/ui/app/icons/diaries-icon.vue";
-import BookIcon from "#layers/ui/app/icons/book-icon.vue";
-import PicDoubleIcon from "#layers/ui/app/icons/pic-double-icon.vue";
-import CardIcon from "#layers/ui/app/icons/card-icon.vue";
-import StarIcon from "#layers/ui/app/icons/star-icon.vue";
-import SheetWithPencilIcon from "#layers/ui/app/icons/sheet-with-pencil-icon.vue";
 import ArrowIcon from "#layers/ui/app/icons/arrow-icon.vue";
-import UserIcon from "#layers/ui/app/icons/user-icon.vue";
 import SlashedEyeIcon from "#layers/ui/app/icons/slashed-eye-icon.vue";
 import CircledCrossIcon from "#layers/ui/app/icons/circled-cross-icon.vue";
 import FlagIcon from "#layers/ui/app/icons/flag-icon.vue";
@@ -27,7 +20,7 @@ import PinterestIcon from "#layers/ui/app/icons/share/pinterest-icon.vue";
 import TelegramIcon from "#layers/ui/app/icons/share/telegram-icon.vue";
 import VkIcon from "#layers/ui/app/icons/share/vk-icon.vue";
 import WhatsappIcon from "#layers/ui/app/icons/share/whatsapp-icon.vue";
-import { pb } from "~/api/client";
+import type { PostType } from "~/types/common.types";
 
 export const MAIN_NAV_ITEMS: INavItem[] = [
   { label: "Популярное", icon: Flame.name!, route: "#" },
@@ -44,79 +37,6 @@ export const MAIN_NAV_ITEMS_ICONS_MAP = {
   [Favorite.name!]: Favorite,
   [Diaries.name!]: Diaries,
 };
-
-export const USER_MENU_ITEMS: (IUserMenuDivider | IUserMenuButton)[] = [
-  {
-    type: "button",
-    props: {
-      to: "/diaries",
-      label: "Дневники",
-      icon: DiariesIcon,
-      quickAccess: { type: "diary" },
-    },
-  },
-  {
-    type: "button",
-    props: {
-      to: "#",
-      label: "Блог",
-      icon: BookIcon,
-      quickAccess: { type: "blog" },
-    },
-  },
-  {
-    type: "button",
-    props: {
-      to: "#",
-      label: "Портфолио",
-      icon: PicDoubleIcon,
-      quickAccess: { type: "portfolio" },
-    },
-  },
-  {
-    type: "button",
-    props: {
-      to: "#",
-      label: "Услуги",
-      icon: CardIcon,
-    },
-  },
-  {
-    type: "button",
-    props: {
-      to: "#",
-      label: "Отзывы",
-      icon: StarIcon,
-    },
-  },
-  {
-    type: "button",
-    props: {
-      to: "/drafts",
-      label: "Черновики",
-      icon: SheetWithPencilIcon,
-      count: 1,
-    },
-  },
-  { type: "divider", props: { direction: "horizontal" } },
-  {
-    type: "button",
-    props: {
-      to: "#",
-      label: "Сообщения",
-      icon: ArrowIcon,
-      count: 2,
-    },
-  },
-  {
-    type: "button",
-    props: {
-      to: `/users/${pb.authStore.record!.username}`,
-      label: "Профиль",
-      icon: UserIcon,
-    },
-  },
-] as const;
 
 export const POST_CARD_MORE_MENU_ITEMS: (IUserMenuDivider | IUserMenuButton)[] =
   [
@@ -154,4 +74,10 @@ export const SHARE_BUTTONS = [
 ] as const;
 
 export const OAUTH_PROVIDERS = ["google", "yandex", "vk"] as const;
+
+export const POST_TYPES_MAP: Record<PostType, string> = {
+  journal: "Дневник",
+  blog: "Блог",
+  portfolio: "Портфолио",
+};
 

@@ -20,6 +20,8 @@
     "@splidejs/vue-splide": "github:joris-gallot/vue-splide",
     "@tailwindcss/vite": "^4.1.18",
     "@vueuse/core": "^14.1.0",
+    "blocknotejs-vue-rte": "^1.0.9",
+    "date-fns": "^4.1.0",
     "nuxt": "^4.2.2",
     "pinia": "^3.0.4",
     "pocketbase": "^0.26.6",

@@ -8,7 +8,7 @@
       </div>
       <!--  -->
       <div class="flex flex-col gap-4">
-        <UserSection :share-button-props="{ outlined: false }" />
+        <!-- <UserSection :share-button-props="{ outlined: false }" /> -->
         <UiDivider direction="horizontal" />
         <div class="flex gap-8">
           <UiCounterLg
@@ -21,7 +21,7 @@
         </div>
       </div>
       <!--  -->
-      <UiImagesGrid class="h-100" />
+      <UiImagesGrid :images="MOCK_IMAGES" class="h-100" />
       <!--  -->
       <p
         class="ellipsis-3 text-xl"
@@ -54,7 +54,7 @@
         </h2>
         <UiSelect :options="['Свежее','Популярное']" default-value="Свежее" />
       </div>
-      <PostCard v-for="i in 2" :key="i" />
+      <!-- <PostCard v-for="i in 2" :key="i" /> -->
     </div>
     <!--  -->
     <UiTextWithLines>Вы прочитали все записи дневника</UiTextWithLines>
@@ -82,6 +82,8 @@
 </template>
 
 <script setup lang="ts">
+import { MOCK_IMAGES } from "~/const/mock";
+
 const breadcrumbs = {
   home: { route: "/", label: "Лента" },
   model: [

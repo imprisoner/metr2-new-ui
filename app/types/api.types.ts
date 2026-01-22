@@ -1,3 +1,4 @@
+import type { IPostCommentPreview } from "./common.types";
 import type {
   ContractorsServicesRecord,
   ContractorsServicesResponse,
@@ -9,6 +10,11 @@ import type {
   PostsResponse,
   UsersProfileViewResponse,
   UsersRecord,
+  PostsPopularViewRecord,
+  PostsPopularViewResponse,
+  PopularPostsViewRecord,
+  PopularPostsViewResponse,
+  CommentsPostsResponse,
 } from "./pocketbase-types";
 
 export interface IUserProfileResponse extends UsersProfileViewResponse<
@@ -36,4 +42,27 @@ export interface PostsResponseWithAuthor extends PostsResponse<
 export interface FlatsResponseWithPosts extends FlatsResponse<{
   post_flats_via_flat: PostFlatsResponse<{ post: PostsRecord }>[];
 }> {}
+
+export interface ITypedPostsPopularRecord extends PopularPostsViewRecord<
+  string,
+  string,
+  number,
+  any[],
+  string,
+  string,
+  number,
+  string[]
+> {}
+
+export interface ITypedPostsPopularResponse extends PopularPostsViewResponse<
+  string,
+  string,
+  number,
+  any[],
+  string,
+  string,
+  number,
+  string[],
+  { lastComments: CommentsPostsResponse<{ author: UsersRecord }>[] }
+> {}
 

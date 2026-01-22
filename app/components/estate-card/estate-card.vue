@@ -7,7 +7,7 @@
     <div v-if="tags?.length" class="flex gap-2">
       <UiChip v-for="item in tags" size="sm" :label="item" />
     </div>
-    <UiImagesGrid />
+    <UiImagesGrid :images="MOCK_IMAGES"/>
     <div v-if="isOwner" class="flex gap-2 flex-col lg:flex-row">
       <UiButtonAdd label="Новая запись" />
       <PButton outlined severity="secondary" label="Все записи" />
@@ -17,7 +17,9 @@
 
 <script setup lang="ts">
 import type{ IEstateItemProps } from '~/types/ui.types';
+import { MOCK_IMAGES } from "~/const/mock";
 
 defineProps<IEstateItemProps & {isOwner?: boolean}>();
+
 </script>
 

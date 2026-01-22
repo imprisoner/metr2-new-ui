@@ -1,5 +1,8 @@
 import type { Component } from "vue";
-import type { PostsTypeOptions } from "./pocketbase-types";
+import type { IsoDateString, PostsPopularViewStatusOptions, PostsPopularViewTypeOptions, PostsTypeOptions, RecordIdString } from "./pocketbase-types";
+import type { ITypedPostsPopularRecord } from "./api.types";
+import type { IPostCommentPreview } from "./common.types";
+import type { ButtonProps } from "primevue";
 
 type MenuItemType = "button" | "divider";
 
@@ -120,4 +123,41 @@ export interface IEstateItemProps {
 export interface IEstateWithPosts {
   estate: IEstateItemProps;
   posts: IPostPreviewEntity[];
+}
+
+export interface IPostCardEntity {
+  id: string;
+  title: string;
+  status: PostsPopularViewStatusOptions;
+  type: PostsPopularViewTypeOptions;
+  author: RecordIdString;
+  authorAvatar: string;
+  authorUsername: string;
+  lastComments: IPostCommentPreview[];
+  commentsCount: number;
+  content_json: any[];
+  created: IsoDateString;
+  images: string[];
+  likesCount: number;
+  tags: RecordIdString[];
+  updated: IsoDateString;
+  videos: string[];
+  flatId?: string;
+  flatName?: string;
+  publishDate?: IsoDateString;
+  services?: string[];
+  //
+  mobile?: boolean;
+}
+
+export interface IPostCardUserSectionProps {
+  username: string;
+  avatar: string;
+  flatId?: string;
+  flatName?: string;
+  publishDate: string;
+  type: PostsPopularViewTypeOptions;
+  // 
+  shareButtonProps?: ButtonProps;
+  mobile?: boolean;
 }

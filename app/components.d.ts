@@ -30,6 +30,7 @@ declare module 'vue' {
     PMessage: typeof import('primevue/message')['default']
     PMultiSelect: typeof import('primevue/multiselect')['default']
     PProgressBar: typeof import('primevue/progressbar')['default']
+    PRadioButton: typeof import('primevue/radiobutton')['default']
     PSelect: typeof import('primevue/select')['default']
     PSelectButton: typeof import('primevue/selectbutton')['default']
     PSplitButton: typeof import('primevue/splitbutton')['default']

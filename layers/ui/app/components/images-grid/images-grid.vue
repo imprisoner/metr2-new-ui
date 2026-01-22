@@ -4,11 +4,11 @@
       <img :src="titleImage" class="bg-yellow-400 w-full h-full object-cover" />
     </div>
     <!--  -->
-    <div class="grid grid-rows-4 gap-px flex-2">
+    <div class="grid gap-px flex-2" :class="`grid-rows-${sideImages.length}`">
       <template v-for="(image, index) in sideImages" :key="index">
         <div
-          v-if="index === sideImages.length - 1 && hasMoreImages"
-          class="flex-1/4 relative"
+          v-if="index === sideImages.length - 1 && restImagesCount > 0"
+          class="relative"
         >
           <p
             class="text-white flex gap-1 align-baseline absolute inset-0 justify-center items-center z-1"
@@ -20,7 +20,7 @@
           </p>
           <img :src="image" class="w-full h-full object-cover brightness-55" />
         </div>
-        <div v-else class="flex-1/4">
+        <div v-else>
           <img :src="image" class="w-full h-full object-cover" />
         </div>
       </template>
@@ -29,16 +29,12 @@
 </template>
 
 <script setup lang="ts">
-import { MOCK_IMAGES } from "~/const/mock";
-
-const images = MOCK_IMAGES;
-
-const titleImage = images[0];
-const sideImages = images.slice(1, 5);
-
 const MAX_SHOWED_IMAGES = 5;
 
-const restImagesCount = images.length - MAX_SHOWED_IMAGES;
+const { images } = defineProps<{ images: string[] }>();
 
-const hasMoreImages = restImagesCount > 0;
+const titleImage = images[0];
+const sideImages = images.slice(1, MAX_SHOWED_IMAGES).filter((item) => !!item);
+const restImagesCount = images.length - MAX_SHOWED_IMAGES;
 </script>
+

@@ -1,42 +1,10 @@
 import { pb } from "./client";
-import type { PostsResponseWithAuthor } from "~/types/api.types";
-import { PostPreviewDto } from "~/dto/posts.dto";
-import type { PostsResponse, PostsTypeOptions } from "~/types/pocketbase-types";
-
-// export const getPostsList = async <E>({
-//   page = 1,
-//   perPage = 10,
-//   sortBy = undefined,
-//   expand = undefined,
-//   fields = ["*"],
-//   isShortContent = false,
-//   filter = undefined,
-// }: {
-//   page?: number;
-//   perPage?: number;
-//   sortBy?: string[];
-//   expand?: string[];
-//   fields?: string[];
-//   isShortContent?: boolean;
-//   filter?: string;
-// }) => {
-//   if (isShortContent) {
-//     fields.push("content:excerpt(100,true)");
-//   }
-
-//   const params = {
-//     sort: sortBy?.join(","),
-//     expand: expand?.join(","),
-//     fields: fields?.join(","),
-//     filter,
-//   };
-
-//   const response = await pb
-//     .collection("posts")
-//     .getList<PostsResponse<E>>(page, perPage, params);
-
-//   return response;
-// };
+import type {
+  ITypedPostsPopularResponse,
+  PostsResponseWithAuthor,
+} from "~/types/api.types";
+import { PostPopularDto, PostPreviewDto } from "~/dto/posts.dto";
+import type { PostsTypeOptions } from "~/types/pocketbase-types";
 
 export const getPostsListByUserId = async ({
   userId,
@@ -77,5 +45,24 @@ export const getPostsListByFlatId = async ({
     });
 
   return list.items.map((item) => new PostPreviewDto(item));
+};
+
+export const getPopularPostsList = async ({
+  page = 1,
+  perPage = 3,
+}: {
+  page?: number;
+  perPage?: number;
+}) => {
+  const list = await pb
+    .collection("popular_posts_view")
+    .getList<ITypedPostsPopularResponse>(page, perPage, {
+      expand: "lastComments.author",
+    });
+
+  return list.items.map((item) => {
+    const dto = new PostPopularDto(item);
+    return dto;
+  });
 };
 

@@ -3,14 +3,18 @@
     <div class="flex gap-3">
       <UiUserAvatar size="large" :image-url="undefined" />
       <div>
-        <p class="font-semibold text-base">Nilin743</p>
-        <p class="font-semibold text-base">
-          Дневник
-          <NuxtLink to="#" class="text-custom-secondary"
-            >Моя квартирка</NuxtLink
-          >
-          <span class="font-normal text-custom-secondary"> 45 мин</span>
-        </p>
+        <p class="font-semibold text-base">{{ username }}</p>
+        <div class="flex gap-1.5 font-semibold text-base">
+          <p>
+            {{ typeLabel }}
+            <NuxtLink :to="`/flats/${flatId}`" class="text-custom-secondary">{{
+              flatName
+            }}</NuxtLink>
+          </p>
+          <span class="font-normal text-custom-secondary">{{
+            publishTimeElapsed
+          }}</span>
+        </div>
       </div>
     </div>
     <ClientOnly>
@@ -20,12 +24,14 @@
 </template>
 
 <script setup lang="ts">
-import type { ButtonProps } from "primevue";
+import { getFormattedTimeElapsed } from "#imports";
+import { POST_TYPES_MAP } from "~/const";
+import type { IPostCardUserSectionProps } from "~/types/ui.types";
 
-const { shareButtonProps } = defineProps<{
-  shareButtonProps?: ButtonProps;
-}>();
+const { publishDate, type } = defineProps<IPostCardUserSectionProps>();
+
+const publishTimeElapsed = getFormattedTimeElapsed(publishDate);
+
+const typeLabel = POST_TYPES_MAP[type]
 </script>
-
-<style scoped></style>
 
