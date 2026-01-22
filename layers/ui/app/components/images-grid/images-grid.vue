@@ -4,7 +4,7 @@
       <img :src="titleImage" class="bg-yellow-400 w-full h-full object-cover" />
     </div>
     <!--  -->
-    <div class="grid gap-px flex-2" :class="`grid-rows-${sideImages.length}`">
+    <div v-if="sideImages.length" class="grid gap-px flex-2" :class="`grid-rows-${sideImages.length}`">
       <template v-for="(image, index) in sideImages" :key="index">
         <div
           v-if="index === sideImages.length - 1 && restImagesCount > 0"

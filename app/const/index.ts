@@ -21,22 +21,15 @@ import TelegramIcon from "#layers/ui/app/icons/share/telegram-icon.vue";
 import VkIcon from "#layers/ui/app/icons/share/vk-icon.vue";
 import WhatsappIcon from "#layers/ui/app/icons/share/whatsapp-icon.vue";
 import type { PostType } from "~/types/common.types";
+import { routes } from "./routes";
 
 export const MAIN_NAV_ITEMS: INavItem[] = [
-  { label: "Популярное", icon: Flame.name!, route: "#" },
-  { label: "Новое", icon: Lightning.name!, route: "a" },
-  { label: "Мои подписки", icon: CircledCheckmark.name!, route: "b" },
-  { label: "Сохранённое", icon: Favorite.name!, route: "v" },
-  { label: "Все дневники", icon: Diaries.name!, route: "g" },
+  { label: "Популярное", iconComponent: Flame, route: routes.popular },
+  { label: "Новое", iconComponent: Lightning, route: routes.new },
+  { label: "Мои подписки", iconComponent: CircledCheckmark, route: routes.mySubscriptions },
+  { label: "Сохранённое", iconComponent: Favorite, route: routes.favorites },
+  { label: "Все дневники", iconComponent: Diaries, route: routes.diaries },
 ] as const;
-
-export const MAIN_NAV_ITEMS_ICONS_MAP = {
-  [Flame.name!]: Flame,
-  [Lightning.name!]: Lightning,
-  [CircledCheckmark.name!]: CircledCheckmark,
-  [Favorite.name!]: Favorite,
-  [Diaries.name!]: Diaries,
-};
 
 export const POST_CARD_MORE_MENU_ITEMS: (IUserMenuDivider | IUserMenuButton)[] =
   [

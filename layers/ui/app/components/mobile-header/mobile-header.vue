@@ -53,6 +53,9 @@
 
 <script setup lang="ts">
 import UserIcon from "#layers/ui/app/icons/user-icon.vue";
+import UiMobileHeaderBurgerMenu from "./burger-menu.vue"
+import UiMobileHeaderSearch from "./search.vue"
+import UiMobileHeaderPlusMenu from "./plus-menu.vue"
 
 type MenuKey = "burger" | "search" | "plus" | "user";
 const visible = reactive<Record<MenuKey, boolean>>({

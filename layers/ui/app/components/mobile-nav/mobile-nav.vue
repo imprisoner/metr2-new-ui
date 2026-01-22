@@ -6,7 +6,7 @@
           <NuxtLink :to="tab.route" class="absolute inset-0">
           </NuxtLink>
           <div  class="flex gap-2">
-            <Component :is="MAIN_NAV_ITEMS_ICONS_MAP[tab.icon]" />
+            <Component :is="tab.iconComponent" class="w-5 h-5" />
             <span>{{ tab.label }}</span>
           </div>
         </PTab>
@@ -16,8 +16,5 @@
 </template>
 
 <script setup lang="ts">
-import { MAIN_NAV_ITEMS, MAIN_NAV_ITEMS_ICONS_MAP } from "~/const";
+import { MAIN_NAV_ITEMS } from "~/const";
 </script>
-
-<style scoped>
-</style>

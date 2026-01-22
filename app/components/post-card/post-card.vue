@@ -11,9 +11,9 @@
       </div>
     </div>
     <!-- BODY -->
-    <UiImagesGrid :images="images" class="h-75" />
+    <UiImagesGrid v-if="images.length > 0" :images="images" class="h-75" />
     <div class="flex flex-col gap-2 text-xl">
-      <p class="truncate-6-lines">
+      <p class="truncate-6-lines max-w-full">
         {{ extractedText }}
       </p>
       <NuxtLink :to="postLink" class="font-semibold">Читать далее</NuxtLink>

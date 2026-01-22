@@ -19,6 +19,7 @@ declare module 'vue' {
     PCard: typeof import('primevue/card')['default']
     PCheckbox: typeof import('primevue/checkbox')['default']
     PChip: typeof import('primevue/chip')['default']
+    PDeferredContent: typeof import('primevue/deferredcontent')['default']
     PDialog: typeof import('primevue/dialog')['default']
     PDrawer: typeof import('primevue/drawer')['default']
     PEditor: typeof import('primevue/editor')['default']

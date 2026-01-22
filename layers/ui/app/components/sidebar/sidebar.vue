@@ -28,7 +28,7 @@
       <template #itemicon="{ class: classNames, item }">
         <span class="h-5 w-5" :class="classNames">
           <Component
-            :is="MAIN_NAV_ITEMS_ICONS_MAP[item.icon!]"
+            :is="(item as INavItem).iconComponent"
             class="w-full h-full"
           />
         </span>
@@ -40,9 +40,10 @@
 </template>
 
 <script setup lang="ts">
-import { MAIN_NAV_ITEMS, MAIN_NAV_ITEMS_ICONS_MAP } from "~/const";
+import { MAIN_NAV_ITEMS } from "~/const";
 import { useWindowScroll, useElementSize } from "@vueuse/core";
 import type { StyleValue } from "vue";
+import type { INavItem } from "~/types/ui.types";
 
 const HEADER_AND_PADDING_HEIGHT = 99;
 const BOTTOM_SIDEBAR_VISIBILITY_POSITION_TOP_VALUE = -80;

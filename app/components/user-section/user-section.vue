@@ -5,7 +5,7 @@
       <div>
         <p class="font-semibold text-base">{{ username }}</p>
         <div class="flex gap-1.5 font-semibold text-base">
-          <p>
+          <p class="max-w-50 text-ellipsis overflow-hidden text-nowrap">
             {{ typeLabel }}
             <NuxtLink :to="`/flats/${flatId}`" class="text-custom-secondary">{{
               flatName

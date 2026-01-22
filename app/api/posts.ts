@@ -59,10 +59,15 @@ export const getPopularPostsList = async ({
     .getList<ITypedPostsPopularResponse>(page, perPage, {
       expand: "lastComments.author",
     });
-
-  return list.items.map((item) => {
+  
+  const dtoItems = list.items.map((item) => {
     const dto = new PostPopularDto(item);
     return dto;
   });
+
+  return {
+    ...list,
+    items: dtoItems,
+  };
 };
 
