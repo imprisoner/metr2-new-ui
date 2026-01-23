@@ -2,16 +2,16 @@
 FROM node:22-alpine AS build
 WORKDIR /app
 # Copy package.json and install dependencies
-COPY package.json ./
-COPY pnpm-lock.yaml ./
+# COPY package.json ./
+# COPY pnpm-lock.yaml ./
 RUN npm i -g pnpm@latest-10
+COPY . .
 RUN pnpm install
 # Copy the rest of the application code
-COPY . .
 #Prepare Nuxt project
-RUN npm run postinstall
+RUN pnpm postinstall
 # Build the Nuxt project
-RUN npm run build
+RUN pnpm build
 
 # Production Stage
 FROM node:22-alpine
