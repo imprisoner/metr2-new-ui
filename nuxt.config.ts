@@ -186,6 +186,10 @@ export default defineNuxtConfig({
   css: ["~/assets/css/main.css"],
   vite: {
     plugins: [tailwindcss()],
+    server: {
+      // nginx requirement
+      allowedHosts: ["nuxtjs_upstream"],
+    },
   },
   // typescript: {
   //   typeCheck: true,
