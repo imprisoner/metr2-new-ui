@@ -1,10 +1,14 @@
 <template>
   <PAccordion :value="`${value}`" :unstyled="true" class="w-full" :dt="dt">
     <template #expandicon>
-      <ChevronUpIcon class="rotate-180" />
+      <slot name="expandicon">
+        <ChevronDownIcon />
+      </slot>
     </template>
     <template #collapseicon>
-      <ChevronUpIcon />
+      <slot name="collapseicon">
+        <ChevronUpIcon />
+      </slot>
     </template>
     <PAccordionPanel value="0" class="shadow-none">
       <PAccordionHeader :class="headerClass">

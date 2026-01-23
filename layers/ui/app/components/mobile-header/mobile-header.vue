@@ -9,7 +9,7 @@
           @update:visible="onUpdateVisibility($event, 'burger')"
         />
         <NuxtLink to="/" class="flex">
-          <IconsLogo class="h-full w-11" />
+          <LogoIcon class="h-full w-11" />
         </NuxtLink>
       </div>
       <div class="flex gap-2">
