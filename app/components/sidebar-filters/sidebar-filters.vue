@@ -54,42 +54,6 @@
       </div>
     </UiAccordion>
   </UiSheet>
-  <!-- <UiSheet class="flex flex-col gap-4 p-5">
-    <div class="flex flex-col gap-2">
-      <p class="text-2xl font-semibold">Что пишут про вашу квартиру</p>
-      <p class="text-base text-custom-secondary">
-        Найдите единомышленников с квартирой или домом как ваш.
-      </p>
-    </div>
-    <EstateTypeSelect v-model="estateTypeValue" />
-
-    <div class="flex flex-col gap-3">
-      <div class="flex flex-wrap gap-1">
-        <NuxtLink v-for="(label, index) in roomnessChips" :key="index" to="#">
-          <UiChip :label="label" />
-        </NuxtLink>
-      </div>
-
-      <div class="flex flex-wrap gap-1">
-        <NuxtLink
-          v-for="(label, index) in buildingTypesChips"
-          :key="index"
-          to="#"
-        >
-          <UiChip :label="label" />
-        </NuxtLink>
-      </div>
-    </div>
-
-    <div class="flex flex-col gap-2">
-      <PButton outlined severity="secondary" label="Ещё фильтры">
-        <template #icon>
-          <FiltersIcon />
-        </template>
-      </PButton>
-      <PButton label="Найти" />
-    </div>
-  </UiSheet> -->
 </template>
 
 <script setup lang="ts">
