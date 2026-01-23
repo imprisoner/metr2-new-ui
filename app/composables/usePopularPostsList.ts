@@ -1,9 +1,9 @@
-import type { PostPopularDto } from "~/dto/posts.dto";
+import type { PostEntityDto } from "~/dto/posts.dto";
 import type { ListResult } from "pocketbase";
 import { getPopularPostsList } from "~/api/posts";
 
 export const usePopularPostsList = (startPage?: number, perPage?: number) => {
-  const postsList = ref<ListResult<PostPopularDto>>({
+  const postsList = ref<ListResult<PostEntityDto>>({
     items: [],
     page: startPage ?? 1,
     perPage: perPage ?? 3,
@@ -15,7 +15,7 @@ export const usePopularPostsList = (startPage?: number, perPage?: number) => {
   const totalPages = computed(() => postsList.value.totalPages)
   const pageSize = computed(() => postsList.value.perPage)
 
-  const posts = ref<PostPopularDto[]>([...postsList.value.items])
+  const posts = ref<PostEntityDto[]>([...postsList.value.items])
 
   const fetchPostsList = async () => {
     postsList.value = await getPopularPostsList({ page: currentPage.value + 1});

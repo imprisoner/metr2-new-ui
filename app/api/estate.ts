@@ -1,6 +1,6 @@
-import { EstateWithPostsDto } from "~/dto/estates.dto";
+import { EstatePageItemDto, EstateWithPostsPreviewDto } from "~/dto/estates.dto";
 import { pb } from "./client";
-import type { FlatsResponseWithPosts } from "~/types/api.types";
+import type { FlatsResponseWithPosts, IEstateWithUserResponse } from "~/types/api.types";
 
 export const getFlatsWithPostsListByUserId = async ({
   userId,
@@ -11,7 +11,6 @@ export const getFlatsWithPostsListByUserId = async ({
   perPage?: number;
   page?: number;
 }) => {
-  console.log(userId)
   const list = await pb
     .collection("flats")
     .getList<FlatsResponseWithPosts>(page, perPage, {
@@ -20,6 +19,15 @@ export const getFlatsWithPostsListByUserId = async ({
     });
 
   return list.items.map((item) => {
-    return new EstateWithPostsDto(item);
+    return new EstateWithPostsPreviewDto(item);
   });
 };
+
+export const getEstateWithUserById = async (id: string) => {
+  const data = await pb.collection("estates_common_view").getOne<IEstateWithUserResponse>(id, {
+    expand: "user"
+  });
+
+  return new EstatePageItemDto(data);
+};
+

@@ -4,11 +4,14 @@
       <div class="flex flex-col gap-3">
         <!-- TODO some error -->
         <!-- <UiBreadcrumbs v-bind="breadcrumbs" /> -->
-        <h1 class="text-5xl">Моя квартирка</h1>
+        <h1 class="text-5xl">{{ flatData.nickname }}</h1>
       </div>
       <!--  -->
       <div class="flex flex-col gap-4">
-        <!-- <UserSection :share-button-props="{ outlined: false }" /> -->
+        <UserSection
+          :share-button-props="{ outlined: false }"
+          v-bind="flatData.user"
+        />
         <UiDivider direction="horizontal" />
         <div class="flex gap-8">
           <UiCounterLg
@@ -21,7 +24,7 @@
         </div>
       </div>
       <!--  -->
-      <UiImagesGrid :images="MOCK_IMAGES" class="h-100" />
+      <UiImagesGrid :images="flatData.images" class="h-100" />
       <!--  -->
       <p
         class="ellipsis-3 text-xl"
@@ -29,7 +32,7 @@
           'animate-expand': isTextExpanded,
         }"
       >
-        {{ text }}
+        {{ flatData.description }}
       </p>
       <!--  -->
       <div
@@ -50,19 +53,21 @@
     <div class="flex flex-col gap-6">
       <div class="flex flex-1 justify-between">
         <h2 class="text-5xl font-semibold p-4 lg:p-0">
-          Дневник <span class="text-custom-secondary">14</span>
+          Дневник
+          <span class="text-custom-secondary">{{ flatData.postsCount }}</span>
         </h2>
-        <UiSelect :options="['Свежее','Популярное']" default-value="Свежее" />
+        <UiSelect :options="['Свежее', 'Популярное']" default-value="Свежее" />
       </div>
-      <!-- <PostCard v-for="i in 2" :key="i" /> -->
+      <PostCard v-for="post in posts" :key="post.id" v-bind="post" />
     </div>
     <!--  -->
     <UiTextWithLines>Вы прочитали все записи дневника</UiTextWithLines>
     <!--  -->
-    <div class="flex flex-col py-10 items-center justify-center gap-4">
+    <UiSubscribeSection v-bind="flatData.user" />
+    <!-- <div class="flex flex-col py-10 items-center justify-center gap-4">
       <div class="flex flex-col gap-2">
-        <UiUserAvatar size="xlarge" :image-url="user.avatarUrl" />
-        <span class="text-xl font-semibold">{{ user.name }}</span>
+        <UiUserAvatar size="xlarge" :image-url="flatData.user.avatarUrl" />
+        <span class="text-xl font-semibold">{{ flatData.user.name }}</span>
       </div>
 
       <div>
@@ -75,14 +80,24 @@
       </div>
 
       <PButton label="Подписаться" />
-    </div>
+    </div> -->
 
     <UiDivider />
   </div>
 </template>
 
 <script setup lang="ts">
+import { getEstateWithUserById } from "~/api/estate";
+import { getFullPostsListByFlatId } from "~/api/posts";
 import { MOCK_IMAGES } from "~/const/mock";
+
+const route = useRoute("flats-id");
+const flatId = route.params.id;
+
+const flatData = await getEstateWithUserById(flatId);
+const posts = await getFullPostsListByFlatId(flatId);
+
+console.log(flatData)
 
 const breadcrumbs = {
   home: { route: "/", label: "Лента" },
@@ -96,29 +111,24 @@ const breadcrumbs = {
 
 const counters = [
   {
-    count: 14,
+    count: flatData.postsCount,
     label: "записей",
   },
   {
-    count: 45000,
+    count: flatData.likesCount,
     label: "лайков",
   },
   {
-    count: 834,
+    count: flatData.favoritesCount,
     label: "сохранено",
   },
 ];
-
-const text =
-  "Я купил эту брежневку почти как по наитию: двухкомнатная, 52 квадрата на третьем этаже — не хрущёвка, но и не дворец. В квартире был обычный «советский набор»: коридор‑труба, раздельный санузел, окна во двор и на шумную улицу, балкон, который давно просился на терассу. Мне хотелось не просто отремонтировать, а сделать что‑то с характером — лаконичное и чуть грубое, но при этом уютное. Решил идти в лофт, но с одной оговоркой: дизайнерская отделка, чтобы всё было аккуратно и с продуманными решениями, а не «голая кирпичная стена и лампочка». Работы шли в два этапа: сначала концепция и демонтаж частичных перегородок и старых покрытий, потом сборка индивидуальной мебели и финишные штрихи. Главное правило было простое — сохранить планировку двух комнат, но визуально сделать пространство просторнее и более свободным.";
 
 const isTextExpanded = ref(false);
 
 const toggleExpandText = () => {
   isTextExpanded.value = !isTextExpanded.value;
 };
-
-const user = { name: "Julia Sh.", avatarUrl: undefined };
 </script>
 
 <style scoped>
@@ -156,4 +166,3 @@ const user = { name: "Julia Sh.", avatarUrl: undefined };
   }
 }
 </style>
-

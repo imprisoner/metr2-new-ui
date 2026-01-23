@@ -1,5 +1,5 @@
 <template>
-  <PAccordion :value="`${value}`" :unstyled="true" class="w-full" :dt="dt">
+  <PAccordion :value="`${value}`" :unstyled="true" class="w-full" :dt="dt" @update:value="console.log">
     <template #expandicon>
       <slot name="expandicon">
         <ChevronDownIcon />
@@ -10,7 +10,7 @@
         <ChevronUpIcon />
       </slot>
     </template>
-    <PAccordionPanel value="0" class="shadow-none">
+    <PAccordionPanel value="0" class="shadow-none" :class="panelClass">
       <PAccordionHeader :class="headerClass">
         <slot name="header" />
       </PAccordionHeader>
@@ -27,7 +27,8 @@ import type { AccordionDesignTokens } from "@primeuix/themes/types/accordion";
 const props = defineProps<{
   dt?: AccordionDesignTokens;
   value?: number;
-  headerClass?: string
+  headerClass?: string;
+  panelClass?: string;
 }>();
 
 const dt: AccordionDesignTokens = {

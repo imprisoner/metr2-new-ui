@@ -27,7 +27,7 @@
 import UserSection from "../user-section/user-section.vue";
 import type {
   IPostCardEntity,
-  IPostCardUserSectionProps,
+  IUserSectionProps,
 } from "~/types/ui.types";
 
 const {
@@ -41,18 +41,20 @@ const {
   id,
   lastComments,
   commentsCount,
-  likesCount
+  likesCount,
+  author,
 } = defineProps<IPostCardEntity>();
 
 const mockTags = ["Студия", "Ремонт", "Лофт", "Квартира"];
 
-const userSection: IPostCardUserSectionProps = {
+const userSection: IUserSectionProps = {
   username: authorUsername,
   avatar: authorAvatar,
   flatId,
   flatName,
   publishDate: publishDate as string,
   type,
+  id: author
 };
 
 const extractedText = extractTextFromBlocks(content_json, 470);

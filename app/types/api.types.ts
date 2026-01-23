@@ -1,4 +1,3 @@
-import type { IPostCommentPreview } from "./common.types";
 import type {
   ContractorsServicesRecord,
   ContractorsServicesResponse,
@@ -6,24 +5,17 @@ import type {
   DictSpecialtyServicesRecord,
   FlatsResponse,
   PostFlatsResponse,
-  PostsRecord,
   PostsResponse,
   UsersProfileViewResponse,
   UsersRecord,
-  PostsPopularViewRecord,
-  PostsPopularViewResponse,
-  PopularPostsViewRecord,
-  PopularPostsViewResponse,
+  PostsCommonViewRecord,
   CommentsPostsResponse,
+  PostsCommonViewResponse,
+  EstatesCommonViewResponse,
 } from "./pocketbase-types";
 
 export interface IUserProfileResponse extends UsersProfileViewResponse<
-  number,
   DictCitiesRecord[],
-  number,
-  number,
-  number,
-  number,
   ContractorsServicesRecord[],
   { location: DictCitiesRecord }
 > {}
@@ -40,29 +32,21 @@ export interface PostsResponseWithAuthor extends PostsResponse<
 > {}
 
 export interface FlatsResponseWithPosts extends FlatsResponse<{
-  post_flats_via_flat: PostFlatsResponse<{ post: PostsRecord }>[];
+  post_flats_via_flat: PostFlatsResponse<{ post: PostsResponse<any[], {}> }>[];
 }> {}
 
-export interface ITypedPostsPopularRecord extends PopularPostsViewRecord<
-  string,
-  string,
-  number,
+export interface ITypedCommonPostsRecord extends PostsCommonViewRecord<
   any[],
-  string,
-  string,
-  number,
   string[]
 > {}
 
-export interface ITypedPostsPopularResponse extends PopularPostsViewResponse<
-  string,
-  string,
-  number,
+export interface ITypedCommonPostsResponse extends PostsCommonViewResponse<
   any[],
-  string,
-  string,
-  number,
   string[],
   { lastComments: CommentsPostsResponse<{ author: UsersRecord }>[] }
 > {}
+
+export interface IEstateWithUserResponse extends EstatesCommonViewResponse<{
+  user: UsersRecord;
+}> {}
 
