@@ -13,7 +13,7 @@
     </KeepAlive>
 
     <UiSubscribeSection
-      :avatar-url="pageData.avatar"
+      :avatar="pageData.avatar"
       :name="pageData.name"
       class="gap-4! lg:gap-6!"
       @subscribe="handleSubscribe"

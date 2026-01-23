@@ -1,6 +1,11 @@
 import type { Component } from "vue";
-import type { IsoDateString, PostsPopularViewStatusOptions, PostsPopularViewTypeOptions, PostsTypeOptions, RecordIdString } from "./pocketbase-types";
-import type { ITypedPostsPopularRecord } from "./api.types";
+import type {
+  IsoDateString,
+  PostsCommonViewStatusOptions,
+  PostsCommonViewTypeOptions,
+  PostsTypeOptions,
+  RecordIdString,
+} from "./pocketbase-types";
 import type { IPostCommentPreview } from "./common.types";
 import type { ButtonProps } from "primevue";
 
@@ -118,6 +123,7 @@ export interface IEstateItemProps {
   id: string;
   name: string;
   tags: string[];
+  images: string[];
 }
 
 export interface IEstateWithPosts {
@@ -128,8 +134,8 @@ export interface IEstateWithPosts {
 export interface IPostCardEntity {
   id: string;
   title: string;
-  status: PostsPopularViewStatusOptions;
-  type: PostsPopularViewTypeOptions;
+  status: PostsCommonViewStatusOptions;
+  type: PostsCommonViewTypeOptions;
   author: RecordIdString;
   authorAvatar: string;
   authorUsername: string;
@@ -150,14 +156,28 @@ export interface IPostCardEntity {
   mobile?: boolean;
 }
 
-export interface IPostCardUserSectionProps {
+export interface IUserSectionProps {
+  id: RecordIdString;
   username: string;
   avatar: string;
+  name?: string;
   flatId?: string;
   flatName?: string;
-  publishDate: string;
-  type: PostsPopularViewTypeOptions;
-  // 
+  publishDate?: string;
+  type?: PostsCommonViewTypeOptions;
+  subscribersCount?: number;
+  //
   shareButtonProps?: ButtonProps;
-  mobile?: boolean;
 }
+
+export interface IEstatePageItemProps {
+  id: RecordIdString;
+  nickname: string;
+  postsCount: number;
+  likesCount: number;
+  favoritesCount: number;
+  images: string[];
+  description: string;
+  tags: string[];
+}
+

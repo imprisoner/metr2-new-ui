@@ -18,7 +18,7 @@
 
 <script setup lang="ts">
 import { getFlatsWithPostsListByUserId } from "~/api/estate";
-import type { EstateWithPostsDto } from "~/dto/estates.dto";
+import type { EstateWithPostsPreviewDto } from "~/dto/estates.dto";
 import type { IEstateWithPosts, INoItemsSectionProps } from "~/types/ui.types";
 
 const { pageData, isOwner } = storeToRefs(useUsersPageStore());
@@ -33,7 +33,7 @@ const getEstatesData = async () => {
   return flatsWithPosts;
 };
 
-const estates = ref<EstateWithPostsDto[]>([]);
+const estates = ref<EstateWithPostsPreviewDto[]>([]);
 
 estates.value = await getEstatesData();
 

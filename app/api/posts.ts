@@ -1,9 +1,9 @@
 import { pb } from "./client";
 import type {
-  ITypedPostsPopularResponse,
+  ITypedCommonPostsResponse,
   PostsResponseWithAuthor,
 } from "~/types/api.types";
-import { PostPopularDto, PostPreviewDto } from "~/dto/posts.dto";
+import { PostEntityDto, PostPreviewDto } from "~/dto/posts.dto";
 import type { PostsTypeOptions } from "~/types/pocketbase-types";
 
 export const getPostsListByUserId = async ({
@@ -27,26 +27,6 @@ export const getPostsListByUserId = async ({
   return list.items.map((item) => new PostPreviewDto(item));
 };
 
-export const getPostsListByFlatId = async ({
-  flatId,
-  page = 1,
-  perPage = 3,
-}: {
-  flatId: string;
-  postType: PostsTypeOptions;
-  page?: number;
-  perPage?: number;
-}) => {
-  const list = await pb
-    .collection("posts")
-    .getList<PostsResponseWithAuthor>(page, perPage, {
-      filter: `type = "journal" && author = "${flatId}"`,
-      expand: "author",
-    });
-
-  return list.items.map((item) => new PostPreviewDto(item));
-};
-
 export const getPopularPostsList = async ({
   page = 1,
   perPage = 3,
@@ -55,13 +35,13 @@ export const getPopularPostsList = async ({
   perPage?: number;
 }) => {
   const list = await pb
-    .collection("popular_posts_view")
-    .getList<ITypedPostsPopularResponse>(page, perPage, {
+    .collection("posts_common_view")
+    .getList<ITypedCommonPostsResponse>(page, perPage, {
       expand: "lastComments.author",
     });
-  
+
   const dtoItems = list.items.map((item) => {
-    const dto = new PostPopularDto(item);
+    const dto = new PostEntityDto(item);
     return dto;
   });
 
@@ -71,3 +51,13 @@ export const getPopularPostsList = async ({
   };
 };
 
+export const getFullPostsListByFlatId = async (id: string) => {
+  const list = await pb
+    .collection("posts_common_view")
+    .getFullList<ITypedCommonPostsResponse>({
+      expand: "lastComments.author",
+      filter: pb.filter('flatId = {:id}', { id }),
+    });
+
+  return list.map((item) => new PostEntityDto(item));
+};

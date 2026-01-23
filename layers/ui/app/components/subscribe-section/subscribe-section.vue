@@ -1,7 +1,7 @@
 <template>
   <div class="flex flex-col py-10 items-center justify-center gap-4">
     <div class="flex flex-col gap-2 items-center">
-      <UiUserAvatar size="xlarge" :image-url="avatarUrl" />
+      <UiUserAvatar size="xlarge" :image-url="avatar" />
       <span class="text-xl font-semibold">{{ name }}</span>
     </div>
 
@@ -19,15 +19,11 @@
 </template>
 
 <script setup lang="ts">
-const { avatarUrl } = defineProps<{
-  avatarUrl?: string;
-  name: string;
-}>();
+import type { IUserSectionProps } from '~/types/ui.types';
+
+const { avatar } = defineProps<IUserSectionProps>();
 
 defineEmits<{
   (e: "subscribe"): void;
 }>();
 </script>
-
-<style scoped></style>
-

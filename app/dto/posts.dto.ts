@@ -1,13 +1,13 @@
 import type {
-  ITypedPostsPopularResponse,
+  ITypedCommonPostsResponse,
   PostsResponseWithAuthor,
 } from "~/types/api.types";
 import type { IPostCommentPreview } from "~/types/common.types";
 import type {
   CommentsPostsResponse,
   IsoDateString,
-  PopularPostsViewStatusOptions,
-  PopularPostsViewTypeOptions,
+  PostsCommonViewStatusOptions,
+  PostsCommonViewTypeOptions,
   PostsResponse,
   RecordIdString,
   UsersRecord,
@@ -28,7 +28,7 @@ export class PostPreviewDto {
   constructor(
     data:
       | PostsResponseWithAuthor
-      | PostsResponse<string, { author?: UsersRecord }>,
+      | PostsResponse<any[], { author?: UsersRecord }>,
   ) {
     this.type = data.type;
     this.title = data.title;
@@ -57,11 +57,11 @@ export class PostCommentPreviewDto implements IPostCommentPreview {
     );
   }
 }
-export class PostPopularDto {
+export class PostEntityDto {
   id: string;
   title: string;
-  status: PopularPostsViewStatusOptions;
-  type: PopularPostsViewTypeOptions;
+  status: PostsCommonViewStatusOptions;
+  type: PostsCommonViewTypeOptions;
   author: RecordIdString;
   authorAvatar: string;
   authorUsername: string;
@@ -80,7 +80,7 @@ export class PostPopularDto {
 
   lastComments: PostCommentPreviewDto[];
 
-  constructor(data: ITypedPostsPopularResponse) {
+  constructor(data: ITypedCommonPostsResponse) {
     this.id = data.id;
     this.title = data.title;
     this.status = data.status;
