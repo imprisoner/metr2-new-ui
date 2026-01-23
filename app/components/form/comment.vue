@@ -49,17 +49,8 @@
 </template>
 
 <script setup lang="ts">
-import WysiwygEditor from "../ui/wysiwyg-editor/wysiwyg-editor.vue";
-
-const { size } = defineProps<{
-  size: "sm" | "lg";
-}>();
-
-// const heightClass = size === "sm" ? "h-11" : "h-27";
-
 const content = ref("");
 const showFullEditor = ref(false);
-const editorRef = useTemplateRef('editor');
 
 const enableEditor = async () => {
   showFullEditor.value = true;
