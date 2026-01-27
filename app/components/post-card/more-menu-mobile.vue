@@ -4,7 +4,6 @@
       <UiMobileMenuButton
         v-if="item.type === 'button'"
         v-bind="item.props"
-        @click="item.handler"
       />
       <UiDivider
         v-else-if="item.type === 'divider'"

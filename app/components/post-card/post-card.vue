@@ -13,7 +13,7 @@
     <!-- BODY -->
     <UiImagesGrid v-if="images.length > 0" :images="images" class="h-75" />
     <div class="flex flex-col gap-2 text-xl">
-      <p class="truncate-6-lines max-w-full">
+      <p class="line-clamp-6 text-ellipsis max-w-full">
         {{ extractedText }}
       </p>
       <NuxtLink :to="postLink" class="font-semibold">Читать далее</NuxtLink>
@@ -67,13 +67,3 @@ const commentsSection = {
   favoritesCount: 0 /* TODO hardcoded */,
 }
 </script>
-
-<style scoped>
-.truncate-6-lines {
-  display: -webkit-box;
-  -webkit-line-clamp: 6;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-</style>

@@ -1,5 +1,5 @@
 <template>
-  <PAccordion :value="[items[0]?.id!]" multiple :dt="dt">
+  <PAccordion multiple :dt="dt">
     <!-- icon -->
     <template #expandicon>
       <ChevronUpAltIcon class="rotate-180 translate-y-0.5" />
@@ -26,13 +26,13 @@
             <h5 class="text-base font-bold">{{ item.name }}</h5>
             <p class="text-base font-normal text-custom-secondary">
               <template v-if="!!item.priceMin">от {{ item.priceMin }}</template>
-              <template v-if="!!item.priceMax">до {{ item.priceMax }}</template>
+              <template v-if="!!item.priceMax"> до {{ item.priceMax }}</template>
               <template v-if="!(item.priceMin || item.priceMax)">
                 по договорённости
               </template>
             </p>
           </div>
-          <UiButtonEdit class="p-1 w-5.5 h-5.5 ms-2" />
+          <UiButtonEdit v-if="isOwner" class="p-1 w-5.5 h-5.5 ms-2" />
         </div>
       </PAccordionHeader>
       <PAccordionContent class="text-base">
@@ -46,7 +46,7 @@
 import type { AccordionDesignTokens } from "@primeuix/themes/types/accordion";
 import type { IServiceItemProps } from "~/types/ui.types";
 
-defineProps<{ items: IServiceItemProps[] }>();
+defineProps<{ items: IServiceItemProps[], isOwner?: boolean }>();
 
 const dt: AccordionDesignTokens = {
   colorScheme: {

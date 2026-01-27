@@ -181,3 +181,26 @@ export interface IEstatePageItemProps {
   tags: string[];
 }
 
+export interface IFeedbackPreview {
+  user: {
+    name: string;
+    avatarUrl: string;
+  };
+  date: IsoDateString;
+  rating: number;
+  text: string;
+}
+
+export interface IContractorCardTopProps {
+  name: string;
+  city: string;
+  status: string;
+  rating: number;
+  feedbacksCount: number;
+}
+
+export interface IContractorCardEntity extends IContractorCardTopProps {
+  services: IServiceItemProps[];
+  feedbacks: IFeedbackPreview[];
+}
+

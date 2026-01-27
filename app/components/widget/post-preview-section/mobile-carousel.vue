@@ -23,6 +23,5 @@ import { Splide, SplideSlide } from "@splidejs/vue-splide";
 import type { IPostPreviewEntity } from "~/types/ui.types";
 
 defineProps<{items: IPostPreviewEntity[]}>()
-
 </script>
 

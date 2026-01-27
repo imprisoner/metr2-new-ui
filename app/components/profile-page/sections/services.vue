@@ -4,7 +4,7 @@
     :count="services.length"
     class="flex flex-col gap-4 lg:gap-6"
   >
-    <ProfilePageServicesList v-if="services.length" :items="services" />
+    <ContractorServicesList v-if="services.length" :items="services" />
     <!--  -->
     <PButton
       v-if="!isOwner"

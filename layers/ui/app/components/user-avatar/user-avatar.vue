@@ -5,8 +5,9 @@
 <script setup lang="ts">
 import type { AvatarProps } from "primevue";
 
-const {label= 'P', imageUrl } = defineProps<{
+const {label= 'P', shape = "circle", imageUrl } = defineProps<{
   size?: AvatarProps["size"];
+  shape?: AvatarProps["shape"];
   imageUrl?: string;
   label?: string;
 }>();

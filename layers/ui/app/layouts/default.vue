@@ -2,7 +2,7 @@
   <UiHeader />
   <div class="layout-grid pt-10 max-w-360 mx-auto">
     <UiSidebar />
-    <main>
+    <main class="max-w-178.5">
       <slot />
     </main>
     <aside class="pe-7 sticky top-24.75">
