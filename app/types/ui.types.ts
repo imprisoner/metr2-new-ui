@@ -44,7 +44,7 @@ export interface IUserMenuDivider extends IUserMenuItem {
 export interface INavItem {
   label: string;
   iconComponent: Component;
-  route: string;
+  route?: string;
 }
 
 export interface ICommentItem {

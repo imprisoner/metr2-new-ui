@@ -22,11 +22,24 @@ import VkIcon from "#layers/ui/app/icons/share/vk-icon.vue";
 import WhatsappIcon from "#layers/ui/app/icons/share/whatsapp-icon.vue";
 import type { PostType } from "~/types/common.types";
 import { routes } from "./routes";
+import StarsIcon from "~~/layers/ui/app/icons/stars-icon.vue";
+import PaintRollerIcon from "~~/layers/ui/app/icons/paint-roller-icon.vue";
+import SpannerIcon from "~~/layers/ui/app/icons/spanner-icon.vue";
+import DrillIcon from "~~/layers/ui/app/icons/drill-icon.vue";
+import CompassIcon from "~~/layers/ui/app/icons/compass-icon.vue";
+import MeasureTapeIcon from "~~/layers/ui/app/icons/measure-tape-icon.vue";
+import GridIcon from "~~/layers/ui/app/icons/grid-icon.vue";
+import type { MenuItem } from "primevue/menuitem";
+import FavoriteIcon from "#layers/ui/app/icons/favorite-icon.vue";
 
 export const MAIN_NAV_ITEMS: INavItem[] = [
   { label: "Популярное", iconComponent: Flame, route: routes.popular },
   { label: "Новое", iconComponent: Lightning, route: routes.new },
-  { label: "Мои подписки", iconComponent: CircledCheckmark, route: routes.mySubscriptions },
+  {
+    label: "Мои подписки",
+    iconComponent: CircledCheckmark,
+    route: routes.mySubscriptions,
+  },
   { label: "Сохранённое", iconComponent: Favorite, route: routes.favorites },
   { label: "Все дневники", iconComponent: Diaries, route: routes.diaries },
 ] as const;
@@ -74,3 +87,17 @@ export const POST_TYPES_MAP: Record<PostType, string> = {
   portfolio: "Портфолио",
 };
 
+export const CONTRACTOR_MENU_ITEMS: (INavItem | MenuItem)[] = [
+  { label: "Ремонт под ключ", iconComponent: StarsIcon, route: "#" },
+  { label: "Отделочные работы", iconComponent: PaintRollerIcon, route: "#" },
+  { label: "Инженерные системы", iconComponent: SpannerIcon, route: "#" },
+  { label: "Строительные работы", iconComponent: DrillIcon, route: "#" },
+  { label: "Дизайн и проектирование", iconComponent: CompassIcon, route: "#" },
+  { label: "Разное", iconComponent: MeasureTapeIcon, route: "#" },
+  { label: "Все услуги", iconComponent: GridIcon, route: "#" },
+  { separator: true },
+  {
+    label: "Сохранённое",
+    iconComponent: FavoriteIcon,
+  },
+] as const;

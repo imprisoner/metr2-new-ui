@@ -5,6 +5,8 @@
       <p class="text-base text-custom-secondary">{{ count }} специалиста</p>
     </div>
     <div class="flex gap-2 flex-col">
+      <slot />
+
       <UiDivider class="my-3" />
 
       <div class="flex flex-col lg:flex-row gap-4 lg:justify-between lg:items-center">

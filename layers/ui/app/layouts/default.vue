@@ -1,7 +1,8 @@
 <template>
   <UiHeader />
   <div class="layout-grid pt-10 max-w-360 mx-auto">
-    <UiSidebar />
+    <!-- <UiSidebar /> -->
+     <ContractorsMenu />
     <main class="max-w-178.5">
       <slot />
     </main>
