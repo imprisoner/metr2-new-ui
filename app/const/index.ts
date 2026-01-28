@@ -10,6 +10,7 @@ import CircledCrossIcon from "#layers/ui/app/icons/circled-cross-icon.vue";
 import FlagIcon from "#layers/ui/app/icons/flag-icon.vue";
 import ShareIcon from "#layers/ui/app/icons/share-icon.vue";
 import type {
+  IContractorsMenuNavItem,
   INavItem,
   IUserMenuButton,
   IUserMenuDivider,
@@ -87,14 +88,16 @@ export const POST_TYPES_MAP: Record<PostType, string> = {
   portfolio: "Портфолио",
 };
 
-export const CONTRACTOR_MENU_ITEMS: (INavItem | MenuItem)[] = [
-  { label: "Ремонт под ключ", iconComponent: StarsIcon, route: "#" },
-  { label: "Отделочные работы", iconComponent: PaintRollerIcon, route: "#" },
-  { label: "Инженерные системы", iconComponent: SpannerIcon, route: "#" },
-  { label: "Строительные работы", iconComponent: DrillIcon, route: "#" },
-  { label: "Дизайн и проектирование", iconComponent: CompassIcon, route: "#" },
-  { label: "Разное", iconComponent: MeasureTapeIcon, route: "#" },
-  { label: "Все услуги", iconComponent: GridIcon, route: "#" },
+export const TURNKEY_CATEGORY = "turnkey"
+
+export const CONTRACTOR_MENU_ITEMS: (IContractorsMenuNavItem | MenuItem)[] = [
+  { id: TURNKEY_CATEGORY, label: "Ремонт под ключ", iconComponent: StarsIcon, route: "/contractors/categories/turnkey" },
+  { id: "7o5wm6npw8drqbd", label: "Отделочные работы", iconComponent: PaintRollerIcon, route: "/contractors/categories/7o5wm6npw8drqbd" },
+  { id: "68kznix4bmmp6sf", label: "Инженерные системы", iconComponent: SpannerIcon, route: "/contractors/categories/68kznix4bmmp6sf" },
+  { id: "ldp19ro8ghy5pkl", label: "Строительные работы", iconComponent: DrillIcon, route: "/contractors/categories/ldp19ro8ghy5pkl" },
+  { id: "lpug8esrao9bigm", label: "Дизайн и проектирование", iconComponent: CompassIcon, route: "/contractors/categories/lpug8esrao9bigm" },
+  { id: "yjjzt0h4bg1dw0k", label: "Разное", iconComponent: MeasureTapeIcon, route: "/contractors/categories/yjjzt0h4bg1dw0k" },
+  { label: "Все услуги", iconComponent: GridIcon },
   { separator: true },
   {
     label: "Сохранённое",

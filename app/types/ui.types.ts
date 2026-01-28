@@ -8,6 +8,7 @@ import type {
 } from "./pocketbase-types";
 import type { IPostCommentPreview } from "./common.types";
 import type { ButtonProps } from "primevue";
+import type { MenuItem } from "primevue/menuitem";
 
 type MenuItemType = "button" | "divider";
 
@@ -204,3 +205,8 @@ export interface IContractorCardEntity extends IContractorCardTopProps {
   feedbacks: IFeedbackPreview[];
 }
 
+export interface IContractorsMenuNavItem {
+  id?: string;
+  label: string;
+  iconComponent: Component;
+}
