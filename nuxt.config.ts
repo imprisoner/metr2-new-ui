@@ -23,7 +23,10 @@ const semanticPreset: MaterialBaseTokenSections.Semantic = {
       shadow: "0 0 0 2.8px #BFDBFE;",
       width: "1px",
     },
+    paddingX: '14px',
+    paddingY: '16px',
   },
+
 };
 
 const primitivePreset: MaterialBaseTokenSections.Primitive = {
@@ -34,6 +37,7 @@ const MyPreset = definePreset(Material, {
   semantic: semanticPreset,
   primitive: primitivePreset,
   components: {
+    // inputtext: {root: },
     menu: {
       item: {
         focusBackground: "#ffffff",
