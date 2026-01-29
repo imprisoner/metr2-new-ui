@@ -9,15 +9,10 @@
 
 <script setup lang="ts">
 import { getSpecialtiesByCategory } from '~/api/contractors';
-import { TURNKEY_CATEGORY } from '~/const';
+import { TURNKEY_CATEGORY_MENU_ITEM_ID } from '~/const';
 
 const route = useRoute("contractors-categories-id");
 
-const isTurnkeyCategory = computed(() => route.params.id === TURNKEY_CATEGORY)
+const isTurnkeyCategory = computed(() => route.params.id === TURNKEY_CATEGORY_MENU_ITEM_ID)
 const specialties = ref(isTurnkeyCategory.value ?  [] : await getSpecialtiesByCategory(route.params.id))
-
-// watch(() => route.params.id, async () => {
-//   specialties.value = await getSpecialtiesByCategory(route.params.id)
-// })
 </script>
-
