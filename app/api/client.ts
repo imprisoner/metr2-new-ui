@@ -5,6 +5,6 @@ import type { TypedPocketBase } from "~/types/pocketbase-types";
 //   ? process.env.API_URL_SERVER
 //   : import.meta.env.VITE_API_URL_CLIENT;
 
-const apiURL = import.meta.server ? 'http://backend:8080' : `${window.location.origin}/backend`;
-
+// const apiURL = import.meta.server ? 'http://backend:8080' : `${window.location.origin}/backend`;
+const apiURL = 'http://localhost:8080'
 export const pb = new PocketBase(apiURL) as TypedPocketBase;

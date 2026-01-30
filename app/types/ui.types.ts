@@ -181,16 +181,26 @@ export interface IEstatePageItemProps {
   description: string;
   tags: string[];
 }
-
-export interface IFeedbackPreview {
-  user: {
+export interface ICommonCommentProps {
+  author: {
     name: string;
-    avatarUrl: string;
+    avatarUrl?: string;
   };
   date: IsoDateString;
-  rating: number;
   text: string;
+  images?: string[];
 }
+
+export interface IFeedbackPreview extends ICommonCommentProps {
+  rating: number;
+}
+
+export interface IFeedbackEntity extends IFeedbackPreview {
+  services?: string[];
+  comment?: ICommonCommentProps;
+}
+
+export type IFeedbackCardTopProps = Pick<IFeedbackEntity, 'author' | 'date' | 'rating' | 'services'>
 
 export interface IContractorCardTopProps {
   name: string;
@@ -210,3 +220,4 @@ export interface IContractorsMenuNavItem {
   label: string;
   iconComponent: Component;
 }
+
